@@ -17,6 +17,7 @@ $menu = new menu();
 			<th>icon</th>
 			<th>Urut</th>
 			<th>Dibuat</th>
+			<th>Aktif</th>
 			<th>AKSI</th>
 		</tr>
 	</thead>
@@ -35,7 +36,8 @@ $menu = new menu();
 				<td><?php echo $data['parent']?></td>
 				<td class="center"><i class="fa <?php echo $data['icon']?>"></i> <span class="nav-label">--<?php echo $data['icon']?></span></td>
 				<td class="center"><?php echo $data['urut']?></td>
-				<td class="center"></td>
+				<td class="center">12100410</td>
+				<td class="center">Y</td>
 			<td>
 				<button class="ubah-menu btn btn-success btn-xs" type="button" data-id="<?php echo $data['id_menu'] ?>"><i class="fa fa-edit"></i></button>
 			</td>

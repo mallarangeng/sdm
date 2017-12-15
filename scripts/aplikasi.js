@@ -97,7 +97,7 @@ $(function () {
         //var vSwitch = $('input:text[name=swtch]').val();
         //cara2 ambil value
 		var id_menu = $("#id_menu").val();
-        var title = $("#judul").val();
+        var judul = $("#judul").val();
         var folder = $("#folder").val();
         var link = $("#link").val();
         var level = $("#level").val();

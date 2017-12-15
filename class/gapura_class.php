@@ -132,8 +132,8 @@ class menu{
 		$hasil = mysql_query($query);
 	}
 
-	function updatemenu($id_menu,$judul, $folder,$link,$level, $parent, $icon, $urut) {
-		$query = mysql_query("UPDATE ms_menu SET judul = '$judul', folder = '$folder', link = '$link', link = '$link', level = '$level' , icon = '$icon', urut = '$urut' WHERE id_menu = '$id_menu'");
+	function updatemenu($id_menu,$judul, $folder,$link,$level,$parent, $icon, $urut) {
+		$query = mysql_query("UPDATE ms_menu SET judul='$judul', folder='$folder', link='$link', level='$level', parent='$parent', icon='$icon', urut='$urut' WHERE id_menu='$id_menu'");
 	}
 
 	function menuNavigasi($user){
