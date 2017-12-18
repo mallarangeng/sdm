@@ -9,7 +9,6 @@ $d= $menu->bacaMenu($id_menu);
 ?>
  <div class="panel-body">
     <form method="get" class="form-horizontal">
-
         <div class="form-group">
 			<label class="col-sm-2 control-label">Title</label>
             <div class="col-sm-8">

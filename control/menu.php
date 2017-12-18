@@ -10,14 +10,14 @@ if($_GET['aksi']=='tambah'){
 	$menu->updatemenu($_GET['id_menu'],$_GET['judul'],$_GET['folder'],$_GET['link'],$_GET['level'],$_GET['parent'],$_GET['icon'],$_GET['urut']);
 	echo "<div class='alert alert-success alert-dismissable'>";
 	echo "<button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×</button>";
-	echo " Berhasil diupdate ";
+	echo "Berhasil diupdate ";
 	echo "</div>";
 	}
 	else {
 	$menu->tambahMenu($_GET['id_menu'],$_GET['judul'],$_GET['folder'],$_GET['link'],$_GET['level'],$_GET['parent'],$_GET['icon'],$_GET['urut']);
 	echo "<div class='alert alert-success alert-dismissable'>";
 	echo "<button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×</button>";
-	echo " Berhasil disimpan ";
+	echo "Berhasil disimpan ";
 	echo "</div>";
 	}
 }

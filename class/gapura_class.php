@@ -163,28 +163,27 @@ class menu{
 		}
 	}
 }
-class sales{
-	function tampilSales(){
-		$query = mysql_query("SELECT * FROM ms_sales ORDER BY id_sales desc");
+class diklat{
+	function tampilDiklat(){
+		$query = mysql_query("SELECT * FROM diklat");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){
 			return $data;
 		}
 	}
-	function bacaSales($id_sales)
+	function bacadiklat($id_diklat)
 	        {
 				$query=mysql_query("
-				SELECT * FROM ms_sales WHERE id_sales='$id_sales'");
+				SELECT * FROM diklat WHERE id_diklat='$id_diklat'");
 				$data=mysql_fetch_array($query);
 				$data[]=$row;
 				if(isset($data)){
 					return $data;
 				}
 			}
-	function cek_ids($id_sales) {
-		$dataSales = mysql_query("SELECT * FROM ms_sales WHERE id_sales='$id_sales'");
-		//$user_data = mysql_fetch_array($result);
+	function cek_diklat($id_diklat) {
+		$dataSales = mysql_query("SELECT * FROM diklat WHERE id_diklat='$id_diklat'");
 		$no_rows = mysql_num_rows($dataSales);
 		if ($no_rows == 1) {
 			return TRUE;

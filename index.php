@@ -39,6 +39,7 @@ header("location:login.php");
     <link rel="stylesheet" href="vendor/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
     <link rel="stylesheet" href="vendor/fooTable/css/footable.core.min.css" />
 	<link rel="stylesheet" href="vendor/bootstrap-datepicker-master/dist/css/bootstrap-datepicker3.min.css" />
+    <link rel="stylesheet" href="vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" />
     <!-- App styles -->
     <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" /><!-- oke -->
     <link rel="stylesheet" href="fonts/pe-icon-7-stroke/css/helper.css" /><!-- oke -->
@@ -185,7 +186,7 @@ header("location:login.php");
 <script src="vendor/sparkline/index.js"></script><!-- oke -->
 <script src="vendor/moment/moment.js"></script>
 
-
+<script src="vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
 
 <script src="vendor/datatables/media/js/jquery.dataTables.min.js"></script>
 <script src="vendor/datatables_plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>

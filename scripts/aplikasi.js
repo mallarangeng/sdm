@@ -74,6 +74,47 @@ $(function () {
                   }
                 });
     });
+     //modal tambah diklat
+    var main = "view/diklat/diklat_data.php";
+    $("#data-diklat").load(main);
+        $(".tambah-diklat").click(function(e){
+        e.preventDefault();
+        $("#modal-diklat-add").modal('show');
+        $(".modal-title").html('Tambah Diklat');
+        $.post("view/diklat/diklat_form.php",
+            {id_diklat:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
+
+    $("#simpan-diklat").click(function(e){ 
+        e.preventDefault();   
+        var url = "control/diklat.php"
+        var id_diklat = $("#id_diklat").val();
+        var nama_diklat = $("#nama_diklat").val();
+        var penyelenggara = $("#penyelenggara").val();
+        var instruktur = $("#instruktur").val();
+        var tgl_diklat = $("#tgl_diklat").val();
+        var durasi  = $("#durasi").val();
+        var lokasi  = $("#lokasi").val();
+        var ketua_kelas  = $("#ketua_kelas").val();
+        var stat_diklat  = $("#stat_diklat").val();
+        $.ajax({
+                  url: 'control/diklat.php',
+                  type: 'GET',
+                  data: 'aksi=tambah&id_diklat='+id_diklat+'&nama_diklat='+nama_diklat+'&penyelenggara='+penyelenggara+
+                  '&instruktur='+instruktur+'&tgl_diklat='+tgl_diklat+'&durasi='+durasi+'&lokasi='+lokasi+'&ketua_kelas='+ketua_kelas+'&stat_diklat='+stat_diklat,
+                  success: function(data) {
+                    $('#hasil').html(data);
+                    $("#data-diklat").load("view/diklat/diklat_data.php");
+                    $('#modal-diklat-add').modal('hide');
+                  },
+                  error: function(e) {
+                  }
+                });
+    });
 	//modal tambah menu
 	var main = "view/menu/menu_data.php";
 	$("#data-menu").load(main);
