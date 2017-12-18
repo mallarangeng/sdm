@@ -15,7 +15,6 @@ $idmenu = $_POST['idmenu'];
         <div class="form-group">
 			<label class="col-sm-2 control-label">Title</label>
             <div class="col-sm-8">
-				<input type="hidden" class="form-control input-sm" id="id_menu" value="<?php echo kdauto2('ms_menu'); ?>">
 				<input type="text" placeholder="Judul menu" class="form-control input-sm" id="judul">
             </div>
         </div>
