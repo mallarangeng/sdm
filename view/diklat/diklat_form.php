@@ -4,8 +4,7 @@ include'../../class/gapura_function.php';
 session_start();
 $db = new Database();
 $db->connectMySQL();
-$menu = new menu();
-$idmenu = $_POST['idmenu'];
+$diklat = new diklat();
 ?>
 <div class="panel-body">
     <form method="get" class="form-horizontal">
@@ -13,7 +12,7 @@ $idmenu = $_POST['idmenu'];
         <div class="form-group">
 			<label class="col-sm-4 control-label">Nama Diklat</label>
             <div class="col-sm-8">
-				<input type="hidden" class="form-control input-sm" id="id_diklat" value="<?php echo kdauto2('diklat'); ?>">
+				<input type="hidden" class="form-control input-sm" id="id_diklat" value="<?php echo kdauto('diklat'); ?>">
 				<input type="text" placeholder="Nama Diklat" class="form-control input-sm" id="nama_diklat">
             </div>
         </div>

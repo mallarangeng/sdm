@@ -22,6 +22,7 @@
                         </div>
                     </div>
                 </div>
+   
                 <div class="panel-body">
 					<button type="button" class="tambah-diklat btn btn-primary">
 						Tambah Diklat

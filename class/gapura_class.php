@@ -192,14 +192,13 @@ class diklat{
 		  return FALSE;
 		}
 	}
-	function updateSales($id_sales, $nama, $hp, $email, $alamat) {
-		$query = mysql_query("UPDATE ms_sales SET
-				  nama = '$nama', hp = '$hp',email = '$email', alamat = '$alamat'
-				  WHERE id_sales = '$id_sales'");	
+	function updatediklat($id_diklat,$nama_diklat,$penyelenggara,$instruktur,$tgl_diklat,$durasi,$lokasi,$ketua_kelas,$stat_diklat) {
+		$query = mysql_query("UPDATE diklat SET
+				  nama_diklat = '$nama_diklat', penyelenggara = '$penyelenggara', instruktur = '$instruktur', tgl_diklat = '$tgl_diklat', durasi = '$durasi', lokasi = '$lokasi', ketua_kelas = '$ketua_kelas', stat_diklat = '$stat_diklat' WHERE id_diklat = '$id_diklat'");	
 	}
-	function tambahSales($id_sales,$nama, $hp, $email, $alamat, $input_on) {
-		$query = "INSERT INTO ms_sales (id_sales,nama, hp, email, alamat, input_on)
-		          VALUES ('$id_sales','$nama', '$hp', '$email', '$alamat', '$input_on')";
+	function tambahDiklat($id_diklat,$nama_diklat,$penyelenggara,$instruktur,$tgl_diklat,$durasi,$lokasi,$ketua_kelas,$stat_diklat) {
+		$query = "INSERT INTO diklat (id_diklat,nama_diklat,penyelenggara,instruktur,tgl_diklat,durasi,lokasi,ketua_kelas,stat_diklat)
+		          VALUES ('$id_diklat','$nama_diklat','$penyelenggara','$instruktur','$tgl_diklat','$durasi','$lokasi','$ketua_kelas','$stat_diklat')";
 		$hasil = mysql_query($query);
 	}
 }

@@ -5,7 +5,7 @@ $db = new Database();
 $db->connectMySQL();
 $diklat = new diklat();
 ?>  
-  <table id="datat_menu" class="table table-striped table-bordered table-hover">
+  <table id="datat_diklat" class="table table-striped table-bordered table-hover">
 	<thead>
 		<tr>
 			<th>ID Diklat</th>
@@ -50,13 +50,13 @@ $diklat = new diklat();
 </table>
 
 <script>
-$('#datat_menu').dataTable();
-$("#datat_menu").on("click",".ubah-menu",function(e){
+$('#datat_diklat').dataTable();
+$("#datat_diklat").on("click",".ubah-diklat",function(e){
         e.preventDefault();
-		$("#modal-menu-add").modal('show');
-        $(".modal-title").html('Ubah menu');
-        $.get("view/menu/menu_ubah.php",
-            {id_menu:$(this).attr('data-id')},
+		$("#modal-diklat-add").modal('show');
+        $(".modal-title").html('Ubah Diklat');
+        $.get("view/diklat/diklat_ubah.php",
+            {id_diklat:$(this).attr('data-id')},
             function(html){
                 $(".modal-body").html(html);
             }
