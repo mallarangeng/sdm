@@ -209,34 +209,33 @@ class menuUser{
 		$hasil = mysql_query($query);
 	}
 }
-	class Devloper
+	class Provider
 	{
 		
-		function tampilDevloper()
+		function tampilprovider()
 			 {
-				$query = mysql_query("SELECT * FROM ms_devloper ORDER BY id_dev");
+				$query = mysql_query("SELECT * FROM provider ORDER BY id_provider");
 				while($row=mysql_fetch_array($query))
 				$data[]=$row;
 				if(isset($data)){
 					return $data;
 				}
 			 }
-		function addDevloper($id_dev,$nm_dev,$nm_proyek,$alamat_proyek,$no_telpon,$kat_proyek,$tot_luas_lahan,$type_perumahan,$izin_lokasi,$imb,$sert_induk,$pbb,$input_on,$input_by,$edit_on,$edit_by,$del_by,$del_on,$del)
+		function tambahprovider($id_provider,$nama_provider,$alamat,$telpon,$web,$email,$direktur)
 			 {
-				$query="INSERT INTO ms_devloper (id_dev,nm_dev,nm_proyek,alamat_proyek,no_telpon,kat_proyek,tot_luas_lahan,type_perumahan,izin_lokasi,imb,sert_induk,pbb,input_on,input_by,edit_on,edit_by,del_by,del_on,del)
-				VALUES('$id_dev','$nm_dev','$nm_proyek','$alamat_proyek','$no_telpon','$kat_proyek','$tot_luas_lahan','$type_perumahan','$izin_lokasi','$imb','$sert_induk','$pbb','$input_on','$input_by','$edit_on','$edit_by','$del_by','$del_on','$del')";
+				$query="INSERT INTO provider (id_provider,nama_provider,alamat,telpon,web,email,direktur)
+				VALUES('$id_provider','$nama_provider','$alamat','$telpon','$web','$email','$direktur')";
 				$hasil= mysql_query($query);
 	      	}
-		 function bacaDevloper2 ($id_dev)
+		function bacaprovider($id_provider)
 	        {
-				$query=mysql_query("
-				SELECT * FROM ms_devloper WHERE id_dev='$id_dev'");
+				$query=mysql_query("SELECT * FROM provider WHERE id_provider='$id_provider'");
 				$data=mysql_fetch_array($query);
 				$data[]=$row;
 				if(isset($data)){
 					return $data;
 				}
-				}
+			}
 		function bacaDevloper ($id_dev)
 	        {
 				$query=mysql_query(" SELECT * FROM ms_devloper WHERE id_dev='$id_dev'");
@@ -246,9 +245,9 @@ class menuUser{
 					return $data;
 				}
 				}
-		function cek_idd($id_dev) {
-				$dataDev = mysql_query("SELECT * FROM ms_devloper WHERE id_dev='$id_dev'");			
-				$no_rows = mysql_num_rows($dataDev);
+		function cek_provider($id_provider) {
+				$data = mysql_query("SELECT * FROM provider WHERE id_provider='$id_provider'");			
+				$no_rows = mysql_num_rows($data);
 				if ($no_rows == 1) {
 					return TRUE;
 				}
@@ -256,15 +255,9 @@ class menuUser{
 				  return FALSE;
 				}
 				}
-		function updateDevloper ($id_dev,$nm_dev,$nm_proyek,$alamat_proyek,$no_telpon,$kat_proyek,$tot_luas_lahan,
-							$type_perumahan,$izin_lokasi,$imb,$sert_induk,$pbb,$input_on,$input_by,$edit_on,$edit_by,$del_by,$del_on,$del)
+		function updateprovider($id_provider,$nama_provider,$alamat,$telpon,$web,$email,$direktur)
 			{
-				$query=mysql_query("UPDATE ms_devloper SET
-				nm_dev='$nm_dev',nm_proyek='$nm_proyek',alamat_proyek='$alamat_proyek',no_telpon='$no_telpon',
-				kat_proyek='$kat_proyek',tot_luas_lahan='$tot_luas_lahan',type_perumahan='$type_perumahan',izin_lokasi='$izin_lokasi',
-				imb='$imb',sert_induk='$sert_induk',pbb='$pbb',input_on='$input_on',input_by='$input_by',edit_on='$edit_on',
-				edit_by='$edit_by',del_by='$del_by',del_on='$del_on',del='$del' WHERE id_dev='$id_dev'");
-			 	
+				$query=mysql_query("UPDATE provider SET	nama_provider='$nama_provider',alamat='$alamat',telpon='$telpon',web='$web',email='$email',direktur='$direktur' WHERE id_provider='$id_provider'");
 			}
 
 	}

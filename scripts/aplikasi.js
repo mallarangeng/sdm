@@ -74,6 +74,44 @@ $(function () {
                   }
                 });
     });
+         //modal tambah diklat
+    var main = "view/provider/provider_data.php";
+    $("#data-provider").load(main);
+        $(".tambah-provider").click(function(e){
+        e.preventDefault();
+        $("#modal-provider-add").modal('show');
+        $(".modal-title").html('Tambah Provider');
+        $.post("view/provider/provider_form.php",
+            {id_provider:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
+        $("#simpan-provider").click(function(e){ 
+        e.preventDefault();   
+        var url           = "control/provider.php"
+        var id_provider   = $("#id_provider").val();
+        var nama_provider = $("#nama_provider").val();
+        var alamat        = $("#alamat").val();
+        var telpon        = $("#telpon").val();
+        var web           = $("#web").val();
+        var email         = $("#email").val();
+        var direktur      = $("#direktur").val();
+        $.ajax({
+                  url: 'control/provider.php',
+                  type: 'GET',
+                  data: 'aksi=tambah&id_provider='+id_provider+'&nama_provider='+nama_provider+'&alamat='+alamat+
+                  '&telpon='+telpon+'&web='+web+'&email='+email+'&direktur='+direktur,
+                  success: function(data) {
+                    $('#hasil').html(data);
+                    $("#data-provider").load("view/provider/provider_data.php");
+                    $('#modal-provider-add').modal('hide');
+                  },
+                  error: function(e) {
+                  }
+                });
+    });
      //modal tambah diklat
     var main = "view/diklat/diklat_data.php";
     $("#data-diklat").load(main);
