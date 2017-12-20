@@ -180,7 +180,7 @@ header("location:login.php");
 <script src="vendor/jquery/dist/jquery.min.js"></script><!-- oke -->
 <script src="vendor/jquery-ui/jquery-ui.min.js"></script><!-- oke -->
 <script src="vendor/slimScroll/jquery.slimscroll.min.js"></script><!-- oke -->
-<script src="vendor/bootstrap/dist/js/bootstrap.js"></script><!-- oke -->
+<script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script><!-- oke -->
 <script src="vendor/metisMenu/dist/metisMenu.min.js"></script><!-- oke -->
 <script src="vendor/iCheck/icheck.min.js"></script><!-- oke -->
 <script src="vendor/sparkline/index.js"></script><!-- oke -->

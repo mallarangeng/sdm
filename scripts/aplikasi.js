@@ -103,11 +103,19 @@ $(function () {
         );
     });
     $("#simpan-akses").click(function(e){ 
-        e.preventDefault();   
+        e.preventDefault(); 
         var url        = "control/akses.php"
         var id_akses   = $("#id_akses").val();
         var nama_akses = $("#nama_akses").val();
         var ket_akses  = $("#ket_akses").val();
+        if (nama_akses==""){
+            alert ("Nama Akses Belum diisi");
+            return false;
+        }
+        if (ket_akses==""){
+            alert ("Keterangan Akses Belum diisi");
+            return false;
+        }
         $.ajax({
                   url: 'control/akses.php',
                   type: 'GET',
