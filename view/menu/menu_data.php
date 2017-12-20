@@ -12,7 +12,7 @@ $menu = new menu();
 			<th>Titile</th>
 			<th>Class</th>
 			<th>Link</th>
-			<th>Level</th>
+			<th>Akses</th>
 			<th>Parent</th>
 			<th>icon</th>
 			<th>Urut</th>
@@ -32,7 +32,7 @@ $menu = new menu();
 				<td><?php echo $data['judul']?></td>
 				<td><?php echo $data['folder']?></td>
 				<td><?php echo $data['link']?></td>
-				<td><?php echo $data['level']?></td>
+				<td><?php echo $data['id_akses']?></td>
 				<td><?php echo $data['parent']?></td>
 				<td class="center"><i class="fa <?php echo $data['icon']?>"></i> <span class="nav-label">--<?php echo $data['icon']?></span></td>
 				<td class="center"><?php echo $data['urut']?></td>

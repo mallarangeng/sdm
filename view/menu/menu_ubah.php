@@ -5,7 +5,8 @@ session_start();
 $db = new Database();
 $db->connectMySQL();
 $menu = new menu();
-$d= $menu->bacaMenu($id_menu);
+$akses = new akses();
+$d=$menu->bacaMenu($id_menu);
 ?>
  <div class="panel-body">
     <form method="get" class="form-horizontal">
@@ -28,6 +29,22 @@ $d= $menu->bacaMenu($id_menu);
 				<input type="text" placeholder="link nama file" class="form-control input-sm" id="link" value="<?php echo $d['link']; ?>">
             </div>
         </div>
+        <div class="form-group"><label class="col-sm-2 control-label">ID Akses</label>
+            <div class="col-sm-6">
+				<select id="id_akses" class="form-control m-b">
+					<?php	
+						$arrayAkses = $akses->tampilakses();
+						if(isset($arrayAkses) && $arrayAkses !=Null){
+							foreach ($arrayAkses as $da) {
+					?>
+					<option value="<?php echo $da['id_akses']?>"><?php echo $da['id_akses'].'-'.$da['nama_akses']?></option>
+					<?php 
+							}
+						}
+					?>
+				</select>
+            </div>
+        </div>
 		<div class="form-group"><label class="col-sm-2 control-label">Select</label>
             <div class="col-sm-6">
 				<select id="parent" class="form-control m-b" name="account">
@@ -44,9 +61,7 @@ $d= $menu->bacaMenu($id_menu);
 						}
 					?>
 				</select>
-            </div> <div class="tooltip-demo">
-            <span data-toggle="tooltip" data-placement="right" title="Jika tidak memilih select Maka akan menjadi master menu"><i class="pe-7s-info text-info"></i></span>
-                                </div>
+            </div>
         </div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Icon</label>

@@ -74,6 +74,20 @@ $(function () {
                   }
                 });
     });
+             //modal tambah diklat
+    var main = "view/akses/akses_data.php";
+    $("#data-akses").load(main);
+        $(".tambah-akses").click(function(e){
+        e.preventDefault();
+        $("#modal-akses-add").modal('show');
+        $(".modal-title").html('Tambah Akses');
+        $.post("view/akses/akses_form.php",
+            {id_akses:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
          //modal tambah diklat
     var main = "view/provider/provider_data.php";
     $("#data-provider").load(main);
@@ -87,6 +101,25 @@ $(function () {
                 $(".modal-body").html(html);
             }
         );
+    });
+    $("#simpan-akses").click(function(e){ 
+        e.preventDefault();   
+        var url        = "control/akses.php"
+        var id_akses   = $("#id_akses").val();
+        var nama_akses = $("#nama_akses").val();
+        var ket_akses  = $("#ket_akses").val();
+        $.ajax({
+                  url: 'control/akses.php',
+                  type: 'GET',
+                  data: 'aksi=tambah&id_akses='+id_akses+'&nama_akses='+nama_akses+'&ket_akses='+ket_akses,
+                    success: function(data) {
+                    $('#hasil').html(data);
+                    $("#data-akses").load("view/akses/akses_data.php");
+                    $('#modal-akses-add').modal('hide');
+                  },
+                  error: function(e) {
+                  }
+                });
     });
         $("#simpan-provider").click(function(e){ 
         e.preventDefault();   
@@ -179,7 +212,7 @@ $(function () {
         var judul = $("#judul").val();
         var folder = $("#folder").val();
         var link = $("#link").val();
-        var level = $("#level").val();
+        var id_akses = $("#id_akses").val();
         var parent  = $("#parent").val();
         var icon  = $("#icon").val();
         var urut  = $("#urut").val();
@@ -194,7 +227,7 @@ $(function () {
 		$.ajax({
                   url: 'control/menu.php',
                   type: 'GET',
-                  data: 'aksi=tambah&id_menu='+id_menu+'&judul='+judul+'&folder='+folder+'&link='+link+'&level='+level+'&parent='+parent+'&icon='+icon+'&urut='+urut,
+                  data: 'aksi=tambah&id_menu='+id_menu+'&judul='+judul+'&folder='+folder+'&link='+link+'&id_akses='+id_akses+'&parent='+parent+'&icon='+icon+'&urut='+urut,
                   success: function(data) {
                     //called jika sukses dan tampilkan di tag id username1
 					 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2017 at 10:48 AM
+-- Generation Time: Dec 20, 2017 at 05:54 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -19,6 +19,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `sdm_gapura`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `akses`
+--
+
+CREATE TABLE `akses` (
+  `id_akses` varchar(3) NOT NULL,
+  `nama_akses` varchar(20) NOT NULL,
+  `ket_akses` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `akses`
+--
+
+INSERT INTO `akses` (`id_akses`, `nama_akses`, `ket_akses`) VALUES
+('1', 'No AKses', 'No Akses'),
+('2', 'SPV', 'Akses data untuk supervisor'),
+('3', 'Manager', 'Akses Data untuk manager 2'),
+('4', 'SPV Cargo 2', 'SPV Cargo 2'),
+('5', 'SPV Pergudangan', 'SPV Pergudangan 2');
 
 -- --------------------------------------------------------
 
@@ -71,7 +94,7 @@ CREATE TABLE `ms_menu` (
   `judul` varchar(45) DEFAULT NULL,
   `folder` varchar(30) DEFAULT NULL,
   `link` varchar(45) DEFAULT NULL,
-  `level` smallint(3) DEFAULT NULL,
+  `id_akses` int(3) DEFAULT NULL,
   `parent` smallint(3) DEFAULT NULL,
   `icon` varchar(45) DEFAULT NULL,
   `urut` int(2) DEFAULT NULL
@@ -81,14 +104,15 @@ CREATE TABLE `ms_menu` (
 -- Dumping data for table `ms_menu`
 --
 
-INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `level`, `parent`, `icon`, `urut`) VALUES
-('1', 'MASTER DATA', 'master', 'master', 0, 0, 'pe-7s-server', 1),
-('10', 'Data Cuti', 'cuti', 'cuti', 0, 9, '-', 1),
-('11', 'AKTIVITAS', 'aktivitas', '', 0, 0, 'pe-7s-graph1', 0),
+INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `id_akses`, `parent`, `icon`, `urut`) VALUES
+('1', 'MASTER DATA', 'master', 'master', 1, 0, 'pe-7s-server', 1),
+('10', 'Data Cuti', 'cuti', 'cuti', 2, 9, '-', 1),
+('11', 'AKTIVITAS', 'aktivitas', '', 2, 0, 'pe-7s-graph1', 0),
 ('12', 'Log Aktivitas', 'log', 'log', 0, 11, '-', 2),
 ('13', 'Jadwal Training', 'training', 'training', 0, 6, 'pe-7s-graph1', 3),
 ('14', 'SETTING', 'setiing', 'setiing', 0, 0, 'pe-7s-config', 5),
 ('15', 'Akun', 'akun', 'akun', 0, 14, '', 1),
+('16', 'Akses', 'akses', 'akses', 2, 1, '-', 5),
 ('2', 'Pekerja', 'pekerja', 'pekerja', 0, 1, '-', 1),
 ('3', 'Menu', 'menu', 'menu', 0, 1, '-', 2),
 ('4', 'Provider', 'provider', 'provider', 0, 1, '-', 3),
@@ -147,12 +171,18 @@ CREATE TABLE `provider` (
 
 INSERT INTO `provider` (`id_provider`, `nama_provider`, `alamat`, `telpon`, `web`, `email`, `direktur`, `input_by`, `input_date`, `edit_by`, `edit_date`) VALUES
 ('9001', 'PT. DINAMIKA PRIMA CARGO', '-', '-', '-', '-', '-', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
-('9002', 'dddd', 'dddd', 'dddd', 'dddd', 'dddd', 'dddd', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+('9002', 'PT. DAHLIA TAMA CARGO', 'dddd', 'dddd', 'dddd', 'dddd', 'dddd', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 ('9003', 'AAAeee', 'AAAeee', 'AAAeee', 'AAAeeee', 'AAAeeee', 'AAAeeee', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `akses`
+--
+ALTER TABLE `akses`
+  ADD PRIMARY KEY (`id_akses`);
 
 --
 -- Indexes for table `diklat`

@@ -5,10 +5,8 @@ session_start();
 $db = new Database();
 $db->connectMySQL();
 $menu = new menu();
-$idmenu = $_POST['idmenu'];
-
+$akses = new akses();
 ?>
- 
 <div class="panel-body">
     <form method="get" class="form-horizontal">
 
@@ -30,10 +28,20 @@ $idmenu = $_POST['idmenu'];
 				<input type="text" placeholder="link nama file" class="form-control input-sm" id="link">
             </div>
         </div>
-        	<div class="form-group">
-			<label class="col-sm-2 control-label">Level</label>
-            <div class="col-sm-8">
-				<input type="text" placeholder="level" class="form-control input-sm" id="level">
+		<div class="form-group"><label class="col-sm-2 control-label">ID Akses</label>
+            <div class="col-sm-6">
+				<select id="id_akses" class="form-control m-b">
+					<?php	
+						$arrayAkses = $akses->tampilakses();
+						if(isset($arrayAkses) && $arrayAkses !=Null){
+							foreach ($arrayAkses as $da) {
+					?>
+					<option value="<?php echo $da['id_akses']?>"><?php echo $da['id_akses'].'-'.$da['nama_akses']?></option>
+					<?php 
+							}
+						}
+					?>
+				</select>
             </div>
         </div>
 		<div class="form-group"><label class="col-sm-2 control-label">Select</label>
@@ -45,15 +53,13 @@ $idmenu = $_POST['idmenu'];
 						if(isset($arrayParent) && $arrayParent !=Null){
 							foreach ($arrayParent as $data) {
 					?>
-					<option value="<?php echo $data['id_menu']?>"><?php echo $data['id_menu'].'--'.$data['judul']?></option>
+					<option value="<?php echo $data['id_menu']?>"><?php echo $data['id_menu'].'-'.$data['judul']?></option>
 					<?php 
 							}
 						}
 					?>
 				</select>
-            </div> <div class="tooltip-demo">
-            <span data-toggle="tooltip" data-placement="right" title="Jika tidak memilih select Maka akan menjadi master menu"><i class="pe-7s-info text-info"></i></span>
-                                </div>
+            </div>
         </div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label">Icon</label>

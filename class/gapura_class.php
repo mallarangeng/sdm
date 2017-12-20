@@ -126,14 +126,14 @@ class menu{
 			return $data;
 		}
 	}
-	function tambahMenu($id_menu,$judul,$folder,$link,$level,$parent, $icon, $urut) {
-		$query = "INSERT INTO ms_menu (id_menu, judul, folder, link, level, parent, icon, urut)
-		          VALUES ('$id_menu','$judul', '$folder', '$link', '$level', '$parent', '$icon', '$urut')";
+	function tambahMenu($id_menu,$judul,$folder,$link,$id_akses,$parent, $icon, $urut) {
+		$query = "INSERT INTO ms_menu (id_menu, judul, folder, link, id_akses, parent, icon, urut)
+		          VALUES ('$id_menu','$judul', '$folder', '$link', '$id_akses', '$parent', '$icon', '$urut')";
 		$hasil = mysql_query($query);
 	}
 
-	function updatemenu($id_menu,$judul, $folder,$link,$level,$parent, $icon, $urut) {
-		$query = mysql_query("UPDATE ms_menu SET judul='$judul', folder='$folder', link='$link', level='$level', parent='$parent', icon='$icon', urut='$urut' WHERE id_menu='$id_menu'");
+	function updatemenu($id_menu,$judul, $folder,$link,$id_akses,$parent, $icon, $urut) {
+		$query = mysql_query("UPDATE ms_menu SET judul='$judul', folder='$folder', link='$link', id_akses='$id_akses', parent='$parent', icon='$icon', urut='$urut' WHERE id_menu='$id_menu'");
 	}
 
 	function menuNavigasi($user){
@@ -199,6 +199,45 @@ class diklat{
 	function tambahDiklat($id_diklat,$nama_diklat,$penyelenggara,$instruktur,$tgl_diklat,$durasi,$lokasi,$ketua_kelas,$stat_diklat) {
 		$query = "INSERT INTO diklat (id_diklat,nama_diklat,penyelenggara,instruktur,tgl_diklat,durasi,lokasi,ketua_kelas,stat_diklat)
 		          VALUES ('$id_diklat','$nama_diklat','$penyelenggara','$instruktur','$tgl_diklat','$durasi','$lokasi','$ketua_kelas','$stat_diklat')";
+		$hasil = mysql_query($query);
+	}
+}
+
+class Akses{
+	function tampilakses(){
+		$query = mysql_query("SELECT * FROM akses");
+		while($row=mysql_fetch_array($query))
+			$data[]=$row;
+		if(isset($data)){
+			return $data;
+		}
+	}
+	function bacaakses($id_akses)
+	        {
+				$query=mysql_query("
+				SELECT * FROM akses WHERE id_akses='$id_akses'");
+				$data=mysql_fetch_array($query);
+				$data[]=$row;
+				if(isset($data)){
+					return $data;
+				}
+			}
+	function cek_akses($id_akses) {
+		$dataSales = mysql_query("SELECT * FROM akses WHERE id_akses='$id_akses'");
+		$no_rows = mysql_num_rows($dataSales);
+		if ($no_rows == 1) {
+			return TRUE;
+		}
+		else {
+		  return FALSE;
+		}
+	}
+	function updateakses($id_akses,$nama_akses,$ket_akses) {
+		$query = mysql_query("UPDATE akses SET nama_akses='$nama_akses', ket_akses='$ket_akses' WHERE id_akses='$id_akses'");	
+	}
+	function tambahakses($id_akses,$nama_akses,$ket_akses) {
+		$query = "INSERT INTO akses (id_akses,nama_akses,ket_akses)
+		          VALUES ('$id_akses','$nama_akses','$ket_akses')";
 		$hasil = mysql_query($query);
 	}
 }
