@@ -4,38 +4,38 @@ include'../../class/gapura_function.php';
 session_start();
 $db = new Database();
 $db->connectMySQL();
-$diklat = new diklat();
-$id_diklat=$_GET['id_diklat'];
-$d=$diklat->bacadiklat($id_diklat);
-    if ($d['id_diklat']> 0) {
-        $nama_diklat        = $d['nama_diklat'];
+$training = new training();
+$id_training=$_GET['id_training'];
+$d=$training->bacatraining($id_training);
+    if ($d['id_training']> 0) {
+        $nama_training        = $d['nama_training'];
         $penyelenggara      = $d['penyelenggara'];
         $instruktur         = $d['instruktur'];
-        $tgl_diklat         = $d['tgl_diklat'];
+        $tgl_training         = $d['tgl_training'];
         $durasi             = $d['durasi'];
         $lokasi             = $d['lokasi'];
         $ketua_kelas        = $d['ketua_kelas'];
-        $stat_diklat        = $d['stat_diklat'];
+        $stat_training        = $d['stat_training'];
 
     }else{
-        $nama_diklat      = '';
+        $nama_training      = '';
         $penyelenggara    = '';
         $instruktur       = '';
-        $tgl_diklat       = date('Y-m-d');
+        $tgl_training       = date('Y-m-d');
         $durasi           = '1';
         $lokasi           = '';
         $ketua_kelas      = '';
-        $stat_diklat      = '';
+        $stat_training      = '';
     }
 ?>
 <div class="panel-body">
     <form method="get" class="form-horizontal" id="form_2">
 
         <div class="form-group">
-			<label class="col-sm-4 control-label">Nama Diklat</label>
+			<label class="col-sm-4 control-label">Nama training</label>
             <div class="col-sm-8">
-				<input type="hidden" class="form-control input-sm" id="id_diklat" value="<?php echo $id_diklat ?>">
-				<input type="text" placeholder="Nama Diklat" class="form-control input-sm" id="nama_diklat" value="<?php echo $nama_diklat ?>">
+				<input type="hidden" class="form-control input-sm" id="id_training" value="<?php echo $id_training ?>">
+				<input type="text" placeholder="Nama training" class="form-control input-sm" id="nama_training" value="<?php echo $nama_training ?>">
             </div>
         </div>
 		<div class="form-group">
@@ -53,7 +53,7 @@ $d=$diklat->bacadiklat($id_diklat);
         	<div class="form-group">
 			<label class="col-sm-4 control-label">Tanggal</label>
             <div class="col-sm-4">
-				<input type="text" value="<?php echo $tgl_diklat ?>" class="form-control input-sm" id="tgl_diklat" value="<?php echo $tgl_diklat ?>">
+				<input type="text" value="<?php echo $tgl_training ?>" class="form-control input-sm" id="tgl_training" value="<?php echo $tgl_training ?>">
             </div>
         </div>
 		<div class="form-group">
@@ -72,7 +72,7 @@ $d=$diklat->bacadiklat($id_diklat);
 			<label class="col-sm-4 control-label">Ketua Kelas</label>
             <div class="col-sm-8">
 				<input type="text" placeholder="ketua Kelas" class="form-control input-sm" id="ketua_kelas" value="<?php echo $ketua_kelas ?>">
-				<input type="hidden" id="stat_diklat" value="berjalan">
+				<input type="hidden" id="stat_training" value="berjalan">
 				<input type="hidden" id="input_by">
 				<input type="hidden" id="input_date">
 				<input type="hidden" id="edit_by">
@@ -83,7 +83,7 @@ $d=$diklat->bacadiklat($id_diklat);
     </form>
 </div>
 <script>
-$('#tgl_diklat').datepicker({
+$('#tgl_training').datepicker({
 						format: 'yyyy-mm-dd',
 						keyboardNavigation: false,
 						forceParse: false,

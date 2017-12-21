@@ -47,20 +47,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- data tabel -->
 </head>
 <body>
-	<style type="text/css">
-		body 	{
-            background: #56ab2f;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-		}
-	</style>
-<!-- Simple splash screen
-<div class="splash"> <div class="color-line"></div><div class="splash-title"><h1>Homer - Responsive Admin Theme</h1><p>Special AngularJS Admin Theme for small and medium webapp with very clean and aesthetic style and feel. </p><img src="images/loading-bars.svg" width="64" height="64" /> </div> </div>
--->
-<!--[if lt IE 7]>
-<p class="alert alert-danger">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
 <div class="color-line"></div>
 <div class="login-container">
 <center>

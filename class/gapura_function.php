@@ -37,6 +37,11 @@
 	$tgl	= date("Y-m-d");
 	return $tgl;
 	}
+	function timeSkrg(){
+	date_default_timezone_set('Asia/Jakarta');
+	$tgl	= date("Y-m-d H:i:s");
+	return $tgl;
+	}
 	function userSes(){
 	$uses	= $_SESSION['username'];
 	return $uses;

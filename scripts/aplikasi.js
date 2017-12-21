@@ -74,7 +74,104 @@ $(function () {
                   }
                 });
     });
-             //modal tambah diklat
+
+
+    var main ="view/unit_kerja/unit_data.php";
+    $("#data-unit").load(main);
+        $(".tambah-unit").click(function(e){
+        e.preventDefault();
+        $("#modal-unit-add").modal('show');
+        $(".modal-title").html('Tambah unit');
+        $.post("view/unit_kerja/unit_form.php",
+            {id_unit:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
+
+    $("#simpan-unit").click(function(e){ 
+        e.preventDefault(); 
+        var url         = "control/unit.php"
+        var id_unit     = $("#id_unit").val();
+        var nama_unit   = $("#nama_unit").val();
+        var ket_unit    = $("#ket_unit").val();
+        var i_by        = $("#i_by").val();
+        var i_date      = $("#i_date").val();
+        var e_by        = $("#e_by").val();
+        var e_date      = $("#e_date").val();
+        if (nama_unit==""){
+            alert ("Nama unit Belum diisi");
+            return false;
+        }
+        if (ket_unit==""){
+            alert ("Keterangan unit Belum diisi");
+            return false;
+        }
+        $.ajax({
+                  url: 'control/unit.php',
+                  type: 'GET',
+                  data: 'aksi=tambah&id_unit='+id_unit+'&nama_unit='+nama_unit+'&ket_unit='+ket_unit
+                  +'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
+                    success: function(data) {
+                    $('#hasil').html(data);
+                    $("#data-unit").load("view/unit_kerja/unit_data.php");
+                    $('#modal-unit-add').modal('hide');
+                  },
+                  error: function(e) {
+                  }
+                });
+    });
+
+//JS POSISI KERJA
+    var main ="view/posisi/posisi_data.php";
+    $("#data-posisi").load(main);
+        $(".tambah-posisi").click(function(e){
+        e.preventDefault();
+        $("#modal-posisi-add").modal('show');
+        $(".modal-title").html('Tambah Posisi');
+        $.post("view/posisi/posisi_form.php",
+            {id_posisi:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
+
+    $("#simpan-posisi").click(function(e){ 
+        e.preventDefault(); 
+        var url         = "control/posisi.php"
+        var id_posisi   = $("#id_posisi").val();
+        var nm_posisi   = $("#nm_posisi").val();
+        var ket_posisi  = $("#ket_posisi").val();
+        var i_by        = $("#i_by").val();
+        var i_date      = $("#i_date").val();
+        var e_by        = $("#e_by").val();
+        var e_date      = $("#e_date").val();
+        if (nm_posisi==""){
+            alert ("Nama Posisi Belum diisi");
+            return false;
+        }
+        if (ket_posisi==""){
+            alert ("Keterangan Posisi Belum diisi");
+            return false;
+        }
+        $.ajax({
+                  url: 'control/posisi.php',
+                  type: 'GET',
+                  data: 'aksi=tambah&id_posisi='+id_posisi+'&nm_posisi='+nm_posisi+'&ket_posisi='+ket_posisi
+                  +'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
+                    success: function(data) {
+                    $('#hasil').html(data);
+                    $("#data-posisi").load("view/posisi/posisi_data.php");
+                    $('#modal-posisi-add').modal('hide');
+                  },
+                  error: function(e) {
+                  }
+                });
+    });
+
+// Js untuk akses data
     var main = "view/akses/akses_data.php";
     $("#data-akses").load(main);
         $(".tambah-akses").click(function(e){
@@ -88,20 +185,7 @@ $(function () {
             }
         );
     });
-         //modal tambah diklat
-    var main = "view/provider/provider_data.php";
-    $("#data-provider").load(main);
-        $(".tambah-provider").click(function(e){
-        e.preventDefault();
-        $("#modal-provider-add").modal('show');
-        $(".modal-title").html('Tambah Provider');
-        $.post("view/provider/provider_form.php",
-            {id_provider:$(this).attr('data-id')},
-            function(html){
-                $(".modal-body").html(html);
-            }
-        );
-    });
+
     $("#simpan-akses").click(function(e){ 
         e.preventDefault(); 
         var url        = "control/akses.php"
@@ -129,6 +213,21 @@ $(function () {
                   }
                 });
     });
+// close js akses data
+
+    var main = "view/provider/provider_data.php";
+    $("#data-provider").load(main);
+        $(".tambah-provider").click(function(e){
+        e.preventDefault();
+        $("#modal-provider-add").modal('show');
+        $(".modal-title").html('Tambah Provider');
+        $.post("view/provider/provider_form.php",
+            {id_provider:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
         $("#simpan-provider").click(function(e){ 
         e.preventDefault();   
         var url           = "control/provider.php"
@@ -153,42 +252,75 @@ $(function () {
                   }
                 });
     });
-     //modal tambah diklat
-    var main = "view/diklat/diklat_data.php";
-    $("#data-diklat").load(main);
-        $(".tambah-diklat").click(function(e){
+     //modal tambah training
+    var main = "view/training/training_data.php";
+    $("#data-training").load(main);
+        $(".tambah-training").click(function(e){
         e.preventDefault();
-        $("#modal-diklat-add").modal('show');
-        $(".modal-title").html('Tambah Diklat');
-        $.post("view/diklat/diklat_form.php",
-            {id_diklat:$(this).attr('data-id')},
+        $("#modal-training-add").modal('show');
+        $(".modal-title").html('Tambah training');
+        $.post("view/training/training_form.php",
+            {id_training:$(this).attr('data-id')},
             function(html){
                 $(".modal-body").html(html);
             }
         );
     });
 
-    $("#simpan-diklat").click(function(e){ 
+    $("#simpan-training").click(function(e){ 
         e.preventDefault();   
-        var url = "control/diklat.php"
-        var id_diklat = $("#id_diklat").val();
-        var nama_diklat = $("#nama_diklat").val();
+        var url = "control/training.php"
+        var id_training = $("#id_training").val();
+        var nama_training = $("#nama_training").val();
         var penyelenggara = $("#penyelenggara").val();
         var instruktur = $("#instruktur").val();
-        var tgl_diklat = $("#tgl_diklat").val();
+        var tgl_training = $("#tgl_training").val();
         var durasi  = $("#durasi").val();
         var lokasi  = $("#lokasi").val();
         var ketua_kelas  = $("#ketua_kelas").val();
-        var stat_diklat  = $("#stat_diklat").val();
+        var stat_training  = $("#stat_training").val();
+        
+        if (nama_training==""){
+            alert ("Nama Training Belum diisi");
+            return false;
+        }
+        if (penyelenggara==""){
+            alert ("penyelenggara Belum diisi");
+            return false;
+        }
+        if (instruktur==""){
+            alert ("instruktur Belum diisi");
+            return false;
+        }
+        if (tgl_training==""){
+            alert ("Tanggal training Belum diisi");
+            return false;
+        }
+        if (durasi==""){
+            alert ("Durasi training Belum diisi");
+            return false;
+        }
+        if (lokasi==""){
+            alert ("Lokasi Training Belum diisi");
+            return false;
+        }
+        if (ketua_kelas==""){
+            alert ("Ketua Kelas Belum diisi");
+            return false;
+        }
+        if (stat_training==""){
+            alert ("Status Trainig Belum diisi");
+            return false;
+        }
         $.ajax({
-                  url: 'control/diklat.php',
+                  url: 'control/training.php',
                   type: 'GET',
-                  data: 'aksi=tambah&id_diklat='+id_diklat+'&nama_diklat='+nama_diklat+'&penyelenggara='+penyelenggara+
-                  '&instruktur='+instruktur+'&tgl_diklat='+tgl_diklat+'&durasi='+durasi+'&lokasi='+lokasi+'&ketua_kelas='+ketua_kelas+'&stat_diklat='+stat_diklat,
+                  data: 'aksi=tambah&id_training='+id_training+'&nama_training='+nama_training+'&penyelenggara='+penyelenggara+
+                  '&instruktur='+instruktur+'&tgl_training='+tgl_training+'&durasi='+durasi+'&lokasi='+lokasi+'&ketua_kelas='+ketua_kelas+'&stat_training='+stat_training,
                   success: function(data) {
                     $('#hasil').html(data);
-                    $("#data-diklat").load("view/diklat/diklat_data.php");
-                    $('#modal-diklat-add').modal('hide');
+                    $("#data-training").load("view/training/training_data.php");
+                    $('#modal-training-add').modal('hide');
                   },
                   error: function(e) {
                   }
@@ -208,15 +340,11 @@ $(function () {
             }
         );
     });
-	//simpan menu
+	
 	$("#simpan-menu").click(function(e){ 
-        e.preventDefault(); //mencegah action form biasa   
-        //alert('dadsdsdsds');
+        e.preventDefault();   
         var url = "control/menu.php"
-        //cara1 ambil value
-        //var vSwitch = $('input:text[name=swtch]').val();
-        //cara2 ambil value
-		var id_menu = $("#id_menu").val();
+    	var id_menu = $("#id_menu").val();
         var judul = $("#judul").val();
         var folder = $("#folder").val();
         var link = $("#link").val();
@@ -224,28 +352,45 @@ $(function () {
         var parent  = $("#parent").val();
         var icon  = $("#icon").val();
         var urut  = $("#urut").val();
-		//alert (urut);
-		//post tanpa ajax
-        //$.post(url,{judul: judul, link: link, parent: parent, icon: icon, urutan: urutan},function(data){
-         
-        //$('#modal-menu-add').modal('hide'); 
-		//$("#hasil").html(data);
-		//$("#data-menu").load('view/menu/menu_data.php');
-        //});
+
+        if (judul==""){
+            alert ("Judul menu Belum diisi");
+            return false;
+        }
+        if (folder==""){
+            alert ("folder menu Belum diisi");
+            return false;
+        }
+        if (link==""){
+            alert ("link menu Belum diisi");
+            return false;
+        }
+        if (id_akses==""){
+            alert ("ID Akses Belum diisi");
+            return false;
+        }
+        if (parent==""){
+            alert ("parent menu Belum diisi");
+            return false;
+        }
+        if (icon==""){
+            alert ("Icon Belum diisi");
+            return false;
+        }
+        if (urut==""){
+            alert ("Nomor urut menu Belum diisi");
+            return false;
+        }
 		$.ajax({
                   url: 'control/menu.php',
                   type: 'GET',
                   data: 'aksi=tambah&id_menu='+id_menu+'&judul='+judul+'&folder='+folder+'&link='+link+'&id_akses='+id_akses+'&parent='+parent+'&icon='+icon+'&urut='+urut,
                   success: function(data) {
-                    //called jika sukses dan tampilkan di tag id username1
-					 
                     $('#hasil').html(data);
 					$("#data-menu").load("view/menu/menu_data.php");
 					$('#modal-menu-add').modal('hide');
                   },
                   error: function(e) {
-                    //called when there is an error
-                    //console.log(e.message);
                   }
                 });
     });
@@ -255,7 +400,7 @@ $(function () {
     $("#data-konsumen").load(main);
         $(".tambah-konsumen").click(function(e){
         e.preventDefault();
-        //memanggil modal untuk konsumen
+       
         $("#modal-konsumen-add").modal('show');
         $(".modal-title").html('Tambah Konsumen');
         $.post("view/konsumen/konsumen_form.php",

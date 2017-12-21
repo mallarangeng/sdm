@@ -163,27 +163,27 @@ class menu{
 		}
 	}
 }
-class diklat{
-	function tampilDiklat(){
-		$query = mysql_query("SELECT * FROM diklat");
+class training{
+	function tampiltraining(){
+		$query = mysql_query("SELECT * FROM training");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){
 			return $data;
 		}
 	}
-	function bacadiklat($id_diklat)
+	function bacatraining($id_training)
 	        {
 				$query=mysql_query("
-				SELECT * FROM diklat WHERE id_diklat='$id_diklat'");
+				SELECT * FROM training WHERE id_training='$id_training'");
 				$data=mysql_fetch_array($query);
 				$data[]=$row;
 				if(isset($data)){
 					return $data;
 				}
 			}
-	function cek_diklat($id_diklat) {
-		$dataSales = mysql_query("SELECT * FROM diklat WHERE id_diklat='$id_diklat'");
+	function cek_training($id_training) {
+		$dataSales = mysql_query("SELECT * FROM training WHERE id_training='$id_training'");
 		$no_rows = mysql_num_rows($dataSales);
 		if ($no_rows == 1) {
 			return TRUE;
@@ -192,13 +192,13 @@ class diklat{
 		  return FALSE;
 		}
 	}
-	function updatediklat($id_diklat,$nama_diklat,$penyelenggara,$instruktur,$tgl_diklat,$durasi,$lokasi,$ketua_kelas,$stat_diklat) {
-		$query = mysql_query("UPDATE diklat SET
-				  nama_diklat = '$nama_diklat', penyelenggara = '$penyelenggara', instruktur = '$instruktur', tgl_diklat = '$tgl_diklat', durasi = '$durasi', lokasi = '$lokasi', ketua_kelas = '$ketua_kelas', stat_diklat = '$stat_diklat' WHERE id_diklat = '$id_diklat'");	
+	function updatetraining($id_training,$nama_training,$penyelenggara,$instruktur,$tgl_training,$durasi,$lokasi,$ketua_kelas,$stat_training) {
+		$query = mysql_query("UPDATE training SET
+				  nama_training = '$nama_training', penyelenggara = '$penyelenggara', instruktur = '$instruktur', tgl_training = '$tgl_training', durasi = '$durasi', lokasi = '$lokasi', ketua_kelas = '$ketua_kelas', stat_training = '$stat_training' WHERE id_training = '$id_training'");	
 	}
-	function tambahDiklat($id_diklat,$nama_diklat,$penyelenggara,$instruktur,$tgl_diklat,$durasi,$lokasi,$ketua_kelas,$stat_diklat) {
-		$query = "INSERT INTO diklat (id_diklat,nama_diklat,penyelenggara,instruktur,tgl_diklat,durasi,lokasi,ketua_kelas,stat_diklat)
-		          VALUES ('$id_diklat','$nama_diklat','$penyelenggara','$instruktur','$tgl_diklat','$durasi','$lokasi','$ketua_kelas','$stat_diklat')";
+	function tambahtraining($id_training,$nama_training,$penyelenggara,$instruktur,$tgl_training,$durasi,$lokasi,$ketua_kelas,$stat_training) {
+		$query = "INSERT INTO training (id_training,nama_training,penyelenggara,instruktur,tgl_training,durasi,lokasi,ketua_kelas,stat_training)
+		          VALUES ('$id_training','$nama_training','$penyelenggara','$instruktur','$tgl_training','$durasi','$lokasi','$ketua_kelas','$stat_training')";
 		$hasil = mysql_query($query);
 	}
 }
@@ -215,7 +215,7 @@ class Akses{
 	function bacaakses($id_akses)
 	        {
 				$query=mysql_query("
-				SELECT * FROM akses WHERE id_akses='$id_akses'");
+				SELECT * FROM akses WHERE id_akses='$_GET[id_akses]'");
 				$data=mysql_fetch_array($query);
 				$data[]=$row;
 				if(isset($data)){
@@ -235,9 +235,89 @@ class Akses{
 	function updateakses($id_akses,$nama_akses,$ket_akses) {
 		$query = mysql_query("UPDATE akses SET nama_akses='$nama_akses', ket_akses='$ket_akses' WHERE id_akses='$id_akses'");	
 	}
+	
 	function tambahakses($id_akses,$nama_akses,$ket_akses) {
 		$query = "INSERT INTO akses (id_akses,nama_akses,ket_akses)
 		          VALUES ('$id_akses','$nama_akses','$ket_akses')";
+		$hasil = mysql_query($query);
+	}
+}
+
+class Unit{
+	function tampilunit(){
+		$query = mysql_query("SELECT * FROM unit_kerja");
+		while($row=mysql_fetch_array($query))
+			$data[]=$row;
+		if(isset($data)){
+			return $data;
+		}
+	}
+	function bacaunit($id_akses)
+	        {
+				$query=mysql_query("
+				SELECT * FROM unit_kerja WHERE id_unit='$_GET[id_unit]'");
+				$data=mysql_fetch_array($query);
+				$data[]=$row;
+				if(isset($data)){
+					return $data;
+				}
+			}
+	function cek_unit($id_unit) {
+		$dataSales = mysql_query("SELECT * FROM unit_kerja WHERE id_unit='$id_unit'");
+		$no_rows = mysql_num_rows($dataSales);
+		if ($no_rows == 1) {
+			return TRUE;
+		}
+		else {
+		  return FALSE;
+		}
+	}
+	function updateunit($id_unit,$nama_unit,$ket_unit,$i_by,$i_date,$e_by,$e_date) {
+		$query = mysql_query("UPDATE unit_kerja SET nama_unit='$nama_unit', ket_unit='$ket_unit', i_by='$i_by', i_date='$i_date'
+		, e_by='$e_by', e_date='$e_date' WHERE id_unit='$id_unit'");	
+	}
+	function tambahunit($id_unit,$nama_unit,$ket_unit,$i_by,$i_date,$e_by,$e_date) {
+		$query = "INSERT INTO unit_kerja (id_unit,nama_unit,ket_unit,i_by,i_date,e_by,e_date) VALUES
+		('$id_unit','$nama_unit','$ket_unit','$i_by','$i_date','$e_by','$e_date')";
+		$hasil = mysql_query($query);
+	}
+}
+class Posisi{
+	function tampilposisi(){
+		$query = mysql_query("SELECT * FROM posisi_kerja");
+		while($row=mysql_fetch_array($query))
+			$data[]=$row;
+		if(isset($data)){
+			return $data;
+		}
+	}
+	function bacaposisi($id_akses)
+	        {
+				$query=mysql_query("
+				SELECT * FROM posisi_kerja WHERE id_posisi='$_GET[id_posisi]'");
+				$data=mysql_fetch_array($query);
+				$data[]=$row;
+				if(isset($data)){
+					return $data;
+				}
+			}
+	function cek_posisi($id_posisi) {
+		$dataSales = mysql_query("SELECT * FROM posisi_kerja WHERE id_posisi='$id_posisi'");
+		$no_rows = mysql_num_rows($dataSales);
+		if ($no_rows == 1) {
+			return TRUE;
+		}
+		else {
+		  return FALSE;
+		}
+	}
+	function updateposisi($id_posisi,$nm_posisi,$ket_posisi,$i_by,$i_date,$e_by,$e_date) {
+		$query = mysql_query("UPDATE posisi_kerja SET nm_posisi='$nm_posisi', ket_posisi='$ket_posisi', i_by='$i_by', i_date='$i_date'
+		, e_by='$e_by', e_date='$e_date' WHERE id_posisi='$id_posisi'");	
+	}
+	function tambahposisi($id_posisi,$nm_posisi,$ket_posisi,$i_by,$i_date,$e_by,$e_date) {
+		$query = "INSERT INTO posisi_kerja (id_posisi,nm_posisi,ket_posisi,i_by,i_date,e_by,e_date) VALUES
+		('$id_posisi','$nm_posisi','$ket_posisi','$i_by','$i_date','$e_by','$e_date')";
 		$hasil = mysql_query($query);
 	}
 }
