@@ -321,6 +321,48 @@ class Posisi{
 		$hasil = mysql_query($query);
 	}
 }
+
+class Pendidikan{
+	function tampilpendidikan(){
+		$query = mysql_query("SELECT * FROM pendidikan");
+		while($row=mysql_fetch_array($query))
+			$data[]=$row;
+		if(isset($data)){
+			return $data;
+		}
+	}
+	function bacapendidikan($id_pend)
+	        {
+				$query=mysql_query("
+				SELECT * FROM pendidikan WHERE id_pend='$_GET[id_pend]'");
+				$data=mysql_fetch_array($query);
+				$data[]=$row;
+				if(isset($data)){
+					return $data;
+				}
+			}
+	function cek_pendidikan($id_pend) 
+	{
+		$data = mysql_query("SELECT * FROM pendidikan WHERE id_pend='$id_pend'");
+		$no_rows = mysql_num_rows($data);
+		if ($no_rows == 1) {
+			return TRUE;
+		}
+		else {
+		  return FALSE;
+		}
+	}
+	function updatependidikan($id_pend,$nip,$pend_terakhir,$prodi,$thn_lulus,$pend_asal,$i_by,$i_date,$e_by,$e_date) {
+		$query = mysql_query("UPDATE pendidikan SET nip='$nip', pend_terakhir='$pend_terakhir',prodi='$prodi',thn_lulus='$thn_lulus', pend_asal='$pend_asal', i_by='$i_by', i_date='$i_date', e_by='$e_by', e_date='$e_date' WHERE id_pend='$id_pend'");	
+	}
+	function tambahpendidikan($id_pend,$nip,$pend_terakhir,$prodi,$thn_lulus,$pend_asal,$i_by,$i_date,$e_by,$e_date) {
+		$query = "INSERT INTO pendidikan (id_pend,nip,pend_terakhir,prodi,thn_lulus,pend_asal,i_by,i_date,e_by,e_date) VALUES
+		('$id_pend','$nip','$pend_terakhir','$prodi','$thn_lulus','$pend_asal','$i_by','$i_date','$e_by','$e_date')";
+		$hasil = mysql_query($query);
+	}
+}
+
+
 class menuUser{
 	function tambahMenuUser($id_menu_user,$id_menu,$username,$baca,$tulis){
 		$query = "INSERT INTO ms_menu_user (id_menu_user,id_menu, username, baca, tulis)

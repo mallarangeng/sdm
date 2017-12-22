@@ -75,6 +75,55 @@ $(function () {
                 });
     });
 
+    var main ="view/pendidikan/pendidikan_data.php";
+    $("#data-pendidikan").load(main);
+        $(".tambah-pendidikan").click(function(e){
+        e.preventDefault();
+        $("#modal-pendidikan-add").modal('show');
+        $(".modal-title").html('Tambah pendidikan');
+        $.post("view/pendidikan/pendidikan_form.php",
+            {id_pend:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
+
+    $("#simpan-pendidikan").click(function(e){ 
+        e.preventDefault(); 
+        var url             = "control/pendidikan.php"
+        var id_pend         = $("#id_pend").val();
+        var nip             = $("#nip").val();
+        var pend_terakhir   = $("#pend_terakhir").val();
+        var prodi           = $("#prodi").val();
+        var thn_lulus       = $("#thn_lulus").val();
+        var pend_asal       = $("#pend_asal").val();
+        var i_by            = $("#i_by").val();
+        var i_date          = $("#i_date").val();
+        var e_by            = $("#e_by").val();
+        var e_date          = $("#e_date").val();
+        if (pend_terakhir==""){
+            alert ("Pendidikan Terakhir Belum diisi");
+            return false;
+        }
+        if (prodi==""){
+            alert ("Program studi Belum diisi");
+            return false;
+        }
+        $.ajax({
+                  url: 'control/pendidikan.php',
+                  type: 'GET',
+                  data: 'aksi=tambah&id_pend'+id_pend+'&nip='+nip+'&pend_terakhir='+pend_terakhir+'&prodi='+prodi+'&thn_lulus='+thn_lulus+'&pend_asal='+pend_asal+'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
+                    success: function(data) {
+                    $('#hasil').html(data);
+                    $("#data-pendidikan").load("view/pendidikan/pendidikan_data.php");
+                    $('#modal-pendidikan-add').modal('hide');
+                  },
+                  error: function(e) {
+                  }
+                });
+    });
+
 
     var main ="view/unit_kerja/unit_data.php";
     $("#data-unit").load(main);
