@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2017 at 10:50 AM
+-- Generation Time: Dec 22, 2017 at 10:45 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -72,6 +72,7 @@ INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `id_akses`, `parent
 ('16', 'Akses', 'akses', 'akses', 1, 14, '-', 5),
 ('17', 'Posisi', 'posisi', 'posisi', 1, 1, '-', 6),
 ('18', 'Unit Kerja', 'unit_kerja', 'unit', 2, 1, '-', 6),
+('19', 'Pendidikan', 'pendidikan', 'pendidikan', 2, 1, '-', 7),
 ('2', 'Pekerja', 'pekerja', 'pekerja', 0, 1, '-', 1),
 ('3', 'Menu', 'menu', 'menu', 1, 14, '-', 2),
 ('4', 'Provider', 'provider', 'provider', 0, 1, '-', 3),
@@ -103,6 +104,32 @@ CREATE TABLE `ms_user` (
 
 INSERT INTO `ms_user` (`username`, `id_jabatan`, `password`, `email`, `fullname`, `blokir`, `picture`) VALUES
 ('12100410', 1, '1ce9287a63e38534efb11b85339cbe59', 'hendrimamang@gmail.com', 'HENDRI Y', 'N', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pendidikan`
+--
+
+CREATE TABLE `pendidikan` (
+  `id_pend` varchar(10) NOT NULL,
+  `nip` int(15) NOT NULL,
+  `pend_terakhir` varchar(10) NOT NULL,
+  `prodi` varchar(30) NOT NULL,
+  `thn_lulus` int(4) NOT NULL,
+  `pend_asal` varchar(30) NOT NULL,
+  `i_by` int(10) NOT NULL,
+  `i_date` datetime NOT NULL,
+  `e_by` int(10) NOT NULL,
+  `e_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pendidikan`
+--
+
+INSERT INTO `pendidikan` (`id_pend`, `nip`, `pend_terakhir`, `prodi`, `thn_lulus`, `pend_asal`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
+('1', 0, 'S1', 'Teknik Mesin', 2015, 'Univ Trisakti', 12100410, '2017-12-22 15:07:43', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -187,7 +214,7 @@ CREATE TABLE `training` (
 --
 
 INSERT INTO `training` (`id_training`, `nama_training`, `penyelenggara`, `instruktur`, `tgl_training`, `durasi`, `lokasi`, `ketua_kelas`, `stat_training`, `note_diklat`, `input_by`, `input_date`, `edit_by`, `edit_date`) VALUES
-('000001', 'Pelatihan K34', 'Pelatihan K34', 'Pelatihan K3', '2017-12-18', 3, '512', 'Pelatihan K3 Hendri', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+('000001', 'Pelatihan K34', 'Pelatihan K34', 'Pelatihan K3', '2017-12-18', 2, '512', 'Pelatihan K3 Hendri', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 ('000002', 'Perbaikan Pemerliharaan', 'Dwi Sekmono', 'Dwi Sekmono', '2017-12-18', 4, '511', 'Mahmud ST', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 ('000003', 'Training Teknik Pendingin AC', 'CGO', 'Edi Pramono', '2017-12-20', 4, '511', 'Edi Pramono', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 ('000004', 'Ujuan Recurrent Forklip', 'Gunawan', 'Gunawan', '2017-12-19', 4, '511', 'EDI PURNOMO', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
@@ -222,7 +249,10 @@ CREATE TABLE `unit_kerja` (
 
 INSERT INTO `unit_kerja` (`id_unit`, `nama_unit`, `ket_unit`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
 (1, 'Fasilitas dan Sarana 2 ', 'Fasilitas dan Sarana 2', 12100410, '2017-12-21 16:41:57', 12100410, '2017-12-21 16:43:20'),
-(2, 'Import 540 2', 'Import 540 2', 12100410, '2017-12-21 16:43:08', 12100410, '2017-12-21 16:43:29');
+(2, 'Import 540', 'Import 540', 12100410, '2017-12-21 16:43:08', 12100410, '2017-12-22 08:23:57'),
+(3, 'Driver Thai Chargo', 'Driver Thai Chargo', 12100410, '2017-12-22 08:23:33', 0, '0000-00-00 00:00:00'),
+(4, 'Export MU', 'Export MU', 12100410, '2017-12-22 08:24:21', 0, '0000-00-00 00:00:00'),
+(5, 'Checker Import 540', 'Checker Import 540', 12100410, '2017-12-22 08:24:34', 0, '0000-00-00 00:00:00');
 
 --
 -- Indexes for dumped tables
@@ -245,6 +275,12 @@ ALTER TABLE `ms_menu`
 --
 ALTER TABLE `ms_user`
   ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pendidikan`
+--
+ALTER TABLE `pendidikan`
+  ADD PRIMARY KEY (`id_pend`);
 
 --
 -- Indexes for table `posisi_kerja`

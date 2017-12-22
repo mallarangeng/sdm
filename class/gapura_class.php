@@ -341,7 +341,7 @@ class Pendidikan{
 					return $data;
 				}
 			}
-	function cek_pendidikan($id_pend) 
+	function cekpendidikan($id_pend) 
 	{
 		$data = mysql_query("SELECT * FROM pendidikan WHERE id_pend='$id_pend'");
 		$no_rows = mysql_num_rows($data);
