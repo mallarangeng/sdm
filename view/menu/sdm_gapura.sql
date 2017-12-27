@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 22, 2017 at 10:45 AM
+-- Generation Time: Dec 27, 2017 at 10:55 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -37,7 +37,7 @@ CREATE TABLE `akses` (
 --
 
 INSERT INTO `akses` (`id_akses`, `nama_akses`, `ket_akses`) VALUES
-('1', 'NO Akses', 'No Akses'),
+('1', 'NO Akses 2', 'No Akses'),
 ('2', 'SPV HRD', 'SPV HRD');
 
 -- --------------------------------------------------------
@@ -74,6 +74,8 @@ INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `id_akses`, `parent
 ('18', 'Unit Kerja', 'unit_kerja', 'unit', 2, 1, '-', 6),
 ('19', 'Pendidikan', 'pendidikan', 'pendidikan', 2, 1, '-', 7),
 ('2', 'Pekerja', 'pekerja', 'pekerja', 0, 1, '-', 1),
+('20', 'PEGAWAI', 'pegawai', '#', 0, 0, 'pe-7s-users', 2),
+('21', 'Data pegawai', 'pgw', 'pgw', 1, 20, '-', 0),
 ('3', 'Menu', 'menu', 'menu', 1, 14, '-', 2),
 ('4', 'Provider', 'provider', 'provider', 0, 1, '-', 3),
 ('5', 'Jabatan', 'jabatan', 'jabatan', 0, 1, '-', 4),
@@ -108,6 +110,29 @@ INSERT INTO `ms_user` (`username`, `id_jabatan`, `password`, `email`, `fullname`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pegawai`
+--
+
+CREATE TABLE `pegawai` (
+  `nip` varchar(12) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `jekel` varchar(2) NOT NULL,
+  `kota_lahir` varchar(20) NOT NULL,
+  `tgl_lahir` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pegawai`
+--
+
+INSERT INTO `pegawai` (`nip`, `nama`, `jekel`, `kota_lahir`, `tgl_lahir`) VALUES
+('12100410', 'SUKRI', 'L', 'JAKARTA', '2017-11-28'),
+('16100816', 'ASEP AHMADI', 'L', 'TANGERANG', '2017-12-13'),
+('16100817', 'LASIMAN', 'L', 'SUKOHARJO JAWA TENGA', '2017-12-11');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pendidikan`
 --
 
@@ -129,7 +154,14 @@ CREATE TABLE `pendidikan` (
 --
 
 INSERT INTO `pendidikan` (`id_pend`, `nip`, `pend_terakhir`, `prodi`, `thn_lulus`, `pend_asal`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
-('1', 0, 'S1', 'Teknik Mesin', 2015, 'Univ Trisakti', 12100410, '2017-12-22 15:07:43', 0, '0000-00-00 00:00:00');
+('1', 0, 'S1', 'Teknik Mesin', 2015, 'Univ Trisakti', 12100410, '2017-12-22 15:07:43', 0, '0000-00-00 00:00:00'),
+('2', 0, 'S2', 'Teknik Informatika', 2014, 'Univ Pajajaran', 12100410, '2017-12-27 08:08:27', 0, '0000-00-00 00:00:00'),
+('3', 0, 'S3', 'Teknik Informatika', 0, '', 12100410, '2017-12-27 08:09:45', 0, '0000-00-00 00:00:00'),
+('4', 0, 'S3', 'Teknik Informatika', 2017, '2017', 12100410, '2017-12-27 08:15:26', 0, '0000-00-00 00:00:00'),
+('5', 0, 'S2', 'Teknik Informatika', 2017, 'Kita bisa', 12100410, '2017-12-27 08:16:54', 0, '0000-00-00 00:00:00'),
+('6', 0, 'S1', 'Teknik Mesin', 2015, 'Univ Trisakti', 12100410, '2017-12-27 08:18:33', 0, '0000-00-00 00:00:00'),
+('7', 0, 'S3', 'Teknik Mesin', 2015, 'Univ Trisakti', 12100410, '2017-12-27 08:19:14', 0, '0000-00-00 00:00:00'),
+('8', 0, 'S3', 'Teknik Mesin', 2015, 'Univ Trisakti', 12100410, '2017-12-27 14:20:47', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -154,7 +186,8 @@ CREATE TABLE `posisi_kerja` (
 INSERT INTO `posisi_kerja` (`id_posisi`, `nm_posisi`, `ket_posisi`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
 (1, 'Krani', 'Krani', 12100410, '2017-12-21 15:06:20', 12100410, '2017-12-21 15:09:33'),
 (2, 'Kasir', 'Kasir', 12100410, '2017-12-21 15:06:34', 12100410, '2017-12-21 15:13:11'),
-(3, 'Driver', 'Driver Porklip', 12100410, '2017-12-21 15:06:50', 12100410, '2017-12-21 15:10:39');
+(3, 'Driver', 'Driver Porklip', 12100410, '2017-12-21 15:06:50', 12100410, '2017-12-21 15:10:39'),
+(4, 'HRD', 'Human Resource Departemen (2)', 12100410, '2017-12-27 08:19:53', 12100410, '2017-12-27 11:38:28');
 
 -- --------------------------------------------------------
 
@@ -250,8 +283,8 @@ CREATE TABLE `unit_kerja` (
 INSERT INTO `unit_kerja` (`id_unit`, `nama_unit`, `ket_unit`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
 (1, 'Fasilitas dan Sarana 2 ', 'Fasilitas dan Sarana 2', 12100410, '2017-12-21 16:41:57', 12100410, '2017-12-21 16:43:20'),
 (2, 'Import 540', 'Import 540', 12100410, '2017-12-21 16:43:08', 12100410, '2017-12-22 08:23:57'),
-(3, 'Driver Thai Chargo', 'Driver Thai Chargo', 12100410, '2017-12-22 08:23:33', 0, '0000-00-00 00:00:00'),
-(4, 'Export MU', 'Export MU', 12100410, '2017-12-22 08:24:21', 0, '0000-00-00 00:00:00'),
+(3, 'Driver Thai Chargo', 'Driver Thai Chargo 123', 12100410, '2017-12-22 08:23:33', 12100410, '2017-12-27 11:57:34'),
+(4, 'Export MU', 'Export MU Bandara CGO', 12100410, '2017-12-22 08:24:21', 12100410, '2017-12-27 14:23:58'),
 (5, 'Checker Import 540', 'Checker Import 540', 12100410, '2017-12-22 08:24:34', 0, '0000-00-00 00:00:00');
 
 --
@@ -275,6 +308,12 @@ ALTER TABLE `ms_menu`
 --
 ALTER TABLE `ms_user`
   ADD PRIMARY KEY (`username`);
+
+--
+-- Indexes for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`nip`);
 
 --
 -- Indexes for table `pendidikan`
