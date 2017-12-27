@@ -7,17 +7,22 @@ $db->connectMySQL();
 $pendidikan = new pendidikan();
 $da=$pendidikan->bacapendidikan($id_pend);
     if ($da['id_pend']>0) {
+        $id_pend          = $da['id_pend'];
         $nip              = $da['nip'];
         $pend_terakhir    = $da['pend_terakhir'];
         $prodi            = $da['prodi'];
+        $thn_lulus        = $da['thn_lulus'];
+        $pend_asal        = $da['pend_asal'];
         $i_by             = $da['i_by'];
         $i_date           = $da['i_date'];
         $e_by             = $da['e_by'];
         $e_date           = $da['e_date'];
     } else {
-        $id_posisi        = '';
-        $nm_posisi        = '';
-        $ket_posisi       = '';
+        $nip              = '';
+        $pend_terakhir    = '';
+        $prodi            = '';
+        $thn_lulus        = '';
+        $pend_asal        = '';
         $i_by             = '';
         $i_date           = '';
         $e_by             = '';

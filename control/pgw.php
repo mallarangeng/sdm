@@ -1,26 +1,24 @@
 <?php
 include'../class/gapura_class.php';
 include'../class/gapura_function.php';
-session_start();
 $db = new Database();
 $db->connectMySQL();
-$posisi = new posisi();
-$userSes = userSes();
-$timeSkrg = timeSkrg();
-$id_posisi = kdauto2('posisi_kerja');
+$pgw = new pgw();
+$nip2 = $_GET['nip'];
 if($_GET['aksi']=='tambah'){
-	$cek_id	= $posisi->cek_posisi($_GET['id_posisi']);
+	$cek_id	= $pgw->cekpgw($_GET['nip']);
 	if($cek_id){
-		$posisi->updateposisi($_GET['id_posisi'],$_GET['nm_posisi'],$_GET['ket_posisi'],$_GET['i_by'],$_GET['i_date'],$userSes,$timeSkrg);
+		$pgw->updatepgw($_GET['nip'],$_GET['nama'],$_GET['jekel'],$_GET['kota_lahir'],$_GET['tgl_lahir']);
 		echo "<div class='alert alert-warning alert-dismissable'>";
 		echo "<button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×</button>";
-		echo "Berhasil diubah ";
+		echo "NIP ".$_GET['nip']." Berhasil diUbah ";
 		echo "</div>";
 	}else{
-		$posisi->tambahposisi($id_posisi,$_GET['nm_posisi'],$_GET['ket_posisi'],$userSes,$timeSkrg,$_GET['e_by'],$_GET['e_date']);
+		
+		$pgw->tambahpgw($nip2,$_GET['nama'],$_GET['jekel'],$_GET['kota_lahir'],$_GET['tgl_lahir']);
 		echo "<div class='alert alert-success alert-dismissable'>";
 		echo "<button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×</button>";
-		echo "Berhasil disimpan ";
+		echo "NIP ".$nip." Berhasil disimpan ";
 		echo "</div>";
 	}
 }

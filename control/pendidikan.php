@@ -11,7 +11,7 @@ $id_pend = kdauto2('pendidikan');
 if($_GET['aksi']=='tambah'){
 	$cek_id	= $pendidikan->cekpendidikan($_GET['id_pend']);
 	if($cek_id){
-		$pendidikan->updatependidikan($_GET['id_pend'],$_GET['nip'],$_GET['pend_terakhir'],$_GET['prodi'],$_GET['thn_lulus'],$_GET['pend_asal'],$_GET['i_by'],$_GET['i_date'],$userSes,$timeSkrg);
+		$pendidikan->updatepend($_GET['id_pend'],$_GET['nip'],$_GET['pend_terakhir'],$_GET['prodi'],$_GET['thn_lulus'],$_GET['pend_asal'],$_GET['i_by'],$_GET['i_date'],$userSes,$timeSkrg);
 		echo "<div class='alert alert-warning alert-dismissable'>";
 		echo "<button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×</button>";
 		echo "Berhasil diubah ";

@@ -1,80 +1,4 @@
 $(function () {
-	//modal jual kavling
-		//$("#data-menu").load(main);
-		$(".jual-kav").click(function(e){
-        e.preventDefault();
-        //var idk = $("#idk").val();
-        //alert (idk);
-        
-		$("#modal-jual").modal('show');
-        $(".modal-title").html('Penjualan Kavling');
-        $.post("view/kavling/jual_form.php",
-            {id:$(this).attr('data-id')},
-            function(html){
-                $(".modal-body").html(html);
-            }
-        );
-        //alert("sd");
-    });
-	
-		//simpan jual kavling
-	$("#simpan-jual-kav").click(function(e){ 
-        e.preventDefault(); //mencegah action form biasa   
-        //alert('dadsdsdsds');
-        var url = "control/penjualan.php"
-		var id_kon = $("#id_kon").val();
-		var id_sal = $("#id_sal").val();
-		if (id_kon==""){
-			alert ("Anda belum memilih data kosnsumen");
-			return false;
-		}
-		if (id_sal==""){
-			alert ("Anda belum memilih data Sales");
-			return false;
-		}
-        //cara1 ambil value
-        //var vSwitch = $('input:text[name=swtch]').val();
-
-        //cara2 ambil value$id_pjl,$id_kon, $id_kav, $id_sta, $id_sal, $harga_k,$harga_j, $total_k, $tgl_booking,$status_beli,$input_by, $input_on
-		var id_pjl = $("#id_pjl").val();
-		//var id_kon = $("#id_kon").val();
-        var id_kav = $("#id_kav").val();
-        var id_sta = $("#id_sta").val();
-        //var id_sal = $("#id_sal").val();
-        var harga_k  = $("#harga_k").text();
-        var harga_j  = $("#harga_j").text();
-        var total_k = $("#total_k").text();
-        var tgl_booking  = $("#tgl_booking").val();
-        var status_beli  = $("#status_beli").val();
-        var input_by  = $("#input_by").val();
-        var input_on  = $("#input_on").val();
-		//alert (harga_k);
-		//post tanpa ajax
-        //$.post(url,{judul: judul, link: link, parent: parent, icon: icon, urutan: urutan},function(data){
-         
-        //$('#modal-menu-add').modal('hide'); 
-		//$("#hasil").html(data);
-		//$("#data-menu").load('view/menu/menu_data.php');
-        //});
-		$.ajax({
-                  url: 'control/penjualan.php',
-                  type: 'GET',
-                  data: 'aksi=tambah&id_pjl='+id_pjl+'&id_kon='+id_kon+'&id_kav='+id_kav+'&id_sta='+id_sta+'&id_sta='+id_sta+'&id_sal='+id_sal+'&harga_k='+harga_k+'&harga_j='+harga_j+'&total_k='+total_k+'&tgl_booking='+tgl_booking+'&status_beli='+status_beli+'&input_by='+input_by+'&input_on='+input_on,
-                  success: function(data) {
-                    //called jika sukses dan tampilkan di tag id username1
-					 
-                    $('#hasil').html(data);
-					//$("#data-menu").load("view/menu/menu_data.php");
-					$('#modal-jual').modal('hide');
-					//$(location).attr('href','?r=penjualan&pg=penjualan');
-                  },
-                  error: function(e) {
-                    //called when there is an error
-                    //console.log(e.message);
-                  }
-                });
-    });
-
     var main ="view/pendidikan/pendidikan_data.php";
     $("#data-pendidikan").load(main);
         $(".tambah-pendidikan").click(function(e){
@@ -257,6 +181,44 @@ $(function () {
                     $('#hasil').html(data);
                     $("#data-akses").load("view/akses/akses_data.php");
                     $('#modal-akses-add').modal('hide');
+                  },
+                  error: function(e) {
+                  }
+                });
+    });
+// close js akses data
+// Js untuk  pgw 
+    var main = "view/pgw/pgw_data.php";
+    $("#data-pgw").load(main);
+        $(".tambah-pgw").click(function(e){
+        e.preventDefault();
+        $("#modal-pgw-add").modal('show');
+        $(".modal-title").html('Tambah Pegawai');
+        $.post("view/pgw/pgw_form.php",
+            {id_pgw:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
+
+    $("#simpan-pgw").click(function(e){ 
+        e.preventDefault(); 
+        var url         = "control/pgw.php"
+        var nip         = $("#nip").val();
+        var nama        = $("#nama").val();
+        var jekel       = $("#jekel").val();
+        var kota_lahir  = $("#kota_lahir").val();
+        var tgl_lahir   = $("#tgl_lahir").val();
+        
+        $.ajax({
+                  url: 'control/pgw.php',
+                  type: 'GET',
+                  data: 'aksi=tambah&nip='+nip+'&nama='+nama+'&jekel='+jekel+'&kota_lahir='+kota_lahir+'&tgl_lahir='+tgl_lahir,
+                    success: function(data) {
+                    $('#hasil').html(data);
+                    $("#data-pgw").load("view/pgw/pgw_data.php");
+                    $('#modal-pgw-add').modal('hide');
                   },
                   error: function(e) {
                   }
