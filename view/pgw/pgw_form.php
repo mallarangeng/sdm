@@ -2,7 +2,6 @@
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
-
 $da=$pgw->bacapgw($nip);
 
     if ($da['nip']>0) {
@@ -12,6 +11,17 @@ $da=$pgw->bacapgw($nip);
         $kota_lahir  = $da['kota_lahir'];
         $tgl_lahir   = $da['tgl_lahir'];
         $nipform     = 'readonly';//agar field nip read only saat edit data
+        $alamat      = $da['alamat'];
+        $id_unit     = $da['id_unit'];
+        $id_posisi   = $da['id_posisi'];
+        $id_provider = $da['id_provider'];
+        $tmt_kerja   = $da['tmt_kerja'];
+        $jenis_kontrak  = $da['jenis_kontrak'];
+        $cabang      = $da['cabang'];
+        $stat_peg    = $da['stat_peg'];
+        $aktif       = $da['aktif'];
+        $note_aktif  = $da['note_aktif'];
+        $id_akses    = $da['id_akses'];
     }
     else
     {
@@ -20,6 +30,17 @@ $da=$pgw->bacapgw($nip);
         $jekel       = 'Jenis Kelamin';
         $kota_lahir  = '';
         $tgl_lahir   = '';
+        $alamat      = '';
+        $id_unit     = '';
+        $id_posisi   = '';
+        $id_provider = '';
+        $tmt_kerja   = '';
+        $jenis_kontrak = '';
+        $cabang      = '';
+        $stat_peg    = '';
+        $aktif       = '';
+        $note_aktif  = '';
+        $id_akses    = '';
     }
 ?>
 <div class="panel-body">
@@ -118,9 +139,9 @@ $da=$pgw->bacapgw($nip);
                                     <?php
                                         $arrayProvider = $provider->tampilprovider();
                                         if(isset($arrayProvider) && $arrayProvider !=NULL){
-                                            foreach($arrayProvider as $data){
+                                            foreach($arrayProvider as $data_prov){
                                     ?>              
-                                    <option value="<?php echo $data['id_provider']?>"><?php echo $data['nama_provider']?></option>
+                                    <option value="<?php echo $data_prov['id_provider']?>"><?php echo $data_prov['nama_provider']?></option>
                                     <?php
                                         }
                                     }
@@ -128,21 +149,22 @@ $da=$pgw->bacapgw($nip);
                                 </select>
                                   </div>
                          </div>
+                                <div class="form-group">
+                                <label class="col-sm-4 control-label">TMT Kerja</label>
+                                <div class="col-sm-4">
+                                    <input type="text" placeholder="yyyy-mm-dd" class="form-control input-sm" id="tmt_kerja" value="<?php echo $tmt_kerja ?>">
+                                </div>
+                         </div>
                           <div class="form-group">
                                 <label class="col-sm-4 control-label">Jenis Kontrak</label>
                                 <div class="col-sm-6">
                                 <select class="js-source-states" id="jenis_kontrak" style="width: 100%">                   
-                                    <option value="S3">SDM</option>
-                                    <option value="S3">PEKERJAAN</option>
+                                    <option value="SDM">SDM</option>
+                                    <option value="SDM">PEKERJAAN</option>
                                 </select>
                                   </div>
                          </div>
-                                 <div class="form-group">
-                                <label class="col-sm-4 control-label">TMT Kerja</label>
-                                <div class="col-sm-4">
-                                    <input type="text" placeholder="yyyy-mm-dd" class="form-control input-sm" id="tmt_kerja" value="<?php echo $tgl_lahir ?>">
-                                </div>
-                         </div>
+                          
                            <div class="form-group">
                                 <label class="col-sm-4 control-label">Cabang</label>
                                 <div class="col-sm-4">
@@ -157,7 +179,51 @@ $da=$pgw->bacapgw($nip);
                 </div>
                 <div id="tab-3" class="tab-pane">
                     <div class="panel-body">
-                        <strong>FORM 3 DATA PENDIDIKAN</strong>
+                        <div class="form-group">
+                                <label class="col-sm-4 control-label">Status Pegawai</label>
+                                <div class="col-sm-4">
+                                <select class="js-source-states" id="stat_peg" style="width: 100%">                   
+                                    <option value="OS">OS</option>
+                                    <option value="PKWT">PKWT</option>
+                                    <option value="TETAP">TETAP</option>
+                                </select>
+                                  </div>
+                         </div>
+                         <div class="form-group">
+                                <label class="col-sm-4 control-label">Status Aktif</label>
+                                <div class="col-sm-4">
+                                <select class="js-source-states" id="aktif" style="width: 100%">                   
+                                    <option value="Aktif">Aktif</option>
+                                    <option value="Non Aktif">Non Aktif</option>
+                                    
+                                </select>
+                                  </div>
+                         </div>
+                        <div class="form-group">
+                                <label class="col-sm-4 control-label">Keterangan Aktif/Non aktif</label>
+                                <div class="col-sm-8">
+                                <input type="text" placeholder="Kota Lahir" class="form-control input-sm" id="note_aktif" value="<?php echo $kota_lahir ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">Akses Ke sistem </label>
+                                <div class="col-sm-4">
+                                <select class="js-source-states" id="id_akses" style="width: 100%">
+                                    <?php
+                                        $arrayAkses = $akses->tampilakses();
+                                        if(isset($arrayAkses) && $arrayAkses !=NULL){
+                                            foreach($arrayAkses as $da){
+                                    ?>                   
+                                    <option value="<?php echo $da['id_akses']?>"><?php echo $da['nama_akses']?></option>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+
+                                    
+                                </select>
+                                  </div>
+                         </div>
                     </div>
                 </div>
             </div>

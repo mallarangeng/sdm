@@ -452,13 +452,13 @@ class Pgw {
 		  return FALSE;
 		}
 	}
-	function updatepgw($nip,$nama,$jekel,$kota_lahir,$tgl_lahir) {
-		$query = mysql_query("UPDATE pegawai SET nama='$nama', jekel='$jekel', kota_lahir='$kota_lahir', tgl_lahir='$tgl_lahir' WHERE nip='$nip'");	
+	function updatepgw($nip,$nama,$jekel,$kota_lahir,$tgl_lahir,$alamat,$id_unit,$id_posisi,$id_provider,$tmt_kerja,$jenis_kontrak,$cabang,$stat_peg,$aktif,$note_aktif,$id_akses) {
+		$query = mysql_query("UPDATE pegawai SET nama='$nama', jekel='$jekel', kota_lahir='$kota_lahir', tgl_lahir='$tgl_lahir', alamat='$alamat', id_unit='$id_unit', id_posisi='$id_posisi', id_provider='$id_provider', tmt_kerja='$tmt_kerja', jenis_kontrak='$jenis_kontrak', cabang='$cabang', stat_peg='$stat_peg', aktif='$aktif', note_aktif='$note_aktif', id_akses='$id_akses' WHERE nip='$nip'");	
 	}
 	
-	function tambahpgw($nip,$nama,$jekel,$kota_lahir,$tgl_lahir) {
-		$query = "INSERT INTO pegawai (nip,nama,jekel,kota_lahir,tgl_lahir)
-		          VALUES ('$nip','$nama','$jekel','$kota_lahir','$tgl_lahir')";
+	function tambahpgw($nip,$nama,$jekel,$kota_lahir,$tgl_lahir,$alamat,$id_unit,$id_posisi,$id_provider,$tmt_kerja,$jenis_kontrak,$cabang,$stat_peg,$aktif,$note_aktif,$id_akses) {
+		$query = "INSERT INTO pegawai (nip,nama,jekel,kota_lahir,tgl_lahir,alamat,id_unit,id_posisi,id_provider,tmt_kerja,jenis_kontrak,cabang,stat_peg,aktif,note_aktif,id_akses)
+		          VALUES ('$nip','$nama','$jekel','$kota_lahir','$tgl_lahir','$alamat','$id_unit','$id_posisi','$id_provider','$tmt_kerja','$jenis_kontrak','$cabang','$stat_peg','$aktif','$note_aktif','$id_akses')";
 		$hasil = mysql_query($query);
 	}
 }

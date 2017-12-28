@@ -32,7 +32,7 @@ include'../../class/gapura_object.php';
 				<td><?php echo $data['link']?></td>
 				<td><?php echo $data['id_akses']?></td>
 				<td><?php echo $data['parent']?></td>
-				<td class="center"><i class="fa <?php echo $data['icon']?>"></i> <span class="nav-label">--<?php echo $data['icon']?></span></td>
+				<td class="center"><i class="fa <?php echo $data['icon']?>"></i> <span class="nav-label">&nbsp;<?php echo $data['icon']?></span></td>
 				<td class="center"><?php echo $data['urut']?></td>
 				<td class="center">12100410</td>
 				<td class="center">Y</td>

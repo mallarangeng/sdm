@@ -7,7 +7,7 @@
                         <a class="showhide"><i class="fa fa-chevron-up"></i></a>
                         <a class="closebox"><i class="fa fa-times"></i></a>
                     </div>
-                    Data menu
+                    DATA MENU
                 </div>
 				<div class="modal fade hmodal-success" id="modal-menu-add" tabindex="-1" role="dialog"  aria-hidden="true">
                     <div class="modal-dialog">

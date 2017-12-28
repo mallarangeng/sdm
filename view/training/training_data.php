@@ -1,6 +1,6 @@
 <?php
 include'../../class/gapura_class.php';
-include'../../class/msc_function.php';
+include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
 ?>
   <table id="datat_training" class="table table-striped table-bordered table-hover">
@@ -30,7 +30,7 @@ include'../../class/gapura_object.php';
 				<td><?php echo $data['nama_training']?></td>
 				<td><?php echo $data['penyelenggara']?></td>
 				<td><?php echo $data['instruktur']?></td>
-				<td><?php echo $data['tgl_training']?></td>
+				<td><?php echo DateToIndo($data['tgl_training']); ?></td>
 				<td><?php echo $data['durasi']?> Jam</td>
 				<td><?php echo $data['lokasi']?></td>
 				<td><i class="fa pe-7s-users"></td>

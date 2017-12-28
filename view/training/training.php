@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <div class="hpanel">
                 <div class="panel-heading">
-                    Data training
+                    DATA TRAINING
                 </div>
 				<div class="modal fade hmodal-success" id="modal-training-add" tabindex="-1" role="dialog"  aria-hidden="true">
                     <div class="modal-dialog">

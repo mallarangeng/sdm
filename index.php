@@ -144,10 +144,7 @@ header("location:login.php");
 						}
 					}
 			?>
-            <li>
-                <a href="?r=coba&pg=validasi"><span class="nav-label"><i class="pe-7s-paperclip"></i>&nbsp;&nbsp;MENU KOSONG</span></a>
-            </li>
-
+         
         </ul>
     </div>
 </aside>

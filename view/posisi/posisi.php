@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <div class="hpanel">
                 <div class="panel-heading">
-                    Data Diklat
+                    POSISI KERJA
                 </div>
 				<div class="modal fade hmodal-success" id="modal-posisi-add" tabindex="-1" role="dialog"  aria-hidden="true">
                     <div class="modal-dialog">
