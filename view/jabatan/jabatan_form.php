@@ -2,6 +2,7 @@
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
+
 $da=$pendidikan->bacapendidikan($id_pend);
     if ($da['id_pend']>0) {
         $id_pend          = $da['id_pend'];

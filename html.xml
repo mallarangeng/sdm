@@ -1,7 +1,7 @@
 <?xml version="1.0" standalone="yes" ?>
 <DBMODEL Version="4.0">
 <SETTINGS>
-<GLOBALSETTINGS ModelName="SDM GAPURA" IDModel="0" IDVersion="0" VersionStr="1.0.0.0" Comments="" UseVersionHistroy="1" AutoIncVersion="1" DatabaseType="MySQL" ZoomFac="90.00" XPos="0" YPos="0" DefaultDataType="5" DefaultTablePrefix="0" DefSaveDBConn="" DefSyncDBConn="" DefQueryDBConn="" Printer="\\NELTY-PC\EPSON L110 Series" HPageCount="4.0" PageAspectRatio="1.426496022137669" PageOrientation="0" PageFormat="A4 (210x297 mm, 8.26x11.7 inches)" SelectedPages="0" UsePositionGrid="0" PositionGridX="20" PositionGridY="20" TableNameInRefs="1" DefaultTableType="0" ActivateRefDefForNewRelations="1" FKPrefix="" FKPostfix="" CreateFKRefDefIndex="1" DBQuoteCharacter="`" CreateSQLforLinkedObjects="0" DefModelFont="Tahoma" CanvasWidth="4096" CanvasHeight="2842" />
+<GLOBALSETTINGS ModelName="SDM GAPURA" IDModel="0" IDVersion="0" VersionStr="1.0.0.0" Comments="" UseVersionHistroy="1" AutoIncVersion="1" DatabaseType="MySQL" ZoomFac="90.00" XPos="0" YPos="24" DefaultDataType="5" DefaultTablePrefix="0" DefSaveDBConn="" DefSyncDBConn="" DefQueryDBConn="" Printer="\\NELTY-PC\EPSON L110 Series" HPageCount="4.0" PageAspectRatio="1.426496022137669" PageOrientation="0" PageFormat="A4 (210x297 mm, 8.26x11.7 inches)" SelectedPages="0" UsePositionGrid="0" PositionGridX="20" PositionGridY="20" TableNameInRefs="1" DefaultTableType="0" ActivateRefDefForNewRelations="1" FKPrefix="" FKPostfix="" CreateFKRefDefIndex="1" DBQuoteCharacter="`" CreateSQLforLinkedObjects="0" DefModelFont="Tahoma" CanvasWidth="4096" CanvasHeight="2842" />
 <DATATYPEGROUPS>
 <DATATYPEGROUP Name="Numeric Types" Icon="1" />
 <DATATYPEGROUP Name="Date and Time Types" Icon="2" />
@@ -337,7 +337,7 @@
 </INDEX>
 </INDICES>
 </TABLE>
-<TABLE ID="1011" Tablename="PEKERJA" PrevTableName="Table_02" XPos="9" YPos="9" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="3" >
+<TABLE ID="1011" Tablename="PEGAWAI" PrevTableName="Table_02" XPos="6" YPos="19" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="3" >
 <COLUMNS>
 <COLUMN ID="1013" ColName="nip" PrevColName="" Pos="0" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
@@ -370,12 +370,6 @@
 </OPTIONSELECTED>
 </COLUMN>
 <COLUMN ID="1061" ColName="UNIT_KERJA_id_unit" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(5)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
-<OPTIONSELECTED>
-<OPTIONSELECT Value="0" />
-<OPTIONSELECT Value="0" />
-</OPTIONSELECTED>
-</COLUMN>
-<COLUMN ID="1187" ColName="JABATAN_id_jabatan" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(5)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 <OPTIONSELECT Value="0" />
@@ -456,12 +450,12 @@
 <RELATION_START ID="1166" />
 <RELATION_START ID="1224" />
 <RELATION_START ID="1227" />
+<RELATION_START ID="1267" />
 </RELATIONS_START>
 <RELATIONS_END>
 <RELATION_END ID="1029" />
 <RELATION_END ID="1060" />
 <RELATION_END ID="1083" />
-<RELATION_END ID="1186" />
 <RELATION_END ID="1247" />
 </RELATIONS_END>
 <INDICES>
@@ -483,11 +477,6 @@
 <INDEX ID="1085" IndexName="PEKERJA_FKIndex3" IndexKind="1" FKRefDef_Obj_id="1083">
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="1084" LengthParam="0" />
-</INDEXCOLUMNS>
-</INDEX>
-<INDEX ID="1188" IndexName="PEKERJA_FKIndex4" IndexKind="1" FKRefDef_Obj_id="1186">
-<INDEXCOLUMNS>
-<INDEXCOLUMN idColumn="1187" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
 <INDEX ID="1249" IndexName="PEKERJA_FKIndex5" IndexKind="1" FKRefDef_Obj_id="1247">
@@ -761,7 +750,7 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="1120" ColName="PEKERJA_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="1120" ColName="PEGAWAI_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 <OPTIONSELECT Value="0" />
@@ -804,7 +793,7 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="1137" ColName="PEKERJA_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="1137" ColName="PEGAWAI_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 <OPTIONSELECT Value="0" />
@@ -865,7 +854,7 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="1146" ColName="PEKERJA_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="1146" ColName="PEGAWAI_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 <OPTIONSELECT Value="0" />
@@ -925,7 +914,7 @@
 </INDEX>
 </INDICES>
 </TABLE>
-<TABLE ID="1157" Tablename="KEGIATAN" PrevTableName="Table_10" XPos="282" YPos="168" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="18" >
+<TABLE ID="1157" Tablename="KEGIATAN" PrevTableName="Table_10" XPos="278" YPos="172" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="18" >
 <COLUMNS>
 <COLUMN ID="1159" ColName="id_kegiatan" PrevColName="" Pos="0" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
@@ -933,7 +922,7 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="1167" ColName="PEKERJA_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="1167" ColName="PEGAWAI_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 <OPTIONSELECT Value="0" />
@@ -980,9 +969,15 @@
 </INDEX>
 </INDICES>
 </TABLE>
-<TABLE ID="1176" Tablename="JABATAN" PrevTableName="Table_11" XPos="494" YPos="209" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="20" >
+<TABLE ID="1176" Tablename="JABATAN" PrevTableName="Table_11" XPos="487" YPos="138" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="20" >
 <COLUMNS>
 <COLUMN ID="1178" ColName="id_jabatan" PrevColName="" Pos="0" idDatatype="4" DatatypeParams="(5)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
+<OPTIONSELECTED>
+<OPTIONSELECT Value="0" />
+<OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1268" ColName="PEGAWAI_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 <OPTIONSELECT Value="0" />
@@ -996,6 +991,10 @@
 <COLUMN ID="1181" ColName="ket_jabatan" PrevColName="" Pos="2" idDatatype="20" DatatypeParams="(30)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
+</OPTIONSELECTED>
+</COLUMN>
+<COLUMN ID="1263" ColName="tgl_jabat" PrevColName="tgl_menjabat" Pos="7" idDatatype="14" DatatypeParams="" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
+<OPTIONSELECTED>
 </OPTIONSELECTED>
 </COLUMN>
 <COLUMN ID="1182" ColName="input_by" PrevColName="" Pos="3" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="0" AutoInc="0" IsForeignKey="0" DefaultValue="" Comments="">
@@ -1019,13 +1018,18 @@
 </OPTIONSELECTED>
 </COLUMN>
 </COLUMNS>
-<RELATIONS_START>
-<RELATION_START ID="1186" />
-</RELATIONS_START>
+<RELATIONS_END>
+<RELATION_END ID="1267" />
+</RELATIONS_END>
 <INDICES>
 <INDEX ID="1179" IndexName="PRIMARY" IndexKind="0" FKRefDef_Obj_id="-1">
 <INDEXCOLUMNS>
 <INDEXCOLUMN idColumn="1178" LengthParam="0" />
+</INDEXCOLUMNS>
+</INDEX>
+<INDEX ID="1269" IndexName="JABATAN_FKIndex1" IndexKind="1" FKRefDef_Obj_id="1267">
+<INDEXCOLUMNS>
+<INDEXCOLUMN idColumn="1268" LengthParam="0" />
 </INDEXCOLUMNS>
 </INDEX>
 </INDICES>
@@ -1038,7 +1042,7 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="1228" ColName="PEKERJA_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="1228" ColName="PEGAWAI_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 <OPTIONSELECT Value="0" />
@@ -1098,7 +1102,7 @@
 </INDEX>
 </INDICES>
 </TABLE>
-<TABLE ID="1211" Tablename="PENDIDIKAN" PrevTableName="Table_13" XPos="268" YPos="571" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="23" >
+<TABLE ID="1211" Tablename="PENDIDIKAN" PrevTableName="Table_13" XPos="257" YPos="557" TableType="0" TablePrefix="0" nmTable="0" Temporary="0" UseStandardInserts="0" StandardInserts="\n" TableOptions="DelayKeyTblUpdates=0\nPackKeys=0\nRowChecksum=0\nRowFormat=0\nUseRaid=0\nRaidType=0\n" Comments="" Collapsed="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="23" >
 <COLUMNS>
 <COLUMN ID="1213" ColName="id_pend" PrevColName="" Pos="0" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="1" NotNull="1" AutoInc="1" IsForeignKey="0" DefaultValue="" Comments="">
 <OPTIONSELECTED>
@@ -1106,7 +1110,7 @@
 <OPTIONSELECT Value="0" />
 </OPTIONSELECTED>
 </COLUMN>
-<COLUMN ID="1225" ColName="PEKERJA_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
+<COLUMN ID="1225" ColName="PEGAWAI_nip" PrevColName="" Pos="1" idDatatype="4" DatatypeParams="(10)" Width="-1" Prec="-1" PrimaryKey="0" NotNull="1" AutoInc="0" IsForeignKey="1" DefaultValue="" Comments="">
 <OPTIONSELECTED>
 <OPTIONSELECT Value="0" />
 <OPTIONSELECT Value="0" />
@@ -1205,15 +1209,15 @@
 <RELATION ID="1060" RelationName="Rel_02" Kind="2" SrcTable="1051" DestTable="1011" FKFields="id_unit=UNIT_KERJA_id_unit\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1062" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="7" />
 <RELATION ID="1083" RelationName="Rel_03" Kind="2" SrcTable="1069" DestTable="1011" FKFields="id_posisi=POSISI_KERJA_id_posisi\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1085" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="9" />
 <RELATION ID="1116" RelationName="Rel_04" Kind="2" SrcTable="1087" DestTable="1112" FKFields="id_diklat=training_id_diklat\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1118" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="12" />
-<RELATION ID="1119" RelationName="Rel_05" Kind="2" SrcTable="1011" DestTable="1112" FKFields="nip=PEKERJA_nip\n" FKFieldsComments="\n" relDirection="2" MidOffset="2" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1121" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="13" />
-<RELATION ID="1136" RelationName="Rel_06" Kind="2" SrcTable="1011" DestTable="1123" FKFields="nip=PEKERJA_nip\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1138" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="15" />
-<RELATION ID="1145" RelationName="Rel_07" Kind="2" SrcTable="1011" DestTable="1140" FKFields="nip=PEKERJA_nip\n" FKFieldsComments="\n" relDirection="2" MidOffset="70" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1147" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="17" />
-<RELATION ID="1166" RelationName="Rel_08" Kind="2" SrcTable="1011" DestTable="1157" FKFields="nip=PEKERJA_nip\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1168" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="19" />
-<RELATION ID="1186" RelationName="Rel_09" Kind="2" SrcTable="1176" DestTable="1011" FKFields="id_jabatan=JABATAN_id_jabatan\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1188" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="21" />
-<RELATION ID="1224" RelationName="Rel_10" Kind="2" SrcTable="1011" DestTable="1211" FKFields="nip=PEKERJA_nip\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1226" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="24" />
-<RELATION ID="1227" RelationName="Rel_11" Kind="2" SrcTable="1011" DestTable="1194" FKFields="nip=PEKERJA_nip\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1229" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="25" />
+<RELATION ID="1119" RelationName="Rel_05" Kind="2" SrcTable="1011" DestTable="1112" FKFields="nip=PEGAWAI_nip\n" FKFieldsComments="\n" relDirection="2" MidOffset="2" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1121" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="13" />
+<RELATION ID="1136" RelationName="Rel_06" Kind="2" SrcTable="1011" DestTable="1123" FKFields="nip=PEGAWAI_nip\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1138" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="15" />
+<RELATION ID="1145" RelationName="Rel_07" Kind="2" SrcTable="1011" DestTable="1140" FKFields="nip=PEGAWAI_nip\n" FKFieldsComments="\n" relDirection="2" MidOffset="70" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1147" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="17" />
+<RELATION ID="1166" RelationName="Rel_08" Kind="2" SrcTable="1011" DestTable="1157" FKFields="nip=PEGAWAI_nip\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1168" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="19" />
+<RELATION ID="1224" RelationName="Rel_10" Kind="2" SrcTable="1011" DestTable="1211" FKFields="nip=PEGAWAI_nip\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1226" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="24" />
+<RELATION ID="1227" RelationName="Rel_11" Kind="2" SrcTable="1011" DestTable="1194" FKFields="nip=PEGAWAI_nip\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1229" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="25" />
 <RELATION ID="1247" RelationName="Rel_12" Kind="2" SrcTable="1240" DestTable="1011" FKFields="id_akses=akses_id_akses\n" FKFieldsComments="\n" relDirection="4" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1249" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="27" />
 <RELATION ID="1251" RelationName="Rel_13" Kind="2" SrcTable="1240" DestTable="1000" FKFields="id_akses=akses_id_akses\n" FKFieldsComments="\n" relDirection="3" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1253" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="28" />
+<RELATION ID="1267" RelationName="Rel_14" Kind="2" SrcTable="1011" DestTable="1176" FKFields="nip=PEGAWAI_nip\n" FKFieldsComments="\n" relDirection="2" MidOffset="0" OptionalStart="0" OptionalEnd="0" CaptionOffsetX="0" CaptionOffsetY="0" StartIntervalOffsetX="0" StartIntervalOffsetY="0" EndIntervalOffsetX="0" EndIntervalOffsetY="0" CreateRefDef="1" Invisible="0" RefDef="Matching=0\nOnDelete=3\nOnUpdate=3\n" Comments="" FKRefDefIndex_Obj_id="1269" Splitted="0" IsLinkedObject="0" IDLinkedModel="-1" Obj_id_Linked="-1" OrderPos="28" />
 </RELATIONS>
 <NOTES>
 </NOTES>

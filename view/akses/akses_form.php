@@ -1,10 +1,7 @@
 <?php
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
-session_start();
-$db = new Database();
-$db->connectMySQL();
-$akses = new akses();
+include'../../class/gapura_object.php';
 $da=$akses->bacaakses($id_akses);
     if ($da['id_akses']>0) {
         $id_akses          = $da['id_akses'];

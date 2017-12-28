@@ -133,7 +133,7 @@ header("location:login.php");
 						if(isset($arraysMenu) && $arraysMenu !=NULL){
 							foreach($arraysMenu as $data2){
 					?>
-                    <li><a href="?r=<?php echo $data2['folder']?>&pg=<?php echo $data2['link']?>"><?php echo $data2['judul']?></a></li>
+                    <li><a href="?r=<?php echo $data2['folder']?>&pg=<?php echo $data2['link']?>"><span class="nav-label"><i class="<?php echo $data2['icon']?>"></i></span>&nbsp;&nbsp;<?php echo $data2['judul']?></a></li>
 					<?php
 							}
 						}

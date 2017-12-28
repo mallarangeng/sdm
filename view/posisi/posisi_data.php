@@ -1,9 +1,7 @@
 <?php
 include'../../class/gapura_class.php';
 include'../../class/msc_function.php';
-$db = new Database();
-$db->connectMySQL();
-$posisi = new posisi();
+include'../../class/gapura_object.php';
 ?>
   <table id="datat_posisi" class="table table-striped table-bordered table-hover">
 	<thead>

@@ -1,9 +1,8 @@
 <?php
 include'../../class/gapura_class.php';
 include'../../class/msc_function.php';
-$db = new Database();
-$db->connectMySQL();
-$unit = new unit();
+include'../../class/gapura_object.php';
+
 ?>
   <table id="datat_unit" class="table table-striped table-bordered table-hover">
 	<thead>

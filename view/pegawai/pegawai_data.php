@@ -1,9 +1,7 @@
 <?php
 include'../../class/gapura_class.php';
 include'../../class/msc_function.php';
-$db = new Database();
-$db->connectMySQL();
-$pegawai = new pegawai();
+include'../../class/gapura_object.php';
 ?>
   <table id="datat_pegawai" class="table table-striped table-bordered table-hover">
 	<thead>

@@ -1,10 +1,8 @@
 <?php
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
-session_start();
-$db = new Database();
-$db->connectMySQL();
-$posisi = new posisi();
+include'../../class/gapura_object.php';
+
 $da=$posisi->bacaposisi($id_posisi);
     if ($da['id_posisi']>0) {
         $id_posisi        = $da['id_posisi'];

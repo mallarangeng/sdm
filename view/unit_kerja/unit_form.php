@@ -1,10 +1,8 @@
 <?php
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
-session_start();
-$db = new Database();
-$db->connectMySQL();
-$unit = new unit();
+include'../../class/gapura_object.php';
+
 $da=$unit->bacaunit($id_unit);
     if ($da['id_unit']>0) {
         $id_unit          = $da['id_unit'];

@@ -1,10 +1,8 @@
 <?php
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
-session_start();
-$db = new Database();
-$db->connectMySQL();
-$provider = new provider();
+include'../../class/gapura_object.php';
+
 $id_provider=$_GET['id_provider'];
 $dp=$provider->bacaprovider($id_provider);
     if ($dp['id_provider']>0) {

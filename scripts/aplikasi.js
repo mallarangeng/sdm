@@ -37,7 +37,7 @@ $(function () {
         $.ajax({
                   url: 'control/pendidikan.php',
                   type: 'GET',
-                  data: 'aksi=tambah&id_pend'+id_pend+'&nip='+nip+'&pend_terakhir='+pend_terakhir+'&prodi='+prodi+'&thn_lulus='+thn_lulus+'&pend_asal='+pend_asal+'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
+                  data: 'aksi=tambah&id_pend='+id_pend+'&nip='+nip+'&pend_terakhir='+pend_terakhir+'&prodi='+prodi+'&thn_lulus='+thn_lulus+'&pend_asal='+pend_asal+'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
                     success: function(data) {
                     $('#hasil').html(data);
                     $("#data-pendidikan").load("view/pendidikan/pendidikan_data.php");

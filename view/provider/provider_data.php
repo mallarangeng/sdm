@@ -1,9 +1,7 @@
 <?php
 include'../../class/gapura_class.php';
 include'../../class/msc_function.php';
-$db = new Database();
-$db->connectMySQL();
-$provider = new provider();
+include'../../class/gapura_object.php';
 ?>
   <table id="datat_provider" class="table table-striped table-bordered table-hover">
 	<thead>

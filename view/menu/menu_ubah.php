@@ -1,11 +1,7 @@
 <?php
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
-session_start();
-$db = new Database();
-$db->connectMySQL();
-$menu = new menu();
-$akses = new akses();
+include'../../class/gapura_object.php';
 $d=$menu->bacaMenu($id_menu);
 ?>
  <div class="panel-body">

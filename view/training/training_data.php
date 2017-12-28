@@ -1,9 +1,7 @@
 <?php
 include'../../class/gapura_class.php';
 include'../../class/msc_function.php';
-$db = new Database();
-$db->connectMySQL();
-$training = new training();
+include'../../class/gapura_object.php';
 ?>
   <table id="datat_training" class="table table-striped table-bordered table-hover">
 	<thead>
