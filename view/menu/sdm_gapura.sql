@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2017 at 10:55 AM
+-- Generation Time: Dec 28, 2017 at 11:01 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -37,8 +37,9 @@ CREATE TABLE `akses` (
 --
 
 INSERT INTO `akses` (`id_akses`, `nama_akses`, `ket_akses`) VALUES
-('1', 'NO Akses 2', 'No Akses'),
-('2', 'SPV HRD', 'SPV HRD');
+('1', 'No Akses', 'No Akses'),
+('2', 'SPV Human Resource', 'SPV Human Resource'),
+('3', 'Staff HRD', 'Staff HRD');
 
 -- --------------------------------------------------------
 
@@ -63,25 +64,23 @@ CREATE TABLE `ms_menu` (
 
 INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `id_akses`, `parent`, `icon`, `urut`) VALUES
 ('1', 'MASTER DATA', 'master', 'master', 1, 0, 'pe-7s-server', 1),
-('10', 'Data Cuti', 'cuti', 'cuti', 2, 9, '-', 1),
-('11', 'AKTIVITAS', 'aktivitas', '', 2, 0, 'pe-7s-graph1', 0),
-('12', 'Log Aktivitas', 'log', 'log', 0, 11, '-', 2),
+('10', 'Data Cuti', 'cuti', 'cuti', 1, 9, ' pe-7s-coffee', 1),
 ('13', 'Jadwal Training', 'training', 'training', 0, 6, 'pe-7s-graph1', 3),
 ('14', 'SETTING', 'setiing', 'setiing', 0, 0, 'pe-7s-config', 5),
-('15', 'Akun', 'akun', 'akun', 0, 14, '', 1),
-('16', 'Akses', 'akses', 'akses', 1, 14, '-', 5),
-('17', 'Posisi', 'posisi', 'posisi', 1, 1, '-', 6),
-('18', 'Unit Kerja', 'unit_kerja', 'unit', 2, 1, '-', 6),
-('19', 'Pendidikan', 'pendidikan', 'pendidikan', 2, 1, '-', 7),
-('2', 'Pekerja', 'pekerja', 'pekerja', 0, 1, '-', 1),
+('15', 'Akun', 'akun', 'akun', 1, 14, ' pe-7s-users', 1),
+('16', 'Akses', 'akses', 'akses', 1, 14, ' pe-7s-key', 5),
+('17', 'Posisi', 'posisi', 'posisi', 1, 1, ' pe-7s-map', 6),
+('18', 'Unit Kerja', 'unit_kerja', 'unit', 1, 1, ' pe-7s-culture', 6),
+('19', 'Pendidikan', 'pendidikan', 'pendidikan', 1, 1, 'pe-7s-study', 7),
+('2', 'Calon Pegawai', 'Pgw', 'pegawai', 2, 20, 'pe-7s-plane', 1),
 ('20', 'PEGAWAI', 'pegawai', '#', 0, 0, 'pe-7s-users', 2),
-('21', 'Data pegawai', 'pgw', 'pgw', 1, 20, '-', 0),
-('3', 'Menu', 'menu', 'menu', 1, 14, '-', 2),
-('4', 'Provider', 'provider', 'provider', 0, 1, '-', 3),
-('5', 'Jabatan', 'jabatan', 'jabatan', 0, 1, '-', 4),
+('21', 'Data pegawai', 'pgw', 'pgw', 1, 20, 'pe-7s-id', 0),
+('3', 'Menu', 'menu', 'menu', 1, 14, ' pe-7s-menu', 2),
+('4', 'Provider', 'provider', 'provider', 1, 1, 'pe-7s-cloud-upload', 3),
+('5', 'Jabatan', 'jabatan', 'jabatan', 1, 1, ' pe-7s-culture', 4),
 ('6', 'TRAINING', 'training', 'training', 0, 0, 'pe-7s-graph1', 2),
-('7', 'Data Training', 'training', 'training', 1, 6, '-', 1),
-('8', 'Apsensi Training', 'apsensi', 'apsensi', 0, 6, '-', 2),
+('7', 'Data Training', 'training', 'training', 1, 6, ' pe-7s-graph3', 1),
+('8', 'Apsensi Training', 'apsensi', 'apsensi', 1, 6, 'pe-7s-copy-file', 2),
 ('9', 'DATA CUTI', 'cuti', 'cuti', 0, 0, ' pe-7s-date', 3);
 
 -- --------------------------------------------------------
@@ -118,17 +117,32 @@ CREATE TABLE `pegawai` (
   `nama` varchar(50) NOT NULL,
   `jekel` varchar(2) NOT NULL,
   `kota_lahir` varchar(20) NOT NULL,
-  `tgl_lahir` date NOT NULL
+  `tgl_lahir` date NOT NULL,
+  `alamat` varchar(50) NOT NULL,
+  `id_unit` int(5) NOT NULL,
+  `id_posisi` int(5) NOT NULL,
+  `id_provider` int(5) NOT NULL,
+  `tmt_kerja` date NOT NULL,
+  `jenis_kontrak` varchar(20) NOT NULL,
+  `cabang` varchar(20) NOT NULL,
+  `stat_peg` varchar(20) NOT NULL,
+  `aktif` varchar(20) NOT NULL,
+  `note_aktif` varchar(100) NOT NULL,
+  `id_akses` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pegawai`
 --
 
-INSERT INTO `pegawai` (`nip`, `nama`, `jekel`, `kota_lahir`, `tgl_lahir`) VALUES
-('12100410', 'SUKRI', 'L', 'JAKARTA', '2017-11-28'),
-('16100816', 'ASEP AHMADI', 'L', 'TANGERANG', '2017-12-13'),
-('16100817', 'LASIMAN', 'L', 'SUKOHARJO JAWA TENGA', '2017-12-11');
+INSERT INTO `pegawai` (`nip`, `nama`, `jekel`, `kota_lahir`, `tgl_lahir`, `alamat`, `id_unit`, `id_posisi`, `id_provider`, `tmt_kerja`, `jenis_kontrak`, `cabang`, `stat_peg`, `aktif`, `note_aktif`, `id_akses`) VALUES
+('12100410', 'SUKRI 2', 'L', 'JAKARTA', '2017-11-28', 'LAMONGAN', 1, 1, 9001, '2017-11-22', 'SDM', 'CGO', 'SO', 'Aktif', 'JAKARTA', 1),
+('16100518', 'HENDRI YULIANTO', 'L', 'TANGERANG', '2017-12-04', 'SUMATRA BARAT 2', 1, 1, 9001, '1900-12-21', 'SDM', 'CGO', 'OS', 'Aktif', 'TANGERANG', 1),
+('16100816', 'ASEP AHMADI', 'P', 'TANGERANG', '2017-12-13', 'JAYAPURA PAPUA', 1, 1, 9001, '1900-12-20', 'SDM', 'CKG', '', '', '', 0),
+('16100817', 'LASIMAN', 'L', 'SUKOHARJO JAWA TENGA', '2017-12-11', 'KALIMANTAN TIMUR', 1, 1, 9001, '0000-00-00', 'SDM', 'CGO', 'OS', 'Aktif', 'SUKOHARJO JAWA TENGA', 1),
+('16100819', 'NURHADI', 'L', 'BOYOLALI', '2017-12-13', 'KP. GEBANG RT. 002/002 TANGERANG', 1, 1, 9001, '0000-00-00', 'SDM', 'CGO', 'OS', 'Aktif', 'BOYOLALI', 1),
+('16100820', 'RATU DESNIAR', 'P', 'PALEMBANG', '2017-12-20', 'KP. GEBANG RT. 002/002 TANGERANG', 1, 1, 9001, '2017-12-20', 'SDM', 'CGO', 'PKWT', 'Aktif', 'PALEMBANG', 1),
+('16100821', 'INDAH MAULANA', 'L', 'TANGERANG', '2017-12-26', 'KP. GEBANG RT. 002/002 TANGERANG', 2, 3, 9002, '2017-12-25', 'SDM', 'CKG', 'PKWT', 'Non Aktif', 'MASI AKTIF', 2);
 
 -- --------------------------------------------------------
 
@@ -142,7 +156,7 @@ CREATE TABLE `pendidikan` (
   `pend_terakhir` varchar(10) NOT NULL,
   `prodi` varchar(30) NOT NULL,
   `thn_lulus` int(4) NOT NULL,
-  `pend_asal` varchar(30) NOT NULL,
+  `pend_asal` varchar(50) NOT NULL,
   `i_by` int(10) NOT NULL,
   `i_date` datetime NOT NULL,
   `e_by` int(10) NOT NULL,
@@ -154,14 +168,10 @@ CREATE TABLE `pendidikan` (
 --
 
 INSERT INTO `pendidikan` (`id_pend`, `nip`, `pend_terakhir`, `prodi`, `thn_lulus`, `pend_asal`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
-('1', 0, 'S1', 'Teknik Mesin', 2015, 'Univ Trisakti', 12100410, '2017-12-22 15:07:43', 0, '0000-00-00 00:00:00'),
-('2', 0, 'S2', 'Teknik Informatika', 2014, 'Univ Pajajaran', 12100410, '2017-12-27 08:08:27', 0, '0000-00-00 00:00:00'),
-('3', 0, 'S3', 'Teknik Informatika', 0, '', 12100410, '2017-12-27 08:09:45', 0, '0000-00-00 00:00:00'),
-('4', 0, 'S3', 'Teknik Informatika', 2017, '2017', 12100410, '2017-12-27 08:15:26', 0, '0000-00-00 00:00:00'),
-('5', 0, 'S2', 'Teknik Informatika', 2017, 'Kita bisa', 12100410, '2017-12-27 08:16:54', 0, '0000-00-00 00:00:00'),
-('6', 0, 'S1', 'Teknik Mesin', 2015, 'Univ Trisakti', 12100410, '2017-12-27 08:18:33', 0, '0000-00-00 00:00:00'),
-('7', 0, 'S3', 'Teknik Mesin', 2015, 'Univ Trisakti', 12100410, '2017-12-27 08:19:14', 0, '0000-00-00 00:00:00'),
-('8', 0, 'S3', 'Teknik Mesin', 2015, 'Univ Trisakti', 12100410, '2017-12-27 14:20:47', 0, '0000-00-00 00:00:00');
+('1', 0, 'S1', 'TEKNIK INFORMATIKA', 2015, 'UNIV PANCASILA', 12100410, '2017-12-28 08:01:18', 12100410, '2017-12-28 08:02:13'),
+('2', 0, 'D3', 'PENYIARAN', 2014, 'LP3I', 12100410, '2017-12-28 08:01:41', 12100410, '2017-12-28 08:01:49'),
+('3', 0, 'S3', 'PERPAJAKAN', 2013, 'STAN', 12100410, '2017-12-28 09:28:35', 12100410, '2017-12-28 09:28:44'),
+('4', 0, 'S3', 'IPA', 2000, 'SMA NEGERI 1 TANGERANG', 12100410, '2017-12-28 09:30:00', 12100410, '2017-12-28 09:30:05');
 
 -- --------------------------------------------------------
 
@@ -171,7 +181,7 @@ INSERT INTO `pendidikan` (`id_pend`, `nip`, `pend_terakhir`, `prodi`, `thn_lulus
 
 CREATE TABLE `posisi_kerja` (
   `id_posisi` int(5) NOT NULL,
-  `nm_posisi` varchar(15) NOT NULL,
+  `nm_posisi` varchar(30) NOT NULL,
   `ket_posisi` varchar(50) NOT NULL,
   `i_by` int(10) NOT NULL,
   `i_date` datetime NOT NULL,
@@ -187,7 +197,19 @@ INSERT INTO `posisi_kerja` (`id_posisi`, `nm_posisi`, `ket_posisi`, `i_by`, `i_d
 (1, 'Krani', 'Krani', 12100410, '2017-12-21 15:06:20', 12100410, '2017-12-21 15:09:33'),
 (2, 'Kasir', 'Kasir', 12100410, '2017-12-21 15:06:34', 12100410, '2017-12-21 15:13:11'),
 (3, 'Driver', 'Driver Porklip', 12100410, '2017-12-21 15:06:50', 12100410, '2017-12-21 15:10:39'),
-(4, 'HRD', 'Human Resource Departemen (2)', 12100410, '2017-12-27 08:19:53', 12100410, '2017-12-27 11:38:28');
+(4, 'Hrd', 'Human Resource Departemen', 12100410, '2017-12-27 08:19:53', 12100410, '2017-12-28 09:02:39'),
+(5, 'Fassar', 'Fassar', 12100410, '2017-12-28 08:58:33', 0, '0000-00-00 00:00:00'),
+(6, 'Checker', 'Checker', 12100410, '2017-12-28 08:58:56', 0, '0000-00-00 00:00:00'),
+(7, 'Acceptance', 'Acceptance', 12100410, '2017-12-28 08:59:39', 0, '0000-00-00 00:00:00'),
+(8, 'Mechanic', 'Mechanic', 12100410, '2017-12-28 08:59:49', 0, '0000-00-00 00:00:00'),
+(9, 'Group Leader Domestic', 'Group Leader Domestic', 12100410, '2017-12-28 09:00:04', 12100410, '2017-12-28 09:13:48'),
+(10, 'Assisten SVP Kasir', 'Assisten SVP  Kasir', 12100410, '2017-12-28 09:00:13', 12100410, '2017-12-28 09:13:02'),
+(11, 'Staff Traffic V', 'Staff Traffic VN', 12100410, '2017-12-28 09:00:27', 0, '0000-00-00 00:00:00'),
+(12, 'staff  IT', 'staff  IT', 12100410, '2017-12-28 09:00:37', 0, '0000-00-00 00:00:00'),
+(13, 'Staff PDE', 'Staff PDE', 12100410, '2017-12-28 09:00:49', 0, '0000-00-00 00:00:00'),
+(14, 'Staff Pajak', 'Staff Pajak', 12100410, '2017-12-28 09:01:20', 0, '0000-00-00 00:00:00'),
+(15, 'Checker Import ', 'Checker Import MU', 12100410, '2017-12-28 09:01:31', 0, '0000-00-00 00:00:00'),
+(16, 'Staff Docpross', 'Staff Docpross', 12100410, '2017-12-28 09:01:48', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -215,9 +237,9 @@ CREATE TABLE `provider` (
 
 INSERT INTO `provider` (`id_provider`, `nama_provider`, `alamat`, `telpon`, `web`, `email`, `direktur`, `input_by`, `input_date`, `edit_by`, `edit_date`) VALUES
 ('9001', 'PT. DINAMIKA PRIMA CARGO', '-', '-', '-', '-', '-', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
-('9002', 'PT. DAHLIA TAMA CARGO', 'dddd', 'dddd', 'dddd', 'dddd', 'dddd', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
-('9003', 'AAAeee', 'AAAeee', 'AAAeee', 'AAAeeee', 'AAAeeee', 'AAAeeee', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
-('9004', 'DAHLIATMA2', 'DAHLIATAMA2', 'DAHLIATAMA2', 'DAHLIATAMA2', 'DAHLIATAMA2', 'DAHLIATAMA2', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
+('9002', 'PT. DAHLIA TAMA CARGO', '-', '-', '-', '-', '-', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+('9003', 'PT. DUTAGARAUDA PP', '-', '-', '-', '-', '-', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+('9004', 'PT. GAPURA ANGKASA', '-', '-', '-', '-', '-', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -256,7 +278,7 @@ INSERT INTO `training` (`id_training`, `nama_training`, `penyelenggara`, `instru
 ('000007', 'Trainig Cargo Flash Warehouse System', 'CGO', 'Suharto Wagiman', '2017-07-14', 24, '511', 'Hendra', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 ('000008', 'UJIAN RECURRENT BASIC AVSEC', 'CGO', 'Damar Wulan', '2017-12-13', 4, '511', 'Hendro Sutoyo', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 ('000009', 'Trainig Cargo Flash Warehouse System', 'CGO', 'Duta', '1900-12-26', 4, '511', 'Nasir', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
-('000010', 'Trainig Cargo Flash Warehouse System', 'GLC', 'Joko Susilo', '1900-12-27', 3, 'Jakarta', 'Asep', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
+('000010', 'Trainig Cargo Flash Warehouse System', 'GLC', 'Joko Susilo', '1900-12-27', 3, 'Jakarta', 'Asep 2', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 ('000011', 'Membuat Falidasi Data', 'CGO2', 'Suharto W', '2017-12-21', 3, 'Gapura Angkasa', 'Hendri', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
 ('000012', 'Trainig Teknik Pendingin', 'CGO', 'Lasiman', '2017-12-22', 4, '511', 'A Rosid', 'berjalan', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
 
@@ -285,7 +307,7 @@ INSERT INTO `unit_kerja` (`id_unit`, `nama_unit`, `ket_unit`, `i_by`, `i_date`, 
 (2, 'Import 540', 'Import 540', 12100410, '2017-12-21 16:43:08', 12100410, '2017-12-22 08:23:57'),
 (3, 'Driver Thai Chargo', 'Driver Thai Chargo 123', 12100410, '2017-12-22 08:23:33', 12100410, '2017-12-27 11:57:34'),
 (4, 'Export MU', 'Export MU Bandara CGO', 12100410, '2017-12-22 08:24:21', 12100410, '2017-12-27 14:23:58'),
-(5, 'Checker Import 540', 'Checker Import 540', 12100410, '2017-12-22 08:24:34', 0, '0000-00-00 00:00:00');
+(5, 'Checker Import 540', 'Checker Import 540', 12100410, '2017-12-22 08:24:34', 12100410, '2017-12-28 08:05:22');
 
 --
 -- Indexes for dumped tables
