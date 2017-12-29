@@ -13,15 +13,26 @@ $da=$pgw->bacapgw($nip);
         $nipform     = 'readonly';//agar field nip read only saat edit data
         $alamat      = $da['alamat'];
         $id_unit     = $da['id_unit'];
+        $nama_unit   = $da['nama_unit'];
         $id_posisi   = $da['id_posisi'];
+        $nm_posisi   = $da['nm_posisi'];
         $id_provider = $da['id_provider'];
+        $nama_provider = $da['nama_provider'];
         $tmt_kerja   = $da['tmt_kerja'];
         $jenis_kontrak  = $da['jenis_kontrak'];
         $cabang      = $da['cabang'];
         $stat_peg    = $da['stat_peg'];
+        $jw_kerja    = $da['jw_kerja'];
         $aktif       = $da['aktif'];
         $note_aktif  = $da['note_aktif'];
         $id_akses    = $da['id_akses'];
+        $password    = $da['password'];
+        $nama_akses  = $da['nama_akses'];
+        $i_by        = $da['i_by'];
+        $i_date      = $da['i_date'];
+        $e_by        = $da['e_by'];
+        $e_date      = $da['e_date'];
+
     }
     else
     {
@@ -32,24 +43,34 @@ $da=$pgw->bacapgw($nip);
         $tgl_lahir   = '';
         $alamat      = '';
         $id_unit     = '';
+        $nama_unit   = 'Pilih Unit';
         $id_posisi   = '';
+        $nm_posisi   = 'Pilih Posisi';
         $id_provider = '';
+        $nama_provider = 'Pilih Provider';
         $tmt_kerja   = '';
         $jenis_kontrak = '';
         $cabang      = '';
         $stat_peg    = '';
+        $jw_kerja    = '';
         $aktif       = '';
         $note_aktif  = '';
-        $id_akses    = '';
+        $id_akses    = '1';
+        $nama_akses  = 'Pilih Akses';
+        $i_by        = '';
+        $i_date      = '';
+        $e_by        = '';
+        $e_date      = '';
+ 
     }
 ?>
 <div class="panel-body">
     <form method="get" class="form-horizontal" id="form_2">
         <div class="hpanel">
             <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#tab-1">DATA PRIBADI</a></li>
-                <li class=""><a data-toggle="tab" href="#tab-2">UNIT KERJA</a></li>
-                <li class=""><a data-toggle="tab" href="#tab-3">FORM 3</a></li>
+                <li class="active"><a data-toggle="tab" href="#tab-1">FORMULIR I</a></li>
+                <li class=""><a data-toggle="tab" href="#tab-2">FORMULIR II</a></li>
+                <li class=""><a data-toggle="tab" href="#tab-3">FORMULIR III</a></li>
             </ul>
             <div class="tab-content">
                 <div id="tab-1" class="tab-pane active">
@@ -102,6 +123,7 @@ $da=$pgw->bacapgw($nip);
                                 <label class="col-sm-4 control-label">Unit Kerja</label>
                                 <div class="col-sm-6">
                                 <select class="js-source-states" id="id_unit" style="width: 100%">
+                                <option value="<?php echo $id_unit ?>"><?php echo $nama_unit ?></option>
                                     <?php
                                             $arrayunit = $unit->tampilunit();
                                             if(isset($arrayunit) && $arrayunit !=NULL){
@@ -119,6 +141,7 @@ $da=$pgw->bacapgw($nip);
                                 <label class="col-sm-4 control-label">Posisi Kerja</label>
                                 <div class="col-sm-6">
                                 <select class="js-source-states" id="id_posisi" style="width: 100%">
+                                    <option value="<?php echo $id_posisi ?>"><?php echo $nm_posisi ?></option>
                                     <?php
                                             $arrayPosisi = $posisi->tampilposisi();
                                             if(isset($arrayPosisi) && $arrayPosisi !=NULL){
@@ -136,6 +159,7 @@ $da=$pgw->bacapgw($nip);
                                 <label class="col-sm-4 control-label">Provider</label>
                                 <div class="col-sm-6">
                                 <select class="js-source-states" id="id_provider" style="width: 100%">
+                                    <option value="<?php echo $id_provider ?>"><?php echo $nama_provider ?></option>
                                     <?php
                                         $arrayProvider = $provider->tampilprovider();
                                         if(isset($arrayProvider) && $arrayProvider !=NULL){
@@ -160,7 +184,7 @@ $da=$pgw->bacapgw($nip);
                                 <div class="col-sm-6">
                                 <select class="js-source-states" id="jenis_kontrak" style="width: 100%">                   
                                     <option value="SDM">SDM</option>
-                                    <option value="SDM">PEKERJAAN</option>
+                                    <option value="PEKERJAAN">PEKERJAAN</option>
                                 </select>
                                   </div>
                          </div>
@@ -190,6 +214,12 @@ $da=$pgw->bacapgw($nip);
                                   </div>
                          </div>
                          <div class="form-group">
+                                <label class="col-sm-4 control-label">Jangka Waktu Kerja</label>
+                                <div class="col-sm-6">
+                                <input type="text" placeholder="yyyy-mm-dd" class="form-control input-sm" id="jw_kerja" value="<?php echo $jw_kerja ?>">
+                                </div>
+                            </div>
+                         <div class="form-group">
                                 <label class="col-sm-4 control-label">Status Aktif</label>
                                 <div class="col-sm-4">
                                 <select class="js-source-states" id="aktif" style="width: 100%">                   
@@ -202,13 +232,14 @@ $da=$pgw->bacapgw($nip);
                         <div class="form-group">
                                 <label class="col-sm-4 control-label">Keterangan Aktif/Non aktif</label>
                                 <div class="col-sm-8">
-                                <input type="text" placeholder="Kota Lahir" class="form-control input-sm" id="note_aktif" value="<?php echo $kota_lahir ?>">
+                                <input type="text" placeholder="Keterangan Aktif/Non aktif" class="form-control input-sm" id="note_aktif" value="<?php echo $kota_lahir ?>">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-4 control-label">Akses Ke sistem </label>
                                 <div class="col-sm-4">
                                 <select class="js-source-states" id="id_akses" style="width: 100%">
+                                    <option value="<?php echo $id_akses ?>"><?php echo $nama_akses ?></option>
                                     <?php
                                         $arrayAkses = $akses->tampilakses();
                                         if(isset($arrayAkses) && $arrayAkses !=NULL){
@@ -224,6 +255,9 @@ $da=$pgw->bacapgw($nip);
                                 </select>
                                   </div>
                          </div>
+                         <input type="hidden" id="password" value="<?php echo $password ?>">
+                         <input type="hidden" id="i_by" value="<?php echo $i_by ?>">
+                         <input type="hidden" id="i_date" value="<?php echo $i_date ?>">
                     </div>
                 </div>
             </div>
@@ -239,6 +273,12 @@ $('#tgl_lahir').datepicker({
                         autoclose: true
                     });
 $('#tmt_kerja').datepicker({
+                        format: 'yyyy-mm-dd',
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        autoclose: true
+                    });
+$('#jw_kerja').datepicker({
                         format: 'yyyy-mm-dd',
                         keyboardNavigation: false,
                         forceParse: false,

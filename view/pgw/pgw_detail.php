@@ -1,3 +1,11 @@
+<?php
+include'../../class/gapura_class.php';
+include'../../class/gapura_function.php';
+include'../../class/gapura_object.php';
+$da=$pgw->detailpgw($nip);
+$ip=$pgw->bacapgw($nip);
+$pen=$pendidikan->ambil_nip($nip);
+?>
 <div class="row">
 <div class="col-xs-6">   
         <div class="hpanel">
@@ -11,27 +19,35 @@
                     <tbody>
                     <tr>
                         <td>Nip</td>
-                        <td>: 12100410</td>
+                        <td>: <?php echo $da['nip']; ?></td>
                     </tr>
                     <tr>
                         <td>Nama </td>
-                        <td>: Hendri Yulianto </td>
+                        <td >: <?php echo $da['nama']; ?></td>
                     </tr>
                     <tr>
                         <td>Gender</td>
-                        <td>: Laki Laki</td>
+                        <td>: <?php echo $da['jekel']; ?></td>
                     </tr>
                     <tr>
                         <td>Kota Lahir</td>
-                        <td>: Tangerang</td>
+                        <td>: <?php echo $da['kota_lahir']; ?></td>
                     </tr>
                      <tr>
                         <td>Tgl Lahir</td>
-                        <td>: 14 Mei 1992</td>
+                        <td>: <?php echo $da['tgl_lahir']; ?></td>
                     </tr>
                     <tr>
                         <td>Alamat</td>
-                        <td>: Kp. Gebang RT. 002/002 Kel. Sangiang </td>
+                        <td>: <?php echo $da['alamat']; ?></td>
+                    </tr>
+                        <tr>
+                        <td>Input </td>
+                        <td class="text-success">: <?php echo $da['i_by']; ?> <?php echo $da['i_date']; ?></td>
+                    </tr>
+                        <tr>
+                        <td>Edit </td>
+                        <td class="text-danger">: <?php echo $da['e_by']; ?> <?php echo $da['e_date']; ?></td>
                     </tr>
         
                     </tbody>
@@ -55,30 +71,35 @@
                 <table cellpadding="1" cellspacing="1" class="table table-condensed table-striped">
                     <tbody>
                     <tr>
-                        <td>Nip</td>
-                        <td>: 12100410</td>
+                        <td>Unit Kerja</td>
+                        <td>: <?php echo $ip['nama_unit']; ?></td>
                     </tr>
                     <tr>
-                        <td>Nama </td>
-                        <td>: Hendri Yulianto </td>
+                        <td>Posisi Kerja</td>
+                        <td>: <?php echo $ip['nm_posisi']; ?></td>
                     </tr>
                     <tr>
-                        <td>Gender</td>
-                        <td>: Laki Laki</td>
+                        <td>Provider</td>
+                        <td>: <?php echo $ip['nama_provider']; ?></td>
                     </tr>
-                    <tr>
-                        <td>Kota Lahir</td>
-                        <td>: Tangerang</td>
-                    </tr>
+                    
                      <tr>
-                        <td>Tgl Lahir</td>
-                        <td>: 14 Mei 1992</td>
+                        <td>Jenis Kontrak</td>
+                        <td>: <?php echo $ip['jenis_kontrak']; ?></td>
                     </tr>
                     <tr>
-                        <td>Alamat</td>
-                        <td>: Kp. Gebang RT. 002/002 Kel. Sangiang </td>
+                        <td>Status Pegawai</td>
+                        <td>: <?php echo $ip['stat_peg']; ?></td>
                     </tr>
-        
+                    <tr>
+                        <td>TMT Kerja</td>
+                        <td class="text-success">: <?php echo DateToIndo($ip['tmt_kerja']); ?></td>
+                    </tr>
+                    <tr>
+                        <td>Jangka Waktu</td>
+                        <td class="text-danger">: <?php echo DateToIndo ($ip['jw_kerja']); ?></td>
+                    </tr>
+                           
                     </tbody>
                 </table>
 				</div>
@@ -93,13 +114,31 @@
                 <div class="panel-tools">
   
                 </div>
-                HISTORI JABATAN
+                DATA PENDIDIKAN
             </div>
             <div class="panel-body">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.
-            </p>
+                     <table cellpadding="1" cellspacing="1" class="table table-condensed table-striped">
+                    <tbody>
+                    <tr>
+                        <td>Pendidikan Akhir</td>
+                        <td>: <?php echo $pen['pend_terakhir']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Program Studi</td>
+                        <td>: <?php echo $pen['prodi']; ?></td>
+                    </tr>
+                    <tr>
+                        <td>Tahun Lulus</td>
+                        <td>: <?php echo $pe['thn_lulus']; ?></td>
+                    </tr>
+                    
+                     <tr>
+                        <td>Pendidikan Asal</td>
+                        <td>: <?php echo $pe['pend_asal']; ?></td>
+                    </tr>
+                                          
+                    </tbody>
+                </table>
             </div>
             <div class="panel-footer">
                 This is standard panel footer

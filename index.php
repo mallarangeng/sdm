@@ -77,8 +77,9 @@ header("location:login.php");
         </form>
         <div class="navbar-right">
             <ul class="nav navbar-nav no-borders">
-           
+            
                 <li class="dropdown">
+
                     <a href="?r=logout">
                         <i class=" pe-7s-right-arrow"></i>
                     </a>
@@ -96,7 +97,7 @@ header("location:login.php");
             </a>
 
             <div class="stats-label text-color">
-                <span class="font-extra-bold font-uppercase"><?php echo $_SESSION['fullname'];?>  </span>
+                <span class="font-extra-bold font-uppercase"><?php echo $_SESSION['nama'];?><br><?php echo $_SESSION['nip'];?>  </span>
 
                 <div class="dropdown">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown">

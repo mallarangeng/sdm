@@ -195,7 +195,7 @@ $(function () {
         $("#modal-pgw-add").modal('show');
         $(".modal-title").html('Tambah Pegawai');
         $.post("view/pgw/pgw_form.php",
-            {id_pgw:$(this).attr('data-id')},
+            {simpan_data:$(this).attr('data-id')},
             function(html){
                 $(".modal-body").html(html);
             }
@@ -218,15 +218,21 @@ $(function () {
         var jenis_kontrak = $("#jenis_kontrak").val();
         var cabang      = $("#cabang").val();
         var stat_peg    = $("#stat_peg").val();
+        var jw_kerja    = $("#jw_kerja").val();
         var aktif       = $("#aktif").val();
         var note_aktif  = $("#note_aktif").val();
         var id_akses    = $("#id_akses").val();
+        var password    = $("#password").val();
+        var i_by        = $("#i_by").val();
+        var i_date      = $("#i_date").val();
+        var e_by        = $("#e_by").val();
+        var e_date      = $("#e_date").val();
         $.ajax({
                   url: 'control/pgw.php',
                   type: 'GET',
                   data: 'aksi=tambah&nip='+nip+'&nama='+nama+'&jekel='+jekel+'&kota_lahir='+kota_lahir+
                   '&tgl_lahir='+tgl_lahir+'&alamat='+alamat+'&id_unit='+id_unit+'&id_posisi='+id_posisi+'&id_provider='+id_provider
-                  +'&tmt_kerja='+tmt_kerja+'&jenis_kontrak='+jenis_kontrak+'&cabang='+cabang+'&stat_peg='+stat_peg+'&aktif='+aktif+'&note_aktif='+note_aktif+'&id_akses='+id_akses,
+                  +'&tmt_kerja='+tmt_kerja+'&jenis_kontrak='+jenis_kontrak+'&cabang='+cabang+'&stat_peg='+stat_peg+'&jw_kerja='+jw_kerja+'&aktif='+aktif+'&note_aktif='+note_aktif+'&id_akses='+id_akses+'&password='+password+'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
                     success: function(data) {
                     $('#hasil').html(data);
                     $("#data-pgw").load("view/pgw/pgw_data.php");

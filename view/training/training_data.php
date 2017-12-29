@@ -6,17 +6,17 @@ include'../../class/gapura_object.php';
   <table id="datat_training" class="table table-striped table-bordered table-hover">
 	<thead>
 		<tr>
-			<th>ID training</th>
-			<th>Nama training</th>
-			<th>Penyelenggara</th>
-			<th>Insruktur</th>
-			<th>Tgl training</th>
-			<th>Durasi</th>
-			<th>Lokasi</th>
-			<th>Apsensi</th>		
-			<th>Ketua Kelas</th>
-			<th>Status</th>
-			<th>Aksi</th>
+			<th>ID TRAINING</th>
+			<th>NAMA TRAINING</th>
+			<th>PENYELENGGARA</th>
+			<th>INSTRUKTUR</th>
+			<th>TANGGAL</th>
+			<th>DURASI</th>
+			<th>LOKASI</th>
+			<th>APSENSI</th>		
+			<th>KETUA KELAS</th>
+			<th>STATUS</th>
+			<th>AKSI</th>
 		</tr>
 	</thead>
 	<tbody>

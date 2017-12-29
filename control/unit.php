@@ -17,7 +17,6 @@ if($_GET['aksi']=='tambah'){
 		echo "Berhasil diubah ";
 		echo "</div>";
 	}else{
-		
 		$unit->tambahunit($id_unit,$_GET['nama_unit'],$_GET['ket_unit'],$userSes,$timeSkrg,$_GET['e_by'],$_GET['e_date']);
 		echo "<div class='alert alert-success alert-dismissable'>";
 		echo "<button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×</button>";

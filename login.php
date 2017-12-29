@@ -9,7 +9,7 @@ if($user->get_sesi()) {
   header("location:index.php");
 }
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-  $login=$user->cek_login($_POST['username'], $_POST['password']);
+  $login=$user->cek_login($_POST['nip'], $_POST['password']);
   if($login) {
     header("location:index.php");
   }
@@ -78,11 +78,11 @@ echo '
                             <div class="form-group">
                                 <!-- Tidak perlu menggunakan label cukup dengan placeholder pada form -->
                                 <!-- <label class="control-label" for="username">USERNAME</label> -->
-                                <input type="text" placeholder="NIP" title="Please enter you username" name="username" id="username" class="form-control" required>
+                                <input type="text" placeholder="NIP" name="nip" id="nip" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <!-- <label class="control-label" for="password">PASSWORD</label> -->
-                                <input type="password" title="Please enter your password" placeholder="PASSWORD" name="password" id="password" class="form-control" required>
+                                <input type="password" placeholder="PASSWORD" name="password" id="password" class="form-control" required>
                             </div>
                             <input class="btn btn-success btn-block" type="submit" name="login" value="Login"> 
                             </form>

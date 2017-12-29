@@ -7,15 +7,16 @@ include'../../class/gapura_object.php';
   <table id="datat_pgw" class="table table-striped table-bordered table-hover">
 	<thead>
 		<tr>
-			<th>nip</th>
-			<th>Nama </th>		
-			<th>ID Unit</th>
-			<th>ID Posisi</th>
-			<th>ID Provider</th>
+			<th>NIP</th>
+			<th>NAMA </th>		
+			<th>UNIT</th>
+			<th>POSISI</th>
+			<th>PROFIDER</th>
 			<th>TMT</th>
-			<th>Jenis Kontrak</th>
+			<th>JW KERJA</th>
+			<th>JENIS KONTRAK</th>
 			<th>CABANG</th>
-			<th>Aksi</th>
+			<th>AKSI</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,12 +28,14 @@ include'../../class/gapura_object.php';
 		<tr>
 			<td><?php echo $d['nip']?></td>
 				<td><a class="detail-pgw" data-id="<?php echo $d['nip']?>" href=""><?php echo $d['nama']?></a></td>
-				<td><?php echo $d['id_unit']?></td>
-				<td><?php echo $d['id_posisi']?></td>
-				<td><?php echo $d['id_provider']?></td>
+				<td><?php echo $d['nama_unit']?></td>
+				<td><?php echo $d['nm_posisi']?></td>
+				<td><?php echo $d['nama_provider']?></td>
 				<td><?php echo $d['tmt_kerja']?></td>
-				<td><?php echo $d['jenis_kontrak']?></td>
+				<td><?php echo $d['jw_kerja']?></td>
+				<td><?php echo $d['jenis_kontrak']?> - <?php echo $d['stat_peg']?></td>
 				<td><?php echo $d['cabang']?></td>
+				
 			<td>
 				<button class="ubah-pgw btn btn-success btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa-edit"></i></button>
 			</td>

@@ -43,7 +43,7 @@
 	return $tgl;
 	}
 	function userSes(){
-	$uses	= $_SESSION['username'];
+	$uses	= $_SESSION['nip'];
 	return $uses;
 	}
 	//kode auto 
