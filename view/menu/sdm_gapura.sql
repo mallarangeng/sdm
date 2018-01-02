@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2018 at 04:55 AM
+-- Generation Time: Jan 02, 2018 at 10:56 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -45,6 +45,18 @@ INSERT INTO `akses` (`id_akses`, `nama_akses`, `ket_akses`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `apsensi`
+--
+
+CREATE TABLE `apsensi` (
+  `id_apsensi` int(10) NOT NULL,
+  `nip` varchar(15) NOT NULL,
+  `id_training` varchar(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ms_menu`
 --
 
@@ -72,7 +84,7 @@ INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `id_akses`, `parent
 ('16', 'Akses', 'akses', 'akses', 1, 14, ' pe-7s-key', 5),
 ('17', 'Posisi', 'posisi', 'posisi', 1, 1, ' pe-7s-map', 6),
 ('18', 'Unit Kerja', 'unit_kerja', 'unit', 1, 1, ' pe-7s-culture', 6),
-('19', 'Pendidikan', 'pendidikan', 'pendidikan', 1, 1, 'pe-7s-study', 7),
+('19', 'Pendidikan', 'pendidikan', 'pendidikan', 1, 20, 'pe-7s-study', 7),
 ('2', 'Calon Pegawai', 'Pgw', 'pegawai', 2, 20, 'pe-7s-plane', 1),
 ('20', 'PEGAWAI', 'pegawai', '#', 0, 0, 'pe-7s-users', 2),
 ('21', 'Data pegawai', 'pgw', 'pgw', 1, 20, 'pe-7s-id', 0),
@@ -143,11 +155,9 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`nip`, `nama`, `jekel`, `kota_lahir`, `tgl_lahir`, `alamat`, `id_unit`, `id_posisi`, `id_provider`, `tmt_kerja`, `jenis_kontrak`, `cabang`, `stat_peg`, `jw_kerja`, `aktif`, `note_aktif`, `id_akses`, `password`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
-('1301.0204', 'Hendri', 'L', 'TANGERANG', '2018-01-23', 'KP. GEBANG RT. 002/002 TANGERANG', 2, 3, 9003, '2018-01-24', 'SDM', 'CKG', 'PKWT', '2018-01-17', 'Non Aktif', 'AAAA', 1, '8a18484752c7e9ba08a7173797416cd0', '1217.0905', '2018-01-02 09:54:17', 'undefined', '0000-00-00 00:00:00'),
-('1301.0205', 'Lasiman', 'L', 'TANGERANG', '2018-01-30', 'SUMATRA BARAT 2', 3, 4, 9004, '2018-01-30', 'PEKERJAAN', 'CGO', 'OS', '2018-01-10', 'Aktif', '', 1, 'ef17b854d676e48ffdfe481a2e7da6eb', '1217.0905', '2018-01-02 10:02:36', 'undefined', '0000-00-00 00:00:00'),
-('1301.0206', 'Muh Hatta', 'L', 'Jakarta', '2018-01-16', 'KP. GEBANG RT. 002/002 TANGERANG', 4, 4, 9003, '2018-01-31', 'SDM', 'CGO', 'OS', '2018-01-10', 'Non Aktif', '-', 1, '013a28fce062010f1185e357c4c0d2b0', '1217.0905', '2018-01-02 10:09:07', 'undefined', '0000-00-00 00:00:00'),
-('1301.0207', 'Luther', 'L', 'TANGERANG', '2018-01-30', 'SUMATRA BARAT 2', 2, 5, 9002, '2018-01-31', 'SDM', 'CGO', 'PKWT', '2018-01-09', 'Non Aktif', '-', 2, 'ef17b854d676e48ffdfe481a2e7da6eb', '1217.0905', '2018-01-02 10:12:07', 'undefined', '0000-00-00 00:00:00'),
-('1301.0208', 'Bayu', 'L', 'Jakarta', '2018-01-30', 'SUMATRA BARAT 2', 2, 3, 9002, '2018-01-30', 'SDM', 'CGO', 'PKWT', '2018-01-10', 'Non Aktif', '-', 1, 'ef17b854d676e48ffdfe481a2e7da6eb', '1217.0905', '2018-01-02 10:15:33', 'undefined', '0000-00-00 00:00:00');
+('1301.0107', 'Hasan Setiawan', 'L', 'Jakarta', '2018-01-30', 'Cikupa mas tangerang', 4, 3, 9004, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-23', 'Aktif', '-', 1, 'ef17b854d676e48ffdfe481a2e7da6eb', '1301.0204', '2018-01-02 14:03:53', 'undefined', '0000-00-00 00:00:00'),
+('1305.0223', 'Suhada', 'L', 'Jakarta', '2018-01-30', 'Cikupa Tangerang', 2, 2, 9003, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-18', 'Aktif', '-', 1, 'ef17b854d676e48ffdfe481a2e7da6eb', '', '0000-00-00 00:00:00', '1301.0204', '2018-01-02 14:05:31'),
+('1305.0224', 'Sutisna', 'L', 'aceh', '2018-01-31', '-', 4, 3, 9004, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-15', 'Aktif', '-', 1, '764ac49220d465e2ca57a6273e24062e', '1301.0204', '2018-01-02 14:06:18', 'undefined', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -173,11 +183,9 @@ CREATE TABLE `pendidikan` (
 --
 
 INSERT INTO `pendidikan` (`id_pend`, `nip`, `pend_terakhir`, `prodi`, `thn_lulus`, `pend_asal`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
-('2', '1301.0204', 'S2', 'SISTEM INFORMASI', 2011, 'STMIK PEMBANGUNAN', '', '0000-00-00 00:00:00', '1217.0905', '2018-01-02 10:17:17'),
-('3', '1301.0205', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-('4', '1301.0206', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-('5', '1301.0207', 'S1', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-('6', '1301.0208', '', '', 0, '', '1217.0905', '2018-01-02 10:15:33', 'undefined', '0000-00-00 00:00:00');
+('1', '1305.0223', 'S1', 'Sastra Inggris', 2010, 'Univ Gajah Mada', '', '0000-00-00 00:00:00', '1301.0204', '2018-01-02 14:13:58'),
+('2', '1301.0107', 'D3', 'Bahasa Belanda', 2010, 'LP31', '', '0000-00-00 00:00:00', '1301.0204', '2018-01-02 14:13:16'),
+('3', '1305.0224', 'S1', 'Teknik Informatika', 2011, 'LP3i', '', '0000-00-00 00:00:00', '1301.0204', '2018-01-02 14:13:50');
 
 -- --------------------------------------------------------
 
@@ -328,6 +336,12 @@ ALTER TABLE `akses`
   ADD PRIMARY KEY (`id_akses`);
 
 --
+-- Indexes for table `apsensi`
+--
+ALTER TABLE `apsensi`
+  ADD PRIMARY KEY (`id_apsensi`);
+
+--
 -- Indexes for table `ms_menu`
 --
 ALTER TABLE `ms_menu`
@@ -375,6 +389,15 @@ ALTER TABLE `training`
 ALTER TABLE `unit_kerja`
   ADD PRIMARY KEY (`id_unit`);
 
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `apsensi`
+--
+ALTER TABLE `apsensi`
+  MODIFY `id_apsensi` int(10) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

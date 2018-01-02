@@ -202,7 +202,45 @@ class training{
 		$hasil = mysql_query($query);
 	}
 }
-
+class Apsensi{
+	function tampilapsensi(){
+		$query = mysql_query("SELECT * FROM apsensi");
+		while($row=mysql_fetch_array($query))
+			$data[]=$row;
+		if(isset($data)){
+			return $data;
+		}
+	}
+	function bacaakses($id_akses)
+	        {
+				$query=mysql_query("
+				SELECT * FROM akses WHERE id_akses='$_GET[id_akses]'");
+				$data=mysql_fetch_array($query);
+				$data[]=$row;
+				if(isset($data)){
+					return $data;
+				}
+			}
+	function cek_akses($id_akses) {
+		$dataSales = mysql_query("SELECT * FROM akses WHERE id_akses='$id_akses'");
+		$no_rows = mysql_num_rows($dataSales);
+		if ($no_rows == 1) {
+			return TRUE;
+		}
+		else {
+		  return FALSE;
+		}
+	}
+	function updateakses($id_akses,$nama_akses,$ket_akses) {
+		$query = mysql_query("UPDATE akses SET nama_akses='$nama_akses', ket_akses='$ket_akses' WHERE id_akses='$id_akses'");	
+	}
+	
+	function tambahakses($id_akses,$nama_akses,$ket_akses) {
+		$query = "INSERT INTO akses (id_akses,nama_akses,ket_akses)
+		          VALUES ('$id_akses','$nama_akses','$ket_akses')";
+		$hasil = mysql_query($query);
+	}
+}
 class Akses{
 	function tampilakses(){
 		$query = mysql_query("SELECT * FROM akses");
@@ -323,7 +361,7 @@ class Posisi{
 
 class Pendidikan{
 	function tampilpendidikan(){
-		$query = mysql_query("SELECT * FROM pendidikan");
+		$query = mysql_query("SELECT a.*,b.* FROM pendidikan a, pegawai b WHERE a.nip=b.nip");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){

@@ -18,7 +18,7 @@ if($_GET['aksi']=='tambah'){
 		echo "</div>";
 	}else{
 		
-		$pendidikan->tambahpendidikan($id_pend,$_GET['nip'],$_GET['pend_terakhir'],$_GET['prodi'],$_GET['thn_lulus'],$_GET['pend_asal'],$userSes,$timeSkrg,$_GET['e_by'],$_GET['e_date']);
+		$pendidikan->tambahpendidikan2($id_pend,$_GET['nip'],$_GET['pend_terakhir'],$_GET['prodi'],$_GET['thn_lulus'],$_GET['pend_asal'],$userSes,$timeSkrg,$_GET['e_by'],$_GET['e_date']);
 		echo "<div class='alert alert-success alert-dismissable'>";
 		echo "<button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×</button>";
 		echo "Berhasil disimpan ";

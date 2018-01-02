@@ -2,7 +2,6 @@
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
-
 $id_training=$_GET['id_training'];
 $d=$training->bacatraining($id_training);
     if ($d['id_training']> 0) {

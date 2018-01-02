@@ -8,14 +8,13 @@ include'../../class/gapura_object.php';
 		<tr>
 			<th>Id</th>
 			<th>Nip</th>
+			<th>Nama</th>
 			<th>Pend Terakhir</th>
 			<th>Program Studi</th>
 			<th>Thn Lulus</th>
 			<th>Pendidikan Asal</th>
 			<th>Input By</th>
 			<th>Input Date</th>
-			<th>Edit By</th>
-			<th>Edit Date</th>
 			<th>Aksi</th>
 		</tr>
 	</thead>
@@ -28,14 +27,14 @@ include'../../class/gapura_object.php';
 		<tr>
 			<td><?php echo $data['id_pend']?></td>
 				<td><?php echo $data['nip']?></td>
+				<td><?php echo $data['nama']?></td>
 				<td><?php echo $data['pend_terakhir']?></td>
 				<td><?php echo $data['prodi']?></td>
 				<td><?php echo $data['thn_lulus']?></td>
 				<td><?php echo $data['pend_asal']?></td>
-				<td><?php echo $data['i_by']?></td>
-				<td><?php echo $data['i_date']?></td>
 				<td><?php echo $data['e_by']?></td>
 				<td><?php echo $data['e_date']?></td>
+
 			<td>
 				<button class="ubah-pendidikan btn btn-success btn-xs" type="button" data-id="<?php echo $data['id_pend'] ?>"><i class="fa fa-edit"></i></button>
 			</td>

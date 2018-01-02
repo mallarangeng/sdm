@@ -33,7 +33,7 @@ include'../../class/gapura_object.php';
 				<td><?php echo DateToIndo($data['tgl_training']); ?></td>
 				<td><?php echo $data['durasi']?> Jam</td>
 				<td><?php echo $data['lokasi']?></td>
-				<td><i class="fa pe-7s-users"></td>
+				<td><a href="?r=apsensi&pg=apsensi&id=<?php echo $data['id_training']?>" data-id="<?php echo $data['id_training'] ?>"><i class="fa pe-7s-users"></a></td>
 				<td><?php echo $data['ketua_kelas']?></td>
 				<td><?php echo $data['stat_training']?></td>
 			<td>

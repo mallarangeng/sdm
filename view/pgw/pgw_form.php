@@ -71,6 +71,7 @@ $da=$pgw->bacapgw($nip);
                 <li class="active"><a data-toggle="tab" href="#tab-1">FORMULIR I</a></li>
                 <li class=""><a data-toggle="tab" href="#tab-2">FORMULIR II</a></li>
                 <li class=""><a data-toggle="tab" href="#tab-3">FORMULIR III</a></li>
+                <li class=""><a data-toggle="tab" href="#tab-4">PENDIDIKAN</a></li>
                
             </ul>
             <div class="tab-content">
@@ -259,6 +260,34 @@ $da=$pgw->bacapgw($nip);
                          <input type="hidden" id="password" value="<?php echo $password ?>">
                          <input type="hidden" id="i_by" value="<?php echo $i_by ?>">
                          <input type="hidden" id="i_date" value="<?php echo $i_date ?>">
+                    </div>
+                </div>
+                <div id="tab-4" class="tab-pane">
+                    <div class="panel-body">
+                                <div class="form-group">
+            <label class="col-sm-4 control-label">Pendidikan Terakhir</label>
+            <div class="col-sm-8">
+                <input type="hidden" class="form-control input-sm" id="id_pend" value="<?php echo $id_pend ?>">
+                <input type="hidden" class="form-control input-sm" id="nip" value="<?php echo $nip ?>">
+                <select class="js-source-states" id="pend_terakhir" style="width: 100%">   
+                            <option value="<?php echo $pend_terakhir ?>"><?php echo $pend_terakhir ?></option>                 
+                            <option value="S3">S3</option>
+                            <option value="S2">S2</option>
+                            <option value="S1">S1</option>
+                            <option value="D4">D4</option>
+                            <option value="D3">D3</option>
+                            <option value="SMK/A">SMK/A</option>
+                            <option value="SMP">SMP</option>
+                            <option value="SD">SD</option>
+                    </select>
+            </div>
+        </div>
+            <div class="form-group">
+            <label class="col-sm-4 control-label">Program Studi</label>
+            <div class="col-sm-8">
+                <input type="text" placeholder="Program Studi / Jurusan" class="form-control input-sm" id="prodi" value="<?php echo $prodi ?>">
+            </div>
+        </div>
                     </div>
                 </div>
                 

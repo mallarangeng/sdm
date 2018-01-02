@@ -145,6 +145,19 @@ $(function () {
     });
 
 // Js untuk akses data
+    var main = "view/apsensi/apsensi_data.php";
+    $("#data-apsensi").load(main);
+        $(".tambah-apsensi").click(function(e){
+        e.preventDefault();
+        $("#modal-apsensi-add").modal('show');
+        $(".modal-title").html('Tambah Siswa Training');
+        $.post("view/apsensi/apsensi_form.php",
+            {id_training:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
     var main = "view/akses/akses_data.php";
     $("#data-akses").load(main);
         $(".tambah-akses").click(function(e){

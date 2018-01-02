@@ -73,5 +73,18 @@ $("#datat_pgw").on("click",".detail-pgw",function(e){
             }
         );
     });
+$("#datat_pgw").on("click",".ubah-pendidikan",function(e){
+        e.preventDefault();
+		$("#modal-pgw-pendidikan").modal('show');
+        $(".modal-title").html('Ubah pegawai');
+        
+        $.get("view/pendidikan/pendidikan_form.php",
+            {id_pend:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+
+            }
+        );
+    });
 </script>
 
