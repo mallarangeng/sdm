@@ -14,7 +14,9 @@ $da=$pendidikan->bacapendidikan($id_pend);
         $i_date           = $da['i_date'];
         $e_by             = $da['e_by'];
         $e_date           = $da['e_date'];
-    } else {
+    } 
+    else
+    {
         $nip              = '';
         $pend_terakhir    = '';
         $prodi            = '';
@@ -34,7 +36,8 @@ $da=$pendidikan->bacapendidikan($id_pend);
             <div class="col-sm-8">
 				<input type="hidden" class="form-control input-sm" id="id_pend" value="<?php echo $id_pend ?>">
                 <input type="hidden" class="form-control input-sm" id="nip" value="<?php echo $nip ?>">
-				<select class="js-source-states" id="pend_terakhir" style="width: 100%">                    
+				<select class="js-source-states" id="pend_terakhir" style="width: 100%">   
+                            <option value="<?php echo $pend_terakhir ?>"><?php echo $pend_terakhir ?></option>                 
                             <option value="S3">S3</option>
                             <option value="S2">S2</option>
                             <option value="S1">S1</option>
@@ -73,5 +76,4 @@ $da=$pendidikan->bacapendidikan($id_pend);
 <script type="text/javascript">
     $(".js-source-states").select2();
     $(".js-source-states-2").select2();
-
 </script>

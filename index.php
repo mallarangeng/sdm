@@ -169,7 +169,7 @@ header("location:login.php");
         <span class="pull-right">
         SDM Gapura
         </span>
-        &copy; <?php echo date('Y'); ?>
+        &copy; 2017 - <?php echo date('Y'); ?>
     </footer>
 
 </div>

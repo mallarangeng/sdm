@@ -5,6 +5,7 @@
                 <div class="panel-heading">
                     DATA PEGAWAI
                 </div>
+                
 				<div class="modal fade hmodal-success" id="modal-pgw-add" tabindex="-1" role="dialog"  aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">

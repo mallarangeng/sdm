@@ -435,7 +435,7 @@ class menuUser{
 
 class Pgw {
 	function tampilpgw(){
-		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses ");
+		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.*,f.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e, pendidikan f WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND a.nip=f.nip ");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){

@@ -3,7 +3,6 @@ include'../../class/gapura_class.php';
 include'../../class/msc_function.php';
 include'../../class/gapura_object.php';
 ?>
-
   <table id="datat_pendidikan" class="table table-striped table-bordered table-hover">
 	<thead>
 		<tr>

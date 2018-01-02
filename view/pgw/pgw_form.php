@@ -71,6 +71,7 @@ $da=$pgw->bacapgw($nip);
                 <li class="active"><a data-toggle="tab" href="#tab-1">FORMULIR I</a></li>
                 <li class=""><a data-toggle="tab" href="#tab-2">FORMULIR II</a></li>
                 <li class=""><a data-toggle="tab" href="#tab-3">FORMULIR III</a></li>
+               
             </ul>
             <div class="tab-content">
                 <div id="tab-1" class="tab-pane active">
@@ -78,13 +79,13 @@ $da=$pgw->bacapgw($nip);
                                 <div class="form-group">
                                <label class="col-sm-4 control-label">NIP</label>
                                <div class="col-sm-6">
-                               <input type="text" placeholder="nip" class="form-control input-sm" id="nip" value="<?php echo $nip ?>"<?php echo $nipform; ?>>
+                               <input type="text" placeholder="Nip" class="form-control input-sm" id="nip" value="<?php echo $nip ?>"<?php echo $nipform; ?>>
                                 </div>
                          </div>
                            <div class="form-group">
                                 <label class="col-sm-4 control-label">Nama Pegawai</label>
                                 <div class="col-sm-8">
-                                    <input type="hidden" id="nip" value="<?php echo $nip?>">
+                                   
                                 <input type="text" placeholder="Nama" class="form-control input-sm" id="nama" value="<?php echo $nama ?>">
                                 </div>
                          </div>
@@ -260,6 +261,7 @@ $da=$pgw->bacapgw($nip);
                          <input type="hidden" id="i_date" value="<?php echo $i_date ?>">
                     </div>
                 </div>
+                
             </div>
         </div>
     </form>
@@ -288,4 +290,5 @@ $('#jw_kerja').datepicker({
                 postfix: 'Jam'
             });
       $(".js-source-states").select2();
+
 </script>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2017 at 10:53 AM
+-- Generation Time: Jan 02, 2018 at 04:55 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -143,9 +143,11 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`nip`, `nama`, `jekel`, `kota_lahir`, `tgl_lahir`, `alamat`, `id_unit`, `id_posisi`, `id_provider`, `tmt_kerja`, `jenis_kontrak`, `cabang`, `stat_peg`, `jw_kerja`, `aktif`, `note_aktif`, `id_akses`, `password`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
-('1217.0905', 'HENDRI YULIANTO', 'L', 'LAMPUNG', '1992-05-14', 'KP. GEBANG RT. 002/002 TANGERANG', 6, 4, 9001, '2017-12-05', 'SDM', 'CGO', 'OS', '2019-12-05', 'Aktif', '-', 1, '74a71e525cb83b70c44f8e1b7b644ff4', '12100410', '2017-12-28 08:58:33', '1217.0905', '2017-12-29 15:25:03'),
-('1301.0107', ' A. Hasan Setiawan ', 'L', 'MAGELANG', '1987-02-24', ' Persada raya G-6/58 Rt. 01/08 Gembor Periuk Tange', 1, 2, 9001, '2013-01-01', 'SDM', 'CGO', 'OS', '2018-06-16', 'Aktif', '', 1, '7590620268bda34d918ccac8ea19cc27', '1217.0905', '2017-12-29 16:32:18', 'undefined', '0000-00-00 00:00:00'),
-('1305.0223', 'A HARYANTO', 'L', 'TANGERANG', '1989-04-14', ' Pintu kapuk Rt. 033 / 014 Ds. Bojong Renged Teluk', 7, 1, 9001, '2013-05-13', 'SDM', 'CGO', 'OS', '2019-05-13', 'Aktif', 'TANGERANG', 1, '36962b2a0ed54c458177b84681248d87', '12100410', '2017-12-21 15:06:20', '1217.0905', '2017-12-29 15:41:18');
+('1301.0204', 'Hendri', 'L', 'TANGERANG', '2018-01-23', 'KP. GEBANG RT. 002/002 TANGERANG', 2, 3, 9003, '2018-01-24', 'SDM', 'CKG', 'PKWT', '2018-01-17', 'Non Aktif', 'AAAA', 1, '8a18484752c7e9ba08a7173797416cd0', '1217.0905', '2018-01-02 09:54:17', 'undefined', '0000-00-00 00:00:00'),
+('1301.0205', 'Lasiman', 'L', 'TANGERANG', '2018-01-30', 'SUMATRA BARAT 2', 3, 4, 9004, '2018-01-30', 'PEKERJAAN', 'CGO', 'OS', '2018-01-10', 'Aktif', '', 1, 'ef17b854d676e48ffdfe481a2e7da6eb', '1217.0905', '2018-01-02 10:02:36', 'undefined', '0000-00-00 00:00:00'),
+('1301.0206', 'Muh Hatta', 'L', 'Jakarta', '2018-01-16', 'KP. GEBANG RT. 002/002 TANGERANG', 4, 4, 9003, '2018-01-31', 'SDM', 'CGO', 'OS', '2018-01-10', 'Non Aktif', '-', 1, '013a28fce062010f1185e357c4c0d2b0', '1217.0905', '2018-01-02 10:09:07', 'undefined', '0000-00-00 00:00:00'),
+('1301.0207', 'Luther', 'L', 'TANGERANG', '2018-01-30', 'SUMATRA BARAT 2', 2, 5, 9002, '2018-01-31', 'SDM', 'CGO', 'PKWT', '2018-01-09', 'Non Aktif', '-', 2, 'ef17b854d676e48ffdfe481a2e7da6eb', '1217.0905', '2018-01-02 10:12:07', 'undefined', '0000-00-00 00:00:00'),
+('1301.0208', 'Bayu', 'L', 'Jakarta', '2018-01-30', 'SUMATRA BARAT 2', 2, 3, 9002, '2018-01-30', 'SDM', 'CGO', 'PKWT', '2018-01-10', 'Non Aktif', '-', 1, 'ef17b854d676e48ffdfe481a2e7da6eb', '1217.0905', '2018-01-02 10:15:33', 'undefined', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -171,11 +173,11 @@ CREATE TABLE `pendidikan` (
 --
 
 INSERT INTO `pendidikan` (`id_pend`, `nip`, `pend_terakhir`, `prodi`, `thn_lulus`, `pend_asal`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
-('1', '0', 'S3', 'TEKNIK INFORMATIKA', 2015, 'UNIV PANCASILA', '12100410', '2017-12-28 08:01:18', '1217', '2017-12-29 14:04:29'),
-('2', '0', 'D3', 'PENYIARAN', 2014, 'LP3I', '12100410', '2017-12-28 08:01:41', '12100410', '2017-12-28 08:01:49'),
-('3', '0', 'S3', 'PERPAJAKAN', 2013, 'STAN', '12100410', '2017-12-28 09:28:35', '12100410', '2017-12-28 09:28:44'),
-('4', '2', 'S3', 'IPA', 2000, 'SMA NEGERI 1 TANGERANG', '12100410', '2017-12-28 09:30:00', '12100410', '2017-12-28 09:30:05'),
-('5', '1301.0107', 'S1', 'SISTEM INFORMASI', 2016, 'UNIV TRISAKTI', '', '0000-00-00 00:00:00', '1217.0905', '2017-12-29 16:33:23');
+('2', '1301.0204', 'S2', 'SISTEM INFORMASI', 2011, 'STMIK PEMBANGUNAN', '', '0000-00-00 00:00:00', '1217.0905', '2018-01-02 10:17:17'),
+('3', '1301.0205', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('4', '1301.0206', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('5', '1301.0207', 'S1', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('6', '1301.0208', '', '', 0, '', '1217.0905', '2018-01-02 10:15:33', 'undefined', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -273,7 +275,7 @@ CREATE TABLE `training` (
 --
 
 INSERT INTO `training` (`id_training`, `nama_training`, `penyelenggara`, `instruktur`, `tgl_training`, `durasi`, `lokasi`, `ketua_kelas`, `stat_training`, `note_diklat`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
-('000001', 'Pelatihan K34', 'Pelatihan K34', 'Pelatihan K3', '2017-12-18', 2, '512', 'Pelatihan K3 Hendri', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
+('000001', 'Pelatihan K3', 'Pelatihan K3', 'Pelatihan K3', '2017-12-18', 2, '512', 'Pelatihan K3 Hendri', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
 ('000002', 'Perbaikan Pemerliharaan', 'Dwi Sekmono', 'Dwi Sekmono', '2017-12-18', 4, '511', 'Mahmud ST', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
 ('000003', 'Training Teknik Pendingin AC', 'CGO', 'Edi Pramono', '2017-12-20', 4, '511', 'Edi Pramono', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
 ('000004', 'Ujuan Recurrent Forklip', 'Gunawan', 'Gunawan', '2017-12-19', 4, '511', 'EDI PURNOMO', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),

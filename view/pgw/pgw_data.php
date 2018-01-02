@@ -16,6 +16,7 @@ include'../../class/gapura_object.php';
 			<th>JW KERJA</th>
 			<th>JENIS KONTRAK</th>
 			<th>CABANG</th>
+			<th>PENDIDIKAN</th>
 			<th>AKSI</th>
 		</tr>
 	</thead>
@@ -35,6 +36,7 @@ include'../../class/gapura_object.php';
 				<td><?php echo $d['jw_kerja']?></td>
 				<td><?php echo $d['jenis_kontrak']?> - <?php echo $d['stat_peg']?></td>
 				<td><?php echo $d['cabang']?></td>
+				<td><button class="ubah-pendidikan btn btn-default btn-xs" type="button" data-id="<?php echo $d['id_pend'] ?>"><i class="fa pe-7s-study"></i></button> <?php echo $d['pend_terakhir'] ?></td>
 				
 			<td>
 				<button class="ubah-pgw btn btn-success btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa-edit"></i></button>

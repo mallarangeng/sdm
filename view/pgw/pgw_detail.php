@@ -129,12 +129,12 @@ $pen=$pendidikan->ambil_nip($nip);
                     </tr>
                     <tr>
                         <td>Tahun Lulus</td>
-                        <td>: <?php echo $pe['thn_lulus']; ?></td>
+                        <td>: <?php echo $pen['thn_lulus']; ?></td>
                     </tr>
                     
                      <tr>
                         <td>Pendidikan Asal</td>
-                        <td>: <?php echo $pe['pend_asal']; ?></td>
+                        <td>: <?php echo $pen['pend_asal']; ?></td>
                     </tr>
                                           
                     </tbody>
