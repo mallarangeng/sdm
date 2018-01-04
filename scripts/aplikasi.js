@@ -151,8 +151,8 @@ $(function () {
         e.preventDefault();
         $("#modal-apsensi-add").modal('show');
         $(".modal-title").html('Tambah Siswa Training');
-        $.post("view/apsensi/apsensi_form.php",
-            {id_training:$(this).attr('data-id')},
+        $.get("view/apsensi/apsensi_form.php",
+            {id:$(this).attr('data-id')},
             function(html){
                 $(".modal-body").html(html);
             }

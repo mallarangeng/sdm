@@ -76,7 +76,7 @@ $("#datat_pgw").on("click",".detail-pgw",function(e){
 $("#datat_pgw").on("click",".ubah-pendidikan",function(e){
         e.preventDefault();
 		$("#modal-pgw-pendidikan").modal('show');
-        $(".modal-title").html('Ubah pegawai');
+        $(".modal-title").html('Ubah data Pendidikan');
         
         $.get("view/pendidikan/pendidikan_form.php",
             {id_pend:$(this).attr('data-id')},
