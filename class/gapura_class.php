@@ -165,7 +165,15 @@ class menu{
 }
 class training{
 	function tampiltraining(){
-		$query = mysql_query("SELECT * FROM training");
+		$query = mysql_query("SELECT id_training,nama_training, penyelenggara, instruktur, tgl_training, durasi, lokasi, ketua_kelas, stat_training,(SELECT COUNT(id_training) AS tot_siswa FROM apsensi WHERE training.id_training=apsensi.id_training)tot_siswa FROM training");
+		while($row=mysql_fetch_array($query))
+			$data[]=$row;
+		if(isset($data)){
+			return $data;
+		}
+	}
+	function trainingdiikuti($nip){
+		$query = mysql_query("SELECT a.*,b.* FROM apsensi a, training b  WHERE a.id_training=b.id_training AND  a.nip=$_GET[nip] ");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){
@@ -203,26 +211,27 @@ class training{
 	}
 }
 class Apsensi{
-	function tampilapsensi(){
-		$query = mysql_query("SELECT * FROM apsensi");
+	function tampilapsensi($id_training){
+		$query = mysql_query("SELECT a.*,b.*,c.*,d.*,e.* FROM apsensi a, pegawai b, training c, provider d, unit_kerja e  WHERE a.nip=b.nip AND a.id_training=c.id_training AND b.id_provider=d.id_provider AND e.id_unit=b.id_unit AND a.id_training=$_GET[id] order by id_apsensi");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){
 			return $data;
 		}
 	}
-	function bacaakses($id_akses)
+
+	function bacaapsen($id_apsensi)
 	        {
 				$query=mysql_query("
-				SELECT * FROM akses WHERE id_akses='$_GET[id_akses]'");
+				SELECT * FROM apsensi WHERE id_apsensi='$_GET[id_apsensi]'");
 				$data=mysql_fetch_array($query);
 				$data[]=$row;
 				if(isset($data)){
 					return $data;
 				}
 			}
-	function cek_akses($id_akses) {
-		$dataSales = mysql_query("SELECT * FROM akses WHERE id_akses='$id_akses'");
+	function cek_apsen($id_apsensi) {
+		$dataSales = mysql_query("SELECT * FROM apsensi WHERE id_apsensi='$id_apsensi'");
 		$no_rows = mysql_num_rows($dataSales);
 		if ($no_rows == 1) {
 			return TRUE;
@@ -231,13 +240,13 @@ class Apsensi{
 		  return FALSE;
 		}
 	}
-	function updateakses($id_akses,$nama_akses,$ket_akses) {
-		$query = mysql_query("UPDATE akses SET nama_akses='$nama_akses', ket_akses='$ket_akses' WHERE id_akses='$id_akses'");	
+	function updateapsen($id_apsensi,$nip,$id_training) {
+		$query = mysql_query("UPDATE apsensi SET nip='$nip', id_training='$id_training' WHERE id_apsensi='$id_apsensi'");	
 	}
 	
-	function tambahakses($id_akses,$nama_akses,$ket_akses) {
-		$query = "INSERT INTO akses (id_akses,nama_akses,ket_akses)
-		          VALUES ('$id_akses','$nama_akses','$ket_akses')";
+	function tambahapsen($id_apsensi,$nip,$id_training) {
+		$query = "INSERT INTO apsensi (id_apsensi,nip,id_training)
+		          VALUES ('$id_apsensi','$nip','$id_training')";
 		$hasil = mysql_query($query);
 	}
 }

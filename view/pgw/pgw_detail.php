@@ -2,6 +2,7 @@
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
+$training=new training;
 $da=$pgw->detailpgw($nip);
 $ip=$pgw->bacapgw($nip);
 $pen=$pendidikan->ambil_nip($nip);
@@ -166,31 +167,21 @@ $pen=$pendidikan->ambil_nip($nip);
                     </tr>
                     </thead>
                     <tbody>
+                        <?php
+                            $arraytraining = $training->trainingdiikuti($nip);
+                            if(isset($arraytraining) && $arraytraining !=NULL){
+                                foreach($arraytraining as $tdi){                
+                        ?>
                     <tr>
-                        <td>Henry</td>
-                        <td>Purus Gravida Sagittis Limited</td>
-                        <td>055 1753 4032</td>
+                        <td><?php echo DateToIndo($tdi['tgl_training']); ?></td>
+                        <td><?php echo $tdi['nama_training']; ?></td>
+                        <td><?php echo $tdi['durasi']; ?> Jam</td>
                     </tr>
-                    <tr>
-                        <td>Shelly</td>
-                        <td>Posuere Enim Inc.</td>
-                        <td>0313 143 2317</td>
-                    </tr>
-                    <tr>
-                        <td>Edan</td>
-                        <td>Quisque Imperdiet Company</td>
-                        <td>076 1743 8649</td>
-                    </tr>
-                    <tr>
-                        <td>Sophia</td>
-                        <td>Quam Incorporated</td>
-                        <td>0863 826 7513</td>
-                    </tr>
-                    <tr>
-                        <td>Griffith</td>
-                        <td>Tempor Erat Corp.</td>
-                        <td>0845 46 45</td>
-                    </tr>
+                    <?php
+                        }
+                        }
+
+                    ?>
 
                     </tbody>
                 </table>

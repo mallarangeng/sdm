@@ -97,6 +97,52 @@ $(function () {
     });
 
 //JS POSISI KERJA
+    var main ="view/apsen/apsen_data.php";
+    $("#data-apsen").load(main);
+        $(".tambah-apsen").click(function(e){
+        e.preventDefault();
+        $("#modal-apsen-add").modal('show');
+        $(".modal-title").html('Tambah Apsensi');
+        $.get("view/apsen/apsen_form.php",
+            {id_training:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
+
+       $(".ubah-apsen").click(function(e){
+        e.preventDefault();
+        $("#modal-apsen-add").modal('show');
+        $(".modal-title").html('Ubah apsensi');
+        $.get("view/apsen/apsen_form.php",
+            {id_apsensi:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
+        $("#simpan-apsensi").click(function(e){ 
+        e.preventDefault(); 
+        var url        = "control/apsensi.php"
+        var id_apsensi   = $("#id_apsensi").val();
+        var nip = $("#nip").val();
+        var id_training  = $("#id_training").val();
+        
+        $.ajax({
+                  url: 'control/apsensi.php',
+                  type: 'GET',
+                  data: 'aksi=tambah&id_apsensi='+id_apsensi+'&nip='+nip+'&id_training='+id_training,
+                    success: function(data) {
+                    $('#hasil').html(data);
+                    $("#data-apsen").load("view/apsen/apsen_data.php");
+                    $('#modal-apsen-add').modal('hide');
+                  },
+                  error: function(e) {
+                  }
+                });
+    });
+
     var main ="view/posisi/posisi_data.php";
     $("#data-posisi").load(main);
         $(".tambah-posisi").click(function(e){
@@ -144,20 +190,7 @@ $(function () {
                 });
     });
 
-// Js untuk akses data
-    var main = "view/apsensi/apsensi_data.php";
-    $("#data-apsensi").load(main);
-        $(".tambah-apsensi").click(function(e){
-        e.preventDefault();
-        $("#modal-apsensi-add").modal('show');
-        $(".modal-title").html('Tambah Siswa Training');
-        $.get("view/apsensi/apsensi_form.php",
-            {id:$(this).attr('data-id')},
-            function(html){
-                $(".modal-body").html(html);
-            }
-        );
-    });
+
     var main = "view/akses/akses_data.php";
     $("#data-akses").load(main);
         $(".tambah-akses").click(function(e){

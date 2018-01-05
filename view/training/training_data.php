@@ -2,6 +2,7 @@
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
+$apsensi = new apsensi();
 ?>
 
 <div class="table-responsive">
@@ -15,7 +16,7 @@ include'../../class/gapura_object.php';
 			<th>TANGGAL</th>
 			<th>DURASI</th>
 			<th>LOKASI</th>
-			<th>APSENSI</th>		
+			<th>JML SISWA</th>		
 			<th>KETUA KELAS</th>
 			<th>STATUS</th>
 			<th>AKSI</th>
@@ -26,6 +27,16 @@ include'../../class/gapura_object.php';
 		$arraytraining = $training->tampiltraining();
 		if(isset($arraytraining) && $arraytraining !=NULL){
 			foreach($arraytraining as $data){
+				 if($data['stat_training']=='Selesai'){
+                  $aa='success';
+                  }
+                  else if($data['stat_training']=='Terjadwal'){  
+                  $aa='info';
+                 	}
+                 	else {
+                 		$aa='primary';
+
+                }
 	?>
 		<tr>
 			<td><?php echo $data['id_training']?></td>
@@ -35,9 +46,9 @@ include'../../class/gapura_object.php';
 				<td><?php echo DateToIndo($data['tgl_training']); ?></td>
 				<td><?php echo $data['durasi']?> Jam</td>
 				<td><?php echo $data['lokasi']?></td>
-				<td><a href="?r=apsensi&pg=apsensi&id=<?php echo $data['id_training']?>" data-id="<?php echo $data['id_training'] ?>"><i class="fa pe-7s-users"></a></td>
+				<td><a href="?r=apsen&pg=apsen_data&id=<?php echo $data['id_training']?>"><?php echo $data['tot_siswa']; ?> Siswa</a> </td>
 				<td><?php echo $data['ketua_kelas']?></td>
-				<td><?php echo $data['stat_training']?></td>
+				<td><button type="button" class="btn btn-<?php echo $aa; ?> btn-xs"><?php echo $data['stat_training']; ?></td>
 			<td>
 				<button class="ubah-training btn btn-success btn-xs" type="button" data-id="<?php echo $data['id_training'] ?>"><i class="fa fa-edit"></i></button>
 			</td>

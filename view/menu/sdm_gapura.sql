@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2018 at 10:56 AM
+-- Generation Time: Jan 05, 2018 at 10:54 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -40,7 +40,8 @@ INSERT INTO `akses` (`id_akses`, `nama_akses`, `ket_akses`) VALUES
 ('1', 'No', 'No'),
 ('2', 'SPV Human Resource', 'SPV Human Resource'),
 ('3', 'Staff HRD', 'Staff HRD'),
-('4', 'Staff Keuangan', 'Staff Keuangan 2');
+('4', 'Staff Keuangan', 'Staff Keuangan 2'),
+('5', 'Staff Pajak', 'Staff Pajak');
 
 -- --------------------------------------------------------
 
@@ -53,6 +54,22 @@ CREATE TABLE `apsensi` (
   `nip` varchar(15) NOT NULL,
   `id_training` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `apsensi`
+--
+
+INSERT INTO `apsensi` (`id_apsensi`, `nip`, `id_training`) VALUES
+(1, '1712.0905', '000001'),
+(2, '1712.0909', '000001'),
+(3, '1301.0107', '000001'),
+(4, '1712.0908', '000001'),
+(5, '1301.0107', '000002'),
+(6, '1305.0224', '000002'),
+(7, '1305.0224', '000001'),
+(8, '1712.0910', '000003'),
+(9, '1305.0224', '000003'),
+(10, '1712.0905', '000003');
 
 -- --------------------------------------------------------
 
@@ -93,7 +110,7 @@ INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `id_akses`, `parent
 ('5', 'Jabatan', 'jabatan', 'jabatan', 1, 1, ' pe-7s-culture', 4),
 ('6', 'TRAINING', 'training', 'training', 0, 0, 'pe-7s-graph1', 2),
 ('7', 'Data Training', 'training', 'training', 1, 6, ' pe-7s-graph3', 1),
-('8', 'Apsensi Training', 'apsensi', 'apsensi', 1, 6, 'pe-7s-copy-file', 2),
+('8', 'Apsensi Training', 'apsen', 'apsen', 1, 6, 'pe-7s-copy-file', 2),
 ('9', 'DATA CUTI', 'cuti', 'cuti', 0, 0, ' pe-7s-date', 3);
 
 -- --------------------------------------------------------
@@ -155,9 +172,18 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`nip`, `nama`, `jekel`, `kota_lahir`, `tgl_lahir`, `alamat`, `id_unit`, `id_posisi`, `id_provider`, `tmt_kerja`, `jenis_kontrak`, `cabang`, `stat_peg`, `jw_kerja`, `aktif`, `note_aktif`, `id_akses`, `password`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
-('1301.0107', 'Hasan Setiawan', 'L', 'Jakarta', '2018-01-30', 'Cikupa mas tangerang', 4, 3, 9004, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-23', 'Aktif', '-', 1, 'ef17b854d676e48ffdfe481a2e7da6eb', '1301.0204', '2018-01-02 14:03:53', 'undefined', '0000-00-00 00:00:00'),
+('1301.0107', 'Hasan Setiawan', 'L', 'Jakarta', '2018-01-30', 'Cikupa mas tangerang', 4, 3, 9001, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-23', 'Aktif', 'Jakarta', 1, 'ef17b854d676e48ffdfe481a2e7da6eb', '12100410', '2017-12-21 15:06:50', '1712.0905', '2018-01-05 16:07:31'),
 ('1305.0223', 'Suhada', 'L', 'Jakarta', '2018-01-30', 'Cikupa Tangerang', 2, 2, 9003, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-18', 'Aktif', '-', 1, 'ef17b854d676e48ffdfe481a2e7da6eb', '', '0000-00-00 00:00:00', '1301.0204', '2018-01-02 14:05:31'),
-('1305.0224', 'Sutisna', 'L', 'aceh', '2018-01-31', '-', 4, 3, 9004, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-15', 'Aktif', '-', 1, '764ac49220d465e2ca57a6273e24062e', '1301.0204', '2018-01-02 14:06:18', 'undefined', '0000-00-00 00:00:00');
+('1305.0224', 'Sutisna', 'L', 'aceh', '2018-01-31', '-', 4, 3, 9001, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-15', 'Aktif', 'aceh', 1, '764ac49220d465e2ca57a6273e24062e', '12100410', '2017-12-21 15:06:50', '1712.0905', '2018-01-05 16:07:43'),
+('1712.0905', 'Hendri Yulianto', 'L', 'Rejo Agung', '1992-05-14', 'KP. GEBANG RT. 002/002 TANGERANG', 4, 5, 9001, '2017-12-05', 'SDM', 'CGO', 'OS', '2020-12-05', 'Aktif', '-', 1, '74a71e525cb83b70c44f8e1b7b644ff4', '1301.0107', '2018-01-05 08:14:39', 'undefined', '0000-00-00 00:00:00'),
+('1712.0906', 'Sudarmono', 'L', 'Jakarta', '2018-01-30', 'Cibodas', 3, 4, 9003, '2018-01-23', 'SDM', 'CGO', 'OS', '2018-01-16', 'Aktif', '-', 3, 'ef17b854d676e48ffdfe481a2e7da6eb', '1712.0905', '2018-01-05 14:25:30', 'undefined', '0000-00-00 00:00:00'),
+('1712.0907', 'Dwi Santoso', 'L', 'Tangerang', '2018-01-23', 'Kp. Gebang RT. 002/002', 2, 4, 9003, '2018-01-23', 'SDM', 'CKG', 'OS', '2018-01-10', 'Aktif', '-', 1, '8a18484752c7e9ba08a7173797416cd0', '1712.0905', '2018-01-05 14:26:22', 'undefined', '0000-00-00 00:00:00'),
+('1712.0908', 'Soleh Mauludin', 'L', 'Jakarta', '2018-01-23', 'Kp. Gebang RT. 002/002', 2, 3, 9002, '2018-01-24', 'PEKERJAAN', 'CKG', 'PKWT', '2018-01-16', 'Non Aktif', '-', 2, '8a18484752c7e9ba08a7173797416cd0', '1712.0905', '2018-01-05 14:31:49', 'undefined', '0000-00-00 00:00:00'),
+('1712.0909', 'Kuncoro Di Aji', 'L', 'Jakarta', '2018-01-16', '-', 3, 5, 9003, '2018-01-24', 'SDM', 'CGO', 'OS', '2018-01-17', 'Aktif', '-', 2, '013a28fce062010f1185e357c4c0d2b0', '1712.0905', '2018-01-05 14:32:28', 'undefined', '0000-00-00 00:00:00'),
+('1712.0910', 'Hasan Basri', 'L', 'Tangerang', '2018-01-23', '-', 3, 4, 9002, '2018-01-24', 'SDM', 'CGO', 'OS', '2018-01-16', 'Aktif', '', 1, '8a18484752c7e9ba08a7173797416cd0', '1712.0905', '2018-01-05 14:33:16', 'undefined', '0000-00-00 00:00:00'),
+('1712.0911', 'Rahmad Septiansyah', 'L', 'Tangerang', '2018-01-23', 'Jakarta Selatan', 4, 4, 9003, '2018-01-24', 'SDM', 'CGO', 'OS', '2018-01-11', 'Aktif', '-', 1, '8a18484752c7e9ba08a7173797416cd0', '1712.0905', '2018-01-05 15:28:52', 'undefined', '0000-00-00 00:00:00'),
+('1712.0912', 'Vergiantoro', 'L', 'Jakarta', '2018-01-16', '-', 3, 6, 9002, '2018-01-24', 'SDM', 'CGO', 'OS', '2018-01-09', 'Aktif', '-', 1, '013a28fce062010f1185e357c4c0d2b0', '1712.0905', '2018-01-05 15:29:34', 'undefined', '0000-00-00 00:00:00'),
+('1712.0913', 'Bella Nugraha Wiguna', 'L', 'Tangerang', '2018-01-23', 'Cikupa Tangerang', 2, 4, 0, '2018-01-24', 'SDM', 'CGO', 'OS', '2018-01-23', 'Aktif', '-', 3, '8a18484752c7e9ba08a7173797416cd0', '1712.0905', '2018-01-05 15:47:17', 'undefined', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -184,8 +210,17 @@ CREATE TABLE `pendidikan` (
 
 INSERT INTO `pendidikan` (`id_pend`, `nip`, `pend_terakhir`, `prodi`, `thn_lulus`, `pend_asal`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
 ('1', '1305.0223', 'S1', 'Sastra Inggris', 2010, 'Univ Gajah Mada', '', '0000-00-00 00:00:00', '1301.0204', '2018-01-02 14:13:58'),
+('10', '1712.0911', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('11', '1712.0912', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('12', '1712.0913', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
 ('2', '1301.0107', 'D3', 'Bahasa Belanda', 2010, 'LP31', '', '0000-00-00 00:00:00', '1301.0204', '2018-01-02 14:13:16'),
-('3', '1305.0224', 'S1', 'Teknik Informatika', 2011, 'LP3i', '', '0000-00-00 00:00:00', '1301.0204', '2018-01-02 14:13:50');
+('3', '1305.0224', 'S1', 'Teknik Informatika', 2011, 'LP3i', '', '0000-00-00 00:00:00', '1301.0204', '2018-01-02 14:13:50'),
+('4', '1712.0905', 'S1', 'Sistem Informasi', 2015, 'Universitas Esa Unggul', '', '0000-00-00 00:00:00', '1301.0107', '2018-01-05 08:15:09'),
+('5', '1712.0906', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('6', '1712.0907', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('7', '1712.0908', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('8', '1712.0909', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('9', '1712.0910', '', '', 0, '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -283,18 +318,9 @@ CREATE TABLE `training` (
 --
 
 INSERT INTO `training` (`id_training`, `nama_training`, `penyelenggara`, `instruktur`, `tgl_training`, `durasi`, `lokasi`, `ketua_kelas`, `stat_training`, `note_diklat`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
-('000001', 'Pelatihan K3', 'Pelatihan K3', 'Pelatihan K3', '2017-12-18', 2, '512', 'Pelatihan K3 Hendri', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000002', 'Perbaikan Pemerliharaan', 'Dwi Sekmono', 'Dwi Sekmono', '2017-12-18', 4, '511', 'Mahmud ST', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000003', 'Training Teknik Pendingin AC', 'CGO', 'Edi Pramono', '2017-12-20', 4, '511', 'Edi Pramono', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000004', 'Ujuan Recurrent Forklip', 'Gunawan', 'Gunawan', '2017-12-19', 4, '511', 'EDI PURNOMO', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000005', 'Training Teknik Pendingin AC', 'CGO', 'Edi Pramono', '2017-12-20', 4, '511', 'SAIFUL BAHRI', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000006', 'DG AWARENESS BATCH-1', 'CGO', 'BURHANUDDIN ', '2017-03-27', 2, '511', 'Komarudin', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000007', 'Trainig Cargo Flash Warehouse System', 'CGO', 'Suharto Wagiman', '2017-07-14', 24, '511', 'Hendra', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000008', 'UJIAN RECURRENT BASIC AVSEC', 'CGO', 'Damar Wulan', '2017-12-13', 4, '511', 'Hendro Sutoyo', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000009', 'Trainig Cargo Flash Warehouse System', 'CGO', 'Duta', '1900-12-26', 4, '511', 'Nasir', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000010', 'Trainig Cargo Flash Warehouse System', 'GLC', 'Joko Susilo', '1900-12-27', 3, 'Jakarta', 'Asep 2', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000011', 'Membuat Falidasi Data', 'CGO2', 'Suharto W', '2017-12-21', 3, 'Gapura Angkasa', 'Hendri', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00'),
-('000012', 'Trainig Teknik Pendingin', 'CGO', 'Lasiman', '2017-12-22', 4, '511', 'A Rosid', 'berjalan', '', '0', '0000-00-00 00:00:00', '0', '0000-00-00 00:00:00');
+('000001', 'SOSIALISASI BATTERY', 'CGO', 'Ahmad Maulana', '2018-01-05', 4, '511', 'SAIFUL', 'Selesai', '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('000002', 'INITIAL BASIC CARGO', 'GLC', 'AGUS RUSTAMSYAH', '2018-01-11', 4, 'CGO', '-', 'Selesai', '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
+('000003', 'LIVE ANIMAL REGULATION SESI 1', 'GLC', 'EDI PRAMONO', '2018-01-05', 4, '511', '-', 'Terjadwal', '', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -397,7 +423,7 @@ ALTER TABLE `unit_kerja`
 -- AUTO_INCREMENT for table `apsensi`
 --
 ALTER TABLE `apsensi`
-  MODIFY `id_apsensi` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_apsensi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

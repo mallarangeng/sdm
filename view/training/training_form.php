@@ -69,13 +69,21 @@ $d=$training->bacatraining($id_training);
 			<label class="col-sm-4 control-label">Ketua Kelas</label>
             <div class="col-sm-8">
 				<input type="text" placeholder="ketua Kelas" class="form-control input-sm" id="ketua_kelas" value="<?php echo $ketua_kelas ?>">
-				<input type="hidden" id="stat_training" value="berjalan">
-				<input type="hidden" id="input_by">
-				<input type="hidden" id="input_date">
-				<input type="hidden" id="edit_by">
-				<input type="hidden" id="edit_date">
             </div>
         </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Status Training</label>
+                    <div class="col-sm-4">
+                         <select class="js-source-states" id="stat_training" style="width: 100%">                   
+                                    <option value="Terjadwal">Terjadwal</option>
+                                    <option value="Selesai">Selesai</option>
+                                </select>
+                                  </div>
+                                  <input type="hidden" id="input_by">
+                                    <input type="hidden" id="input_date">
+                                    <input type="hidden" id="edit_by">
+                                    <input type="hidden" id="edit_date">
+                         </div>
         <div class="hr-line-dashed"></div>
     </form>
 </div>
@@ -89,6 +97,7 @@ $('#tgl_training').datepicker({
      $("#durasi").TouchSpin({
                 postfix: 'Jam'
             });
+    $(".js-source-states").select2();
 </script>
 <script>
 
