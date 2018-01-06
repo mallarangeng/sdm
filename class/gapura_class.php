@@ -165,7 +165,7 @@ class menu{
 }
 class training{
 	function tampiltraining(){
-		$query = mysql_query("SELECT id_training,nama_training, penyelenggara, instruktur, tgl_training, durasi, lokasi, ketua_kelas, stat_training,(SELECT COUNT(id_training) AS tot_siswa FROM apsensi WHERE training.id_training=apsensi.id_training)tot_siswa FROM training");
+		$query = mysql_query("SELECT id_training,nama_training, penyelenggara, instruktur, tgl_training, durasi, lokasi, ketua_kelas, stat_training,i_by,i_date,e_by,e_date,(SELECT COUNT(id_training) AS tot_siswa FROM apsensi WHERE training.id_training=apsensi.id_training)tot_siswa FROM training ORDER BY stat_training");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){
@@ -183,7 +183,7 @@ class training{
 	function bacatraining($id_training)
 	        {
 				$query=mysql_query("
-				SELECT * FROM training WHERE id_training='$id_training'");
+				SELECT * FROM training WHERE id_training='$_GET[id]'");
 				$data=mysql_fetch_array($query);
 				$data[]=$row;
 				if(isset($data)){
@@ -200,13 +200,13 @@ class training{
 		  return FALSE;
 		}
 	}
-	function updatetraining($id_training,$nama_training,$penyelenggara,$instruktur,$tgl_training,$durasi,$lokasi,$ketua_kelas,$stat_training) {
+	function updatetraining($id_training,$nama_training,$penyelenggara,$instruktur,$tgl_training,$durasi,$lokasi,$ketua_kelas,$stat_training,$i_by,$i_date,$e_by,$e_date) {
 		$query = mysql_query("UPDATE training SET
-				  nama_training = '$nama_training', penyelenggara = '$penyelenggara', instruktur = '$instruktur', tgl_training = '$tgl_training', durasi = '$durasi', lokasi = '$lokasi', ketua_kelas = '$ketua_kelas', stat_training = '$stat_training' WHERE id_training = '$id_training'");	
+				  nama_training = '$nama_training', penyelenggara = '$penyelenggara', instruktur = '$instruktur', tgl_training = '$tgl_training', durasi = '$durasi', lokasi = '$lokasi', ketua_kelas = '$ketua_kelas', stat_training = '$stat_training', i_by='$i_by', i_date='$i_date', e_by='$e_by', e_date='$e_date' WHERE id_training = '$id_training'");	
 	}
-	function tambahtraining($id_training,$nama_training,$penyelenggara,$instruktur,$tgl_training,$durasi,$lokasi,$ketua_kelas,$stat_training) {
-		$query = "INSERT INTO training (id_training,nama_training,penyelenggara,instruktur,tgl_training,durasi,lokasi,ketua_kelas,stat_training)
-		          VALUES ('$id_training','$nama_training','$penyelenggara','$instruktur','$tgl_training','$durasi','$lokasi','$ketua_kelas','$stat_training')";
+	function tambahtraining($id_training,$nama_training,$penyelenggara,$instruktur,$tgl_training,$durasi,$lokasi,$ketua_kelas,$stat_training,$i_by,$i_date,$e_by,$e_date) {
+		$query = "INSERT INTO training (id_training,nama_training,penyelenggara,instruktur,tgl_training,durasi,lokasi,ketua_kelas,stat_training,i_by,i_date,e_by,e_date)
+		          VALUES ('$id_training','$nama_training','$penyelenggara','$instruktur','$tgl_training','$durasi','$lokasi','$ketua_kelas','$stat_training','$i_by','$i_date','$e_by','$e_date')";
 		$hasil = mysql_query($query);
 	}
 }
@@ -240,13 +240,14 @@ class Apsensi{
 		  return FALSE;
 		}
 	}
-	function updateapsen($id_apsensi,$nip,$id_training) {
-		$query = mysql_query("UPDATE apsensi SET nip='$nip', id_training='$id_training' WHERE id_apsensi='$id_apsensi'");	
+	function updateapsen($id_apsensi,$nip,$id_training,$i_by,$i_date,$e_by,$e_date) {
+		$query = mysql_query("UPDATE apsensi SET nip='$nip', id_training='$id_training', i_by='$i_by', i_date='$i_date'
+		, e_by='$e_by', e_date='$e_date' WHERE id_apsensi='$id_apsensi'");	
 	}
 	
-	function tambahapsen($id_apsensi,$nip,$id_training) {
-		$query = "INSERT INTO apsensi (id_apsensi,nip,id_training)
-		          VALUES ('$id_apsensi','$nip','$id_training')";
+	function tambahapsen($id_apsensi,$nip,$id_training,$i_by,$i_date,$e_by,$e_date) {
+		$query = "INSERT INTO apsensi (id_apsensi,nip,id_training,i_by,i_date,e_by,e_date)
+		          VALUES ('$id_apsensi','$nip','$id_training','$i_by','$i_date','$e_by','$e_date')";
 		$hasil = mysql_query($query);
 	}
 }

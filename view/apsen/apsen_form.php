@@ -7,11 +7,19 @@ $da=$apsensi->bacaapsen($id_apsensi);
         $id_apsensi        = $da['id_apsensi'];
         $nip               = $da['nip'];
         $id_training       = $da['id_training'];
+        $i_by               = $da['i_by'];
+        $i_date             = $da['i_date'];
+        $e_by               = $da['e_by'];
+        $e_date             = $da['e_date'];
         
     } else {
         $id_apsensi        = '';
         $nip               = '';
         $id_training       = '';
+        $i_by               = '';
+        $i_date             = '';
+        $e_by               = '';
+        $e_date             = '';
     }
 ?>
 <div class="panel-body">
@@ -40,6 +48,8 @@ $da=$apsensi->bacaapsen($id_apsensi);
                                     }
                                     ?>
                                 </select>
+                                <input type="hidden" id="i_by" value="<?php echo $i_by ?>">
+                                <input type="hidden" id="i_date" value="<?php echo $i_date ?>">
 
 
             </div>

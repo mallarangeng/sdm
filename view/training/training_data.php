@@ -9,9 +9,10 @@ $apsensi = new apsensi();
   <table id="datat_training" class="table table-striped table-bordered table-hover">
 	<thead>
 		<tr>
-			<th>ID TRAINING</th>
+			<th></th>
+			<th>KODE</th>
 			<th>NAMA TRAINING</th>
-			<th>PENYELENGGARA</th>
+			<th>PENYE LENGGARA</th>
 			<th>INSTRUKTUR</th>
 			<th>TANGGAL</th>
 			<th>DURASI</th>
@@ -38,19 +39,19 @@ $apsensi = new apsensi();
 
                 }
 	?>
-		<tr>
-			<td><?php echo $data['id_training']?></td>
-				<td><?php echo $data['nama_training']?></td>
+		<tr>	<td></td>
+				<td><?php echo $data['id_training']?></td>
+				<td><strong><?php echo $data['nama_training']?></strong></td>
 				<td><?php echo $data['penyelenggara']?></td>
 				<td><?php echo $data['instruktur']?></td>
 				<td><?php echo DateToIndo($data['tgl_training']); ?></td>
 				<td><?php echo $data['durasi']?> Jam</td>
 				<td><?php echo $data['lokasi']?></td>
-				<td><a href="?r=apsen&pg=apsen_data&id=<?php echo $data['id_training']?>"><?php echo $data['tot_siswa']; ?> Siswa</a> </td>
+				<td><a href="?r=apsen&pg=apsen&id=<?php echo $data['id_training']?>"><?php echo $data['tot_siswa']; ?> Siswa</a> </td>
 				<td><?php echo $data['ketua_kelas']?></td>
-				<td><button type="button" class="btn btn-<?php echo $aa; ?> btn-xs"><?php echo $data['stat_training']; ?></td>
+				<td class="text-<?php echo $aa; ?>"><?php echo $data['stat_training']; ?></td>
 			<td>
-				<button class="ubah-training btn btn-success btn-xs" type="button" data-id="<?php echo $data['id_training'] ?>"><i class="fa fa-edit"></i></button>
+				<button class="ubah-training btn btn-success btn-xs" type="button" data-id="<?php echo $data['id_training'] ?>" title="<?php echo $data['i_by'].'-'.$data['i_date'].'-'.$data['e_by'].'-'.$data['e_date'] ?>"><i class="fa fa-edit"></i></button>
 			</td>
 		</tr>
 	<?php
@@ -68,7 +69,7 @@ $("#datat_training").on("click",".ubah-training",function(e){
 		$("#modal-training-add").modal('show');
         $(".modal-title").html('Ubah training');
         $.get("view/training/training_form.php",
-            {id_training:$(this).attr('data-id')},
+            {id:$(this).attr('data-id')},
             function(html){
                 $(".modal-body").html(html);
             }

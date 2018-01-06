@@ -2,27 +2,34 @@
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
-$id_training=$_GET['id_training'];
 $d=$training->bacatraining($id_training);
     if ($d['id_training']> 0) {
-        $nama_training        = $d['nama_training'];
+        $nama_training      = $d['nama_training'];
         $penyelenggara      = $d['penyelenggara'];
         $instruktur         = $d['instruktur'];
-        $tgl_training         = $d['tgl_training'];
+        $tgl_training       = $d['tgl_training'];
         $durasi             = $d['durasi'];
         $lokasi             = $d['lokasi'];
         $ketua_kelas        = $d['ketua_kelas'];
-        $stat_training        = $d['stat_training'];
+        $stat_training      = $d['stat_training'];
+        $i_by               = $d['i_by'];
+        $i_date             = $d['i_date'];
+        $e_by               = $d['e_by'];
+        $e_date             = $d['e_date'];
 
     }else{
         $nama_training      = '';
-        $penyelenggara    = '';
-        $instruktur       = '';
+        $penyelenggara      = '';
+        $instruktur         = '';
         $tgl_training       = date('Y-m-d');
-        $durasi           = '1';
-        $lokasi           = '';
-        $ketua_kelas      = '';
-        $stat_training      = '';
+        $durasi             = '1';
+        $lokasi             = '';
+        $ketua_kelas        = '';
+        $stat_training      = 'Status';
+        $i_by               = '';
+        $i_date             = '';
+        $e_by               = '';
+        $e_date             = '';
     }
 ?>
 <div class="panel-body">
@@ -74,15 +81,14 @@ $d=$training->bacatraining($id_training);
         <div class="form-group">
             <label class="col-sm-4 control-label">Status Training</label>
                     <div class="col-sm-4">
-                         <select class="js-source-states" id="stat_training" style="width: 100%">                   
+                         <select class="js-source-states" id="stat_training" style="width: 100%"> 
+                                    <option value="<?php echo $stat_training ?>"><?php echo $stat_training ?></option>
                                     <option value="Terjadwal">Terjadwal</option>
                                     <option value="Selesai">Selesai</option>
                                 </select>
                                   </div>
-                                  <input type="hidden" id="input_by">
-                                    <input type="hidden" id="input_date">
-                                    <input type="hidden" id="edit_by">
-                                    <input type="hidden" id="edit_date">
+                                    <input type="hidden" id="i_by" value="<?php echo $i_by ?>">
+                                    <input type="hidden" id="i_date" value="<?php echo $i_date ?>">
                          </div>
         <div class="hr-line-dashed"></div>
     </form>
@@ -98,80 +104,4 @@ $('#tgl_training').datepicker({
                 postfix: 'Jam'
             });
     $(".js-source-states").select2();
-</script>
-<script>
-
-    $(function(){
-
-        $("#form").validate({
-            rules: {
-                password: {
-                    required: true,
-                    minlength: 3
-                },
-                url: {
-                    required: true,
-                    url: true
-                },
-                number: {
-                    required: true,
-                    number: true
-                },
-                max: {
-                    required: true,
-                    maxlength: 4
-                }
-            },
-            submitHandler: function(form) {
-                form.submit();
-            }
-        });
-
-        $("#form_2").validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 3
-                },
-                username: {
-                    required: true,
-                    minlength: 5
-                },
-                url: {
-                    required: true,
-                    url: true
-                },
-                number: {
-                    required: true,
-                    number: true
-                },
-                last_name: {
-                    required: true,
-                    minlength: 6
-                }
-            },
-            messages: {
-                number: {
-                    required: "(Please enter your phone number)",
-                    number: "(Please enter valid phone number)"
-                },
-                last_name: {
-                    required: "This is custom message for required",
-                    minlength: "This is custom message for min length"
-                }
-            },
-            submitHandler: function(form) {
-                form.submit();
-            },
-            errorPlacement: function(error, element) {
-                $( element )
-                        .closest( "form" )
-                        .find( "label[for='" + element.attr( "id" ) + "']" )
-                        .append( error );
-            },
-            errorElement: "span",
-        });
-
-
-    });
 </script>

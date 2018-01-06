@@ -128,11 +128,15 @@ $(function () {
         var id_apsensi   = $("#id_apsensi").val();
         var nip = $("#nip").val();
         var id_training  = $("#id_training").val();
+        var i_by        = $("#i_by").val();
+        var i_date      = $("#i_date").val();
+        var e_by        = $("#e_by").val();
+        var e_date      = $("#e_date").val();
         
         $.ajax({
                   url: 'control/apsensi.php',
                   type: 'GET',
-                  data: 'aksi=tambah&id_apsensi='+id_apsensi+'&nip='+nip+'&id_training='+id_training,
+                  data: 'aksi=tambah&id_apsensi='+id_apsensi+'&nip='+nip+'&id_training='+id_training+'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
                     success: function(data) {
                     $('#hasil').html(data);
                     $("#data-apsen").load("view/apsen/apsen_data.php");
@@ -345,15 +349,19 @@ $(function () {
     $("#simpan-training").click(function(e){ 
         e.preventDefault();   
         var url = "control/training.php"
-        var id_training = $("#id_training").val();
-        var nama_training = $("#nama_training").val();
-        var penyelenggara = $("#penyelenggara").val();
-        var instruktur = $("#instruktur").val();
-        var tgl_training = $("#tgl_training").val();
-        var durasi  = $("#durasi").val();
-        var lokasi  = $("#lokasi").val();
-        var ketua_kelas  = $("#ketua_kelas").val();
+        var id_training    = $("#id_training").val();
+        var nama_training  = $("#nama_training").val();
+        var penyelenggara  = $("#penyelenggara").val();
+        var instruktur     = $("#instruktur").val();
+        var tgl_training   = $("#tgl_training").val();
+        var durasi         = $("#durasi").val();
+        var lokasi         = $("#lokasi").val();
+        var ketua_kelas    = $("#ketua_kelas").val();
         var stat_training  = $("#stat_training").val();
+        var i_by           = $("#i_by").val();
+        var i_date         = $("#i_date").val();
+        var e_by           = $("#e_by").val();
+        var e_date         = $("#e_date").val();
         
         if (nama_training==""){
             alert ("Nama Training Belum diisi");
@@ -391,7 +399,7 @@ $(function () {
                   url: 'control/training.php',
                   type: 'GET',
                   data: 'aksi=tambah&id_training='+id_training+'&nama_training='+nama_training+'&penyelenggara='+penyelenggara+
-                  '&instruktur='+instruktur+'&tgl_training='+tgl_training+'&durasi='+durasi+'&lokasi='+lokasi+'&ketua_kelas='+ketua_kelas+'&stat_training='+stat_training,
+                  '&instruktur='+instruktur+'&tgl_training='+tgl_training+'&durasi='+durasi+'&lokasi='+lokasi+'&ketua_kelas='+ketua_kelas+'&stat_training='+stat_training+'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
                   success: function(data) {
                     $('#hasil').html(data);
                     $("#data-training").load("view/training/training_data.php");
