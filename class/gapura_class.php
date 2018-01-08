@@ -223,7 +223,7 @@ class Apsensi{
 	function bacaapsen($id_apsensi)
 	        {
 				$query=mysql_query("
-				SELECT * FROM apsensi WHERE id_apsensi='$_GET[id_apsensi]'");
+				SELECT a.*, b.* FROM apsensi a, pegawai b WHERE a.nip=b.nip AND a.id_apsensi='$_GET[id_apsensi]'");
 				$data=mysql_fetch_array($query);
 				$data[]=$row;
 				if(isset($data)){

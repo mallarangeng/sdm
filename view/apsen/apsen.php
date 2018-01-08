@@ -1,6 +1,6 @@
 <?php
 include'../../class/gapura_class.php';
-include'../../class/msc_function.php';
+include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
 $apsensi = new apsensi;
 $training = new training;
@@ -12,7 +12,7 @@ $dt=$training->bacatraining($id_training);
         <div class="col-lg-12">
             <div class="hpanel">
                 <div class="panel-heading">
-                    DATA TRAINING
+                    DATA APSENSI SISWA
                 </div>
                 <div class="modal fade hmodal-success" id="modal-apsen-add" tabindex="-1" role="dialog"  aria-hidden="true">
                     <div class="modal-dialog">
@@ -83,11 +83,11 @@ $dt=$training->bacatraining($id_training);
                 <td><?php echo $data['nama_unit']?></td>
                 <td><?php echo $data['nama_provider']?></td>
                 <td><?php echo $data['nama_training']?></td>
-                <td><?php echo $data['tgl_training']?></td>
+                <td><?php echo $data['tgl_training'];?></td>
                 <td><?php echo $data['durasi']?> Jam</td>
 
             <td>
-                <button class="ubah-apsen btn btn-success btn-xs" type="button" data-id="<?php echo $data['id_apsensi'] ?>"><i class="fa fa-edit"></i></button>
+                <button class="ubah-apsen btn btn-success btn-xs" type="button" data-id="<?php echo $data['id_apsensi'] ?>" title="INPUT : <?php echo $data['i_by'].'-'.$data['i_date'].'- EDIT : '.$data['e_by'].'-'.$data['e_date'] ?>"><i class="fa fa-edit"></i></button>
             </td>
         </tr>
     <?php

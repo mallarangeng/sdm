@@ -2,8 +2,9 @@
 include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
-$d=$training->bacatraining($id_training);
+$d=$training->bacatraining($id);
     if ($d['id_training']> 0) {
+        $id_training        = $d['id_training'];
         $nama_training      = $d['nama_training'];
         $penyelenggara      = $d['penyelenggara'];
         $instruktur         = $d['instruktur'];
@@ -25,7 +26,7 @@ $d=$training->bacatraining($id_training);
         $durasi             = '1';
         $lokasi             = '';
         $ketua_kelas        = '';
-        $stat_training      = 'Status';
+        $stat_training      = 'Terjadwal';
         $i_by               = '';
         $i_date             = '';
         $e_by               = '';

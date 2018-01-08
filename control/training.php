@@ -21,7 +21,7 @@ if($_GET['aksi']=='tambah'){
 	$training->tambahtraining($id_training,$_GET['nama_training'],$_GET['penyelenggara'],$_GET['instruktur'],$_GET['tgl_training'],$_GET['durasi'],$_GET['lokasi'],$_GET['ketua_kelas'],$_GET['stat_training'],$userSes,$timeSkrg);
 	echo "<div class='alert alert-success alert-dismissable'>";
 	echo "<button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×</button>";
-	echo "ID ".$_GET['id_training']." Berhasil disimpan ";
+	echo "ID ".$id_training." Berhasil disimpan ";
 	echo "</div>";
 	}
 }

@@ -6,6 +6,7 @@ $da=$apsensi->bacaapsen($id_apsensi);
     if ($da['id_apsensi']>0) {
         $id_apsensi        = $da['id_apsensi'];
         $nip               = $da['nip'];
+        $nama               = $da['nama'];
         $id_training       = $da['id_training'];
         $i_by               = $da['i_by'];
         $i_date             = $da['i_date'];
@@ -14,7 +15,8 @@ $da=$apsensi->bacaapsen($id_apsensi);
         
     } else {
         $id_apsensi        = '';
-        $nip               = '';
+        $nip        = '';
+        $nama               = 'Pilih Nip - Nama';
         $id_training       = '';
         $i_by               = '';
         $i_date             = '';
@@ -25,18 +27,14 @@ $da=$apsensi->bacaapsen($id_apsensi);
 <div class="panel-body">
     <form method="get" class="form-horizontal" id="form_2">
 
-        <div class="form-group">
-			<label class="col-sm-4 control-label">ID Training</label>
-            <div class="col-sm-8">
-			<input type="hidden" id="id_apsensi" value="<?php echo $id_apsensi; ?>">
-            <input type="text" class="form-control input-sm" id="id_training" value="<?php echo $_GET['id_training']; ?><?php echo $id_training; ?>" readonly>
-            </div>
-        </div>
+   <input type="hidden" id="id_apsensi" value="<?php echo $id_apsensi; ?>">
+    <input type="hidden" id="id_training" value="<?php echo $_GET['id_training']; ?><?php echo $id_training; ?>" readonly>
 		<div class="form-group">
 			<label class="col-sm-4 control-label">Nama Siswa</label>
             <div class="col-sm-8">
 
                                    <select class="js-source-states" id="nip" style="width: 100%">
+                                    <option value="<?php echo $nip; ?>"><?php echo $nip; ?> <?php echo $nama; ?></option>
                                         <?php
                                             $arraypgw = $pgw->tampilpgw();
                                             if(isset($arraypgw) && $arraypgw !=NULL){

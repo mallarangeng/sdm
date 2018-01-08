@@ -102,7 +102,7 @@ $(function () {
         $(".tambah-apsen").click(function(e){
         e.preventDefault();
         $("#modal-apsen-add").modal('show');
-        $(".modal-title").html('Tambah Apsensi');
+        $(".modal-title").html('Tambah Apsensi Siswa');
         $.get("view/apsen/apsen_form.php",
             {id_training:$(this).attr('data-id')},
             function(html){
@@ -114,7 +114,7 @@ $(function () {
        $(".ubah-apsen").click(function(e){
         e.preventDefault();
         $("#modal-apsen-add").modal('show');
-        $(".modal-title").html('Ubah apsensi');
+        $(".modal-title").html('Ubah apsensi Siswa');
         $.get("view/apsen/apsen_form.php",
             {id_apsensi:$(this).attr('data-id')},
             function(html){
@@ -132,7 +132,10 @@ $(function () {
         var i_date      = $("#i_date").val();
         var e_by        = $("#e_by").val();
         var e_date      = $("#e_date").val();
-        
+        if (nip==""){
+            alert ("Nama Belum dipilih :-(");
+            return false;
+        }
         $.ajax({
                   url: 'control/apsensi.php',
                   type: 'GET',

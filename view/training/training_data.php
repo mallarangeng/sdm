@@ -47,11 +47,11 @@ $apsensi = new apsensi();
 				<td><?php echo DateToIndo($data['tgl_training']); ?></td>
 				<td><?php echo $data['durasi']?> Jam</td>
 				<td><?php echo $data['lokasi']?></td>
-				<td><a href="?r=apsen&pg=apsen&id=<?php echo $data['id_training']?>"><?php echo $data['tot_siswa']; ?> Siswa</a> </td>
+				<td><strong><a href="?r=apsen&pg=apsen&id=<?php echo $data['id_training']?>"><?php echo $data['tot_siswa']; ?> Siswa</a></strong></td>
 				<td><?php echo $data['ketua_kelas']?></td>
 				<td class="text-<?php echo $aa; ?>"><?php echo $data['stat_training']; ?></td>
 			<td>
-				<button class="ubah-training btn btn-success btn-xs" type="button" data-id="<?php echo $data['id_training'] ?>" title="<?php echo $data['i_by'].'-'.$data['i_date'].'-'.$data['e_by'].'-'.$data['e_date'] ?>"><i class="fa fa-edit"></i></button>
+				<button class="ubah-training btn btn-success btn-xs" type="button" data-id="<?php echo $data['id_training'] ?>" title="INPUT : <?php echo $data['i_by'].'-'.$data['i_date'].'- EDIT : '.$data['e_by'].'-'.$data['e_date'] ?>"><i class="fa fa-edit"></i></button>
 			</td>
 		</tr>
 	<?php
