@@ -10,19 +10,32 @@ $datafile = new datafile;
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="color-line"></div>
+            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
             <div class="modal-header">
                 <h4 class="modal-title">Modal title</h4>
             </div>
             <div class="modal-body">
-                <p><?php echo $_GET['nip']; ?></p>
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary" id="simpan-apsensi">Simpan Data</button>
+                <input type="submit" class="btn btn-primary" name="simpanl" id="simpan-apsensi" value="Simpan Data">
             </div>
+        </form>
         </div>
     </div>
 </div>
+        <?php
+        if($_POST['simpanl'])
+        {
+            $nip=$_POST['nip'];
+            $nama_file=$_POST['nama_file'];
+            $gambar=$nip."_".$_FILES['gambar']['name'];
+            $datafile->tambahDatafile($nip,$nama_file,$gambar);
+            echo"<meta http-equiv='refresh' content='0;url=?r=file&pg=file&nip=".$_GET[nip]."'>";              
+        }
+?>
+
 <div class="normalheader transition animated fadeIn">
     <div class="hpanel">
         <div class="panel-body">
@@ -53,8 +66,8 @@ $datafile = new datafile;
                     <tr>
                         <th>NO</th>
                         <th>NAMA LAMPIRAN</th>
-                        <th>FILE</th>
-                        <th>AKSI</th>
+                        <th>DOWNLOAD</th>
+                        <th>EDIT</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -65,9 +78,10 @@ $datafile = new datafile;
 						    ?>
                     <tr>
                         <td><?php echo $c=$c+1; ?></td>
-                        <td>Purus Gravida Sagittis Limited</td>
-                        <td>055 1753 4032</td>
-                        <td>055 1753 4032</td>
+                        <td><?php echo $d['nama_file']; ?></td>
+                        
+                        <td><a href="file_pgw/<?php echo $d['gambar']; ?>" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-download fa-1x"></i> DOWNLOAD</a></td>
+                        <td><button class="ubah-file btn btn-primary btn-xs" type="button" data-id="<?php echo $d['kode_file'] ?>"><i class="fa fa-edit"></i></button>&nbsp;&nbsp;<button class="ubah-file btn btn-danger btn-xs" type="button" data-id="<?php echo $d['kode_file'] ?>"><i class="fa pe-7s-trash"></i> Delete</button></td>
                     </tr>
                     		<?php 
                     			}

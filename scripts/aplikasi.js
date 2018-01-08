@@ -209,6 +209,18 @@ $(function () {
                 );
             });
 
+            $(document).on('click','.ubah-file',function(e){
+                e.preventDefault();
+                $("#modal-file-add").modal('show');
+                $(".modal-title").html('Ubah File');
+                $.get("view/file/file_form.php",
+                    {kode_file:$(this).attr('data-id')},
+                    function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
+
     var main = "view/akses/akses_data.php";
     $("#data-akses").load(main);
         $(".tambah-akses").click(function(e){

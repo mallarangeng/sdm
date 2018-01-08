@@ -542,11 +542,20 @@ class Pgw {
           }
   
         function tampilDatafile($nip) {
-            $query = mysql_query("SELECT * FROM datafile");
+            $query = mysql_query("SELECT * FROM datafile WHERE nip='$_GET[nip]'");
               while($row=mysql_fetch_array($query))
               $data[]=$row;
             return $data;
         }
+        function bacadatafile($kode_file)
+	        {
+				$query=mysql_query("SELECT * FROM datafile WHERE kode_file='$_GET[kode_file]'");
+				$data=mysql_fetch_array($query);
+				$data[]=$row;
+				if(isset($data)){
+					return $data;
+				}
+			}
        }
 	
 

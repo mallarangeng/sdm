@@ -15,8 +15,7 @@ if($_GET['aksi']=='tambah'){
 		echo "<button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×</button>";
 		echo "Data Apsensi Berhasil diUbah ";
 		echo "</div>";
-	}else{
-		
+	}else{		
 		$apsensi->tambahapsen($_GET['id_apsensi'],$_GET['nip'],$_GET['id_training'],$userSes,$timeSkrg);
 		echo "<div class='alert alert-success alert-dismissable'>";
 		echo "<button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×</button>";
