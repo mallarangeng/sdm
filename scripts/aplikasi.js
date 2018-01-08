@@ -197,6 +197,17 @@ $(function () {
                 });
     });
 
+            $(document).on('click','.tambah-file',function(e){
+                e.preventDefault();
+                $("#modal-file-add").modal('show');
+                $(".modal-title").html('Tambahkan File');
+                $.get("view/file/file_form.php",
+                    {nip:$(this).attr('data-id')},
+                    function(html){
+                        $(".modal-body").html(html);
+                    }   
+                );
+            });
 
     var main = "view/akses/akses_data.php";
     $("#data-akses").load(main);
@@ -264,6 +275,7 @@ $(function () {
         var kota_lahir  = $("#kota_lahir").val();
         var tgl_lahir   = $("#tgl_lahir").val();
         var alamat      = $("#alamat").val();
+        var no_hp       = $("#no_hp").val();
         var id_unit     = $("#id_unit").val();
         var id_posisi   = $("#id_posisi").val();
         var id_provider = $("#id_provider").val();
@@ -272,7 +284,11 @@ $(function () {
         var cabang      = $("#cabang").val();
         var stat_peg    = $("#stat_peg").val();
         var jw_kerja    = $("#jw_kerja").val();
+        var pend_terakhir    = $("#pend_terakhir").val();
+        var prodi       = $("#prodi").val();
+        var thn_lulus   = $("#thn_lulus").val();
         var aktif       = $("#aktif").val();
+        var tgl_aktif   = $("#tgl_aktif").val();
         var note_aktif  = $("#note_aktif").val();
         var id_akses    = $("#id_akses").val();
         var password    = $("#password").val();
@@ -284,8 +300,8 @@ $(function () {
                   url: 'control/pgw.php',
                   type: 'GET',
                   data: 'aksi=tambah&nip='+nip+'&nama='+nama+'&jekel='+jekel+'&kota_lahir='+kota_lahir+
-                  '&tgl_lahir='+tgl_lahir+'&alamat='+alamat+'&id_unit='+id_unit+'&id_posisi='+id_posisi+'&id_provider='+id_provider
-                  +'&tmt_kerja='+tmt_kerja+'&jenis_kontrak='+jenis_kontrak+'&cabang='+cabang+'&stat_peg='+stat_peg+'&jw_kerja='+jw_kerja+'&aktif='+aktif+'&note_aktif='+note_aktif+'&id_akses='+id_akses+'&password='+password+'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
+                  '&tgl_lahir='+tgl_lahir+'&alamat='+alamat+'&no_hp='+no_hp+'&id_unit='+id_unit+'&id_posisi='+id_posisi+'&id_provider='+id_provider
+                  +'&tmt_kerja='+tmt_kerja+'&jenis_kontrak='+jenis_kontrak+'&cabang='+cabang+'&stat_peg='+stat_peg+'&jw_kerja='+jw_kerja+'&pend_terakhir='+pend_terakhir+'&prodi='+prodi+'&thn_lulus='+thn_lulus+'&aktif='+aktif+'&tgl_aktif='+tgl_aktif+'&note_aktif='+note_aktif+'&id_akses='+id_akses+'&password='+password+'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
                     success: function(data) {
                     $('#hasil').html(data);
                     $("#data-pgw").load("view/pgw/pgw_data.php");

@@ -12,18 +12,23 @@ $da=$pgw->bacapgw($nip);
         $tgl_lahir   = $da['tgl_lahir'];
         $nipform     = 'readonly';//agar field nip read only saat edit data
         $alamat      = $da['alamat'];
+        $no_hp       = $da['no_hp'];
         $id_unit     = $da['id_unit'];
         $nama_unit   = $da['nama_unit'];
         $id_posisi   = $da['id_posisi'];
         $nm_posisi   = $da['nm_posisi'];
         $id_provider = $da['id_provider'];
-        $nama_provider = $da['nama_provider'];
-        $tmt_kerja   = $da['tmt_kerja'];
+        $nama_provider  = $da['nama_provider'];
+        $tmt_kerja      = $da['tmt_kerja'];
         $jenis_kontrak  = $da['jenis_kontrak'];
         $cabang      = $da['cabang'];
         $stat_peg    = $da['stat_peg'];
         $jw_kerja    = $da['jw_kerja'];
+        $pend_terakhir    = $da['pend_terakhir'];
+        $prodi       = $da['prodi'];
+        $thn_lulus   = $da['thn_lulus'];
         $aktif       = $da['aktif'];
+        $tgl_aktif   = $da['tgl_aktif'];
         $note_aktif  = $da['note_aktif'];
         $id_akses    = $da['id_akses'];
         $password    = $da['password'];
@@ -42,6 +47,7 @@ $da=$pgw->bacapgw($nip);
         $kota_lahir  = '';
         $tgl_lahir   = '';
         $alamat      = '';
+        $no_hp      = '';
         $id_unit     = '';
         $nama_unit   = 'Pilih Unit';
         $id_posisi   = '';
@@ -49,11 +55,15 @@ $da=$pgw->bacapgw($nip);
         $id_provider = '';
         $nama_provider = 'Pilih Provider';
         $tmt_kerja   = '';
-        $jenis_kontrak = '';
+        $jenis_kontrak = 'Pilih Jenis';
         $cabang      = '';
-        $stat_peg    = '';
+        $stat_peg    = 'Pilih Status';
         $jw_kerja    = '';
+        $pend_terakhir = 'Pilih Pendidikan';
+        $prodi       = '';
+        $thn_lulus   = '';
         $aktif       = '';
+        $tgl_aktif   = '';
         $note_aktif  = '';
         $id_akses    = '1';
         $nama_akses  = 'Pilih Akses';
@@ -70,8 +80,9 @@ $da=$pgw->bacapgw($nip);
             <ul class="nav nav-tabs">
                 <li class="active"><a data-toggle="tab" href="#tab-1">FORMULIR I</a></li>
                 <li class=""><a data-toggle="tab" href="#tab-2">FORMULIR II</a></li>
-                <li class=""><a data-toggle="tab" href="#tab-3">FORMULIR III</a></li>
-                <li class=""><a data-toggle="tab" href="#tab-4">PENDIDIKAN</a></li>
+                <li class=""><a data-toggle="tab" href="#tab-3">PENDIDIKAN</a></li>
+                <li class=""><a data-toggle="tab" href="#tab-4"><font class="text-danger"> STATUS AKTIF</font></a></li>
+                
                
             </ul>
             <div class="tab-content">
@@ -115,6 +126,12 @@ $da=$pgw->bacapgw($nip);
                                 <label class="col-sm-4 control-label">Alamat</label>
                                 <div class="col-sm-8">
                                 <input type="text" placeholder="Alamat" class="form-control input-sm" id="alamat" value="<?php echo $alamat ?>">
+                                </div>
+                         </div>
+                           <div class="form-group">
+                                <label class="col-sm-4 control-label">Nomor HP</label>
+                                <div class="col-sm-6">
+                                <input type="text" placeholder="Nomor HP" class="form-control input-sm" id="no_hp" value="<?php echo $no_hp ?>">
                                 </div>
                          </div>
                     </div>
@@ -185,6 +202,7 @@ $da=$pgw->bacapgw($nip);
                                 <label class="col-sm-4 control-label">Jenis Kontrak</label>
                                 <div class="col-sm-6">
                                 <select class="js-source-states" id="jenis_kontrak" style="width: 100%">                   
+                                    <option value="<?php echo $jenis_kontrak; ?>"><?php echo $jenis_kontrak; ?></option>
                                     <option value="SDM">SDM</option>
                                     <option value="PEKERJAAN">PEKERJAAN</option>
                                 </select>
@@ -194,21 +212,16 @@ $da=$pgw->bacapgw($nip);
                            <div class="form-group">
                                 <label class="col-sm-4 control-label">Cabang</label>
                                 <div class="col-sm-4">
-                                <select class="js-source-states" id="cabang" style="width: 100%">                   
+                                <select class="js-source-states" id="cabang" style="width: 100%">
                                     <option value="CGO">CGO</option>
-                                    <option value="CKG">CKG</option>
                                 </select>
                                   </div>
                          </div>
-
-                    </div>
-                </div>
-                <div id="tab-3" class="tab-pane">
-                    <div class="panel-body">
-                        <div class="form-group">
+                                  <div class="form-group">
                                 <label class="col-sm-4 control-label">Status Pegawai</label>
                                 <div class="col-sm-4">
-                                <select class="js-source-states" id="stat_peg" style="width: 100%">                   
+                                <select class="js-source-states" id="stat_peg" style="width: 100%">
+                                    <option value="<?php echo $stat_peg; ?>"><?php echo $stat_peg; ?></option>
                                     <option value="OS">OS</option>
                                     <option value="PKWT">PKWT</option>
                                     <option value="TETAP">TETAP</option>
@@ -221,6 +234,44 @@ $da=$pgw->bacapgw($nip);
                                 <input type="text" placeholder="yyyy-mm-dd" class="form-control input-sm" id="jw_kerja" value="<?php echo $jw_kerja ?>">
                                 </div>
                             </div>
+
+                    </div>
+                </div>
+                <div id="tab-3" class="tab-pane">
+                    <div class="panel-body">
+                                <div class="form-group">
+            <label class="col-sm-4 control-label">Pendidikan Terakhir</label>
+            <div class="col-sm-8">               
+                <select class="js-source-states" id="pend_terakhir" style="width: 100%">   
+                            <option value="<?php echo $pend_terakhir ?>"><?php echo $pend_terakhir ?></option>                 
+                            <option value="S3">S3</option>
+                            <option value="S2">S2</option>
+                            <option value="S1">S1</option>
+                            <option value="D4">D4</option>
+                            <option value="D3">D3</option>
+                            <option value="SMK/A">SMK/A</option>
+                            <option value="SMP">SMP</option>
+                            <option value="SD">SD</option>
+                    </select>
+            </div>
+        </div>
+            <div class="form-group">
+            <label class="col-sm-4 control-label">Program Studi</label>
+                <div class="col-sm-8">
+                    <input type="text" placeholder="Program Studi / Jurusan" class="form-control input-sm" id="prodi" value="<?php echo $prodi ?>">
+                </div>
+            </div>
+            <div class="form-group">
+            <label class="col-sm-4 control-label">Tahun Lulus (ext : 2015)</label>
+            <div class="col-sm-4">
+             <input type="text" class="form-control input-sm" placeholder="Ketikan Tahun" id="thn_lulus" value="<?php echo $thn_lulus ?>">
+            </div>
+            </div>
+                    </div>
+                </div>
+                <div id="tab-4" class="tab-pane">
+                    <div class="panel-body">
+               
                          <div class="form-group">
                                 <label class="col-sm-4 control-label">Status Aktif</label>
                                 <div class="col-sm-4">
@@ -231,10 +282,16 @@ $da=$pgw->bacapgw($nip);
                                 </select>
                                   </div>
                          </div>
+                             <div class="form-group">
+                                <label class="col-sm-4 control-label">Tgl Non Aktif</label>
+                                <div class="col-sm-6">
+                                <input type="text" placeholder="yyyy-mm-dd" class="form-control input-sm" id="tgl_aktif" value="<?php echo $tgl_aktif ?>">
+                                </div>
+                            </div>
                         <div class="form-group">
                                 <label class="col-sm-4 control-label">Keterangan Aktif/Non aktif</label>
                                 <div class="col-sm-8">
-                                <input type="text" placeholder="Keterangan Aktif/Non aktif" class="form-control input-sm" id="note_aktif" value="<?php echo $kota_lahir ?>">
+                                <input type="text" placeholder="Keterangan Aktif/Non aktif" class="form-control input-sm" id="note_aktif" value="<?php echo $note_aktif ?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -260,36 +317,12 @@ $da=$pgw->bacapgw($nip);
                          <input type="hidden" id="password" value="<?php echo $password ?>">
                          <input type="hidden" id="i_by" value="<?php echo $i_by ?>">
                          <input type="hidden" id="i_date" value="<?php echo $i_date ?>">
+                         <div class="alert alert-danger">
+                            <i class="pe pe-7s-info"></i> Tab ini hanya digunakan untuk merubah status karyawan jika resign / non aktif
+                            </div>
                     </div>
                 </div>
-                <div id="tab-4" class="tab-pane">
-                    <div class="panel-body">
-                                <div class="form-group">
-            <label class="col-sm-4 control-label">Pendidikan Terakhir</label>
-            <div class="col-sm-8">
-                <input type="hidden" class="form-control input-sm" id="id_pend" value="<?php echo $id_pend ?>">
-                <input type="hidden" class="form-control input-sm" id="nip" value="<?php echo $nip ?>">
-                <select class="js-source-states" id="pend_terakhir" style="width: 100%">   
-                            <option value="<?php echo $pend_terakhir ?>"><?php echo $pend_terakhir ?></option>                 
-                            <option value="S3">S3</option>
-                            <option value="S2">S2</option>
-                            <option value="S1">S1</option>
-                            <option value="D4">D4</option>
-                            <option value="D3">D3</option>
-                            <option value="SMK/A">SMK/A</option>
-                            <option value="SMP">SMP</option>
-                            <option value="SD">SD</option>
-                    </select>
-            </div>
-        </div>
-            <div class="form-group">
-            <label class="col-sm-4 control-label">Program Studi</label>
-            <div class="col-sm-8">
-                <input type="text" placeholder="Program Studi / Jurusan" class="form-control input-sm" id="prodi" value="<?php echo $prodi ?>">
-            </div>
-        </div>
-                    </div>
-                </div>
+                
                 
             </div>
         </div>
@@ -310,6 +343,12 @@ $('#tmt_kerja').datepicker({
                         autoclose: true
                     });
 $('#jw_kerja').datepicker({
+                        format: 'yyyy-mm-dd',
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        autoclose: true
+                    });
+$('#tgl_aktif').datepicker({
                         format: 'yyyy-mm-dd',
                         keyboardNavigation: false,
                         forceParse: false,

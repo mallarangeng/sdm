@@ -1,6 +1,6 @@
 <?php
 include'../../class/gapura_class.php';
-include'../../class/msc_function.php';
+include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
 ?>
 <div class="table-responsive">
@@ -16,7 +16,7 @@ include'../../class/gapura_object.php';
 			<th>JW KERJA</th>
 			<th>JENIS KONTRAK</th>
 			<th>CABANG</th>
-			<th>PENDIDIKAN</th>
+			<th>PEND</th>
 			<th>AKSI</th>
 		</tr>
 	</thead>
@@ -32,14 +32,16 @@ include'../../class/gapura_object.php';
 				<td><?php echo $d['nama_unit']?></td>
 				<td><?php echo $d['nm_posisi']?></td>
 				<td><?php echo $d['nama_provider']?></td>
-				<td><?php echo $d['tmt_kerja']?></td>
-				<td><?php echo $d['jw_kerja']?></td>
+				<td><?php echo DateToIndo($d['tmt_kerja']);?></td>
+				<td><?php echo DateToIndo($d['jw_kerja']);?></td>
 				<td><?php echo $d['jenis_kontrak']?> - <?php echo $d['stat_peg']?></td>
 				<td><?php echo $d['cabang']?></td>
-				<td><button class="ubah-pendidikan btn btn-default btn-xs" type="button" data-id="<?php echo $d['id_pend'] ?>"><i class="fa pe-7s-study"></i></button> <?php echo $d['pend_terakhir'] ?></td>
+				<td><?php echo $d['pend_terakhir'] ?></td>
 				
 			<td>
 				<button class="ubah-pgw btn btn-success btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa-edit"></i></button>
+				<a href="?r=file&pg=file&nip=<?php echo $d['nip']?>" class="btn btn-default btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa- pe-7s-paperclip"></i></a>
+				
 			</td>
 		</tr>
 	<?php

@@ -1,13 +1,25 @@
-<div class="content animate-panel">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="hpanel">
-                    <div class="panel-heading">
-                        INFORMASI DATA PEGAWAI
-                    </div>
+<div class="normalheader transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <a class="small-header-action" href="#">
+                <div class="clip-header">
+                    <i class="fa fa-arrow-up"></i>
                 </div>
-            </div>
+            </a>
+            <h4 class="font-light m-b-xs">
+                HUMAN RESOURCE INFORMATION SYSTEM
+            </h4>
+            <h3 class="font-light m-b-xs text-success"">
+                PT. GAPURA ANGKSA
+            </h3>
+            <small>Sistem Informasi Sumber Daya Manusia</small>
         </div>
+    </div>
+</div>
+
+
+<div class="content animate-panel">
+
         <div class="row">
                         <div class="col-lg-3">
                 <div class="hpanel stats">

@@ -483,7 +483,7 @@ class menuUser{
 
 class Pgw {
 	function tampilpgw(){
-		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.*,f.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e, pendidikan f WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND a.nip=f.nip ");
+		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses ");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){
@@ -520,18 +520,34 @@ class Pgw {
 		  return FALSE;
 		}
 	}
-	function updatepgw($nip,$nama,$jekel,$kota_lahir,$tgl_lahir,$alamat,$id_unit,$id_posisi,$id_provider,$tmt_kerja,$jenis_kontrak,$cabang,$stat_peg,$jw_kerja,$aktif,$note_aktif,$id_akses,$password,$i_by,$i_date,$e_by,$e_date) {
-		$query = mysql_query("UPDATE pegawai SET nama='$nama', jekel='$jekel', kota_lahir='$kota_lahir', tgl_lahir='$tgl_lahir', alamat='$alamat', id_unit='$id_unit', id_posisi='$id_posisi', id_provider='$id_provider', tmt_kerja='$tmt_kerja', jenis_kontrak='$jenis_kontrak', cabang='$cabang', stat_peg='$stat_peg', jw_kerja='$jw_kerja', aktif='$aktif', note_aktif='$note_aktif', id_akses='$id_akses',password='$password', i_by='$i_by', i_date='$i_date', e_by='$e_by', e_date='$e_date' WHERE nip='$nip'");	
+	function updatepgw($nip,$nama,$jekel,$kota_lahir,$tgl_lahir,$alamat,$no_hp,$id_unit,$id_posisi,$id_provider,$tmt_kerja,$jenis_kontrak,$cabang,$stat_peg,$jw_kerja,$pend_terakhir,$prodi,$thn_lulus,$aktif,$tgl_aktif,$note_aktif,$id_akses,$password,$i_by,$i_date,$e_by,$e_date) {
+		$query = mysql_query("UPDATE pegawai SET nama='$nama', jekel='$jekel', kota_lahir='$kota_lahir', tgl_lahir='$tgl_lahir', alamat='$alamat', no_hp='$no_hp', id_unit='$id_unit', id_posisi='$id_posisi', id_provider='$id_provider', tmt_kerja='$tmt_kerja', jenis_kontrak='$jenis_kontrak', cabang='$cabang', stat_peg='$stat_peg', jw_kerja='$jw_kerja', pend_terakhir='$pend_terakhir', prodi='$prodi', thn_lulus='$thn_lulus', aktif='$aktif', tgl_aktif='$tgl_aktif', note_aktif='$note_aktif', id_akses='$id_akses',password='$password', i_by='$i_by', i_date='$i_date', e_by='$e_by', e_date='$e_date' WHERE nip='$nip'");	
 	}
 	
-	function tambahpgw($nip,$nama,$jekel,$kota_lahir,$tgl_lahir,$alamat,$id_unit,$id_posisi,$id_provider,$tmt_kerja,$jenis_kontrak,$cabang,$stat_peg,$jw_kerja,$aktif,$note_aktif,$id_akses,$password,$i_by,$i_date,$e_by,$e_date) 
+	function tambahpgw($nip,$nama,$jekel,$kota_lahir,$tgl_lahir,$alamat,$no_hp,$id_unit,$id_posisi,$id_provider,$tmt_kerja,$jenis_kontrak,$cabang,$stat_peg,$jw_kerja,$pend_terakhir,$prodi,$thn_lulus,$aktif,$tgl_aktif,$note_aktif,$id_akses,$password,$i_by,$i_date,$e_by,$e_date) 
 	{
-				$query = "INSERT INTO pegawai (nip,nama,jekel,kota_lahir,tgl_lahir,alamat,id_unit,id_posisi,id_provider,tmt_kerja,jenis_kontrak,cabang,stat_peg,jw_kerja,aktif,note_aktif,id_akses,password,i_by,i_date,e_by,e_date)
-				          VALUES ('$nip','$nama','$jekel','$kota_lahir','$tgl_lahir','$alamat','$id_unit','$id_posisi','$id_provider','$tmt_kerja','$jenis_kontrak','$cabang','$stat_peg','$jw_kerja','$aktif','$note_aktif','$id_akses','$password','$i_by','$i_date','$e_by','$e_date')";
+				$query = "INSERT INTO pegawai (nip,nama,jekel,kota_lahir,tgl_lahir,alamat,no_hp,id_unit,id_posisi,id_provider,tmt_kerja,jenis_kontrak,cabang,stat_peg,jw_kerja,pend_terakhir, prodi, thn_lulus, aktif,tgl_aktif,note_aktif,id_akses,password,i_by,i_date,e_by,e_date)
+				          VALUES ('$nip','$nama','$jekel','$kota_lahir','$tgl_lahir','$alamat','$no_hp','$id_unit','$id_posisi','$id_provider','$tmt_kerja','$jenis_kontrak','$cabang','$stat_peg','$jw_kerja','$pend_terakhir','$prodi','$thn_lulus','$aktif','$tgl_aktif','$note_aktif','$id_akses','$password','$i_by','$i_date','$e_by','$e_date')";
 				$hasil = mysql_query($query);
 			}
 
 }
+	  class Datafile  {
+        function tambahDatafile($nip,$nama_file,$gambar)
+          {
+            $query="INSERT INTO datafile(nip,nama_file,gambar)
+            VALUES('$nip','$nama_file','$gambar')";
+            move_uploaded_file($_FILES['gambar']['tmp_name'],"file_pgw/".$gambar);
+            $hasil= mysql_query($query);
+          }
+  
+        function tampilDatafile($nip) {
+            $query = mysql_query("SELECT * FROM datafile");
+              while($row=mysql_fetch_array($query))
+              $data[]=$row;
+            return $data;
+        }
+       }
 	
 
 
