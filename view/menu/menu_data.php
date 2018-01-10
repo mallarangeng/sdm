@@ -6,7 +6,8 @@ include'../../class/gapura_object.php';
   <table id="datat_menu" class="table table-striped table-bordered table-hover">
 	<thead>
 		<tr>
-			<th>ID Menu</th>
+			<th>No</th>
+			<th>ID</th>
 			<th>Titile</th>
 			<th>Class</th>
 			<th>Link</th>
@@ -26,7 +27,8 @@ include'../../class/gapura_object.php';
 			foreach($arrayMenu as $data){
 	?>
 		<tr>
-			<td><?php echo $data['id_menu']?></td>
+				<td><?php echo $c=$c+1; ?></td>
+				<td><?php echo $data['id_menu']?></td>
 				<td><?php echo $data['judul']?></td>
 				<td><?php echo $data['folder']?></td>
 				<td><?php echo $data['link']?></td>

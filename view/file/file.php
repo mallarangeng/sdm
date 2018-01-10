@@ -3,6 +3,7 @@ include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
 $datafile = new datafile;
+$foto=$datafile->lihatfoto($nip);
 ?>
 
 
@@ -29,11 +30,53 @@ $datafile = new datafile;
         if($_POST['simpanl'])
         {
             $nip=$_POST['nip'];
+            $kat_file=$_POST['kat_file'];
             $nama_file=$_POST['nama_file'];
             $gambar=$nip."_".$_FILES['gambar']['name'];
-            $datafile->tambahDatafile($nip,$nama_file,$gambar);
+            $datafile->tambahDatafile($nip,$kat_file,$nama_file,$gambar);
             echo"<meta http-equiv='refresh' content='0;url=?r=file&pg=file&nip=".$_GET[nip]."'>";              
         }
+?>
+
+<div class="modal fade hmodal-success" id="modal-file-edit" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="color-line"></div>
+            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
+            <div class="modal-header">
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <input type="submit" class="btn btn-primary" name="updatel" id="simpan-apsensi" value="Update Data">
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+        <?php
+            if($_POST['updatel']){
+                $kode_file=$_POST[kode_file];
+                $nip=$_POST['nip'];
+                $kat_file=$_POST['kat_file'];
+                $nama_file=$_POST['nama_file'];
+                $gambar=$_FILES['gambar']['name'];
+            if (empty($gambar)){
+                $datafile->updateDatafile($kode_file,$nip,$kat_file,$nama_file);
+            }
+            else 
+            {
+                $kode_file=$_POST[kode_file];
+                $nip=$_POST['nip'];
+                $kat_file=$_POST['kat_file'];
+                $nama_file=$_POST['nama_file'];
+                $gambar=$nip."_".$_FILES['gambar']['name'];
+               $datafile->updateDatafile($kode_file,$nip,$kat_file,$nama_file,$gambar);
+            }
+            }
 ?>
 
 <div class="normalheader transition animated fadeIn">
@@ -59,13 +102,16 @@ $datafile = new datafile;
             <div class="hpanel">
                 <div class="panel-body">
                             <div class="col-xs-6">
-                <button type="submit" class="tambah-file btn btn-default btn-sm" data-id="<?php echo $_GET['nip']; ?>" id="simpan-apsensi">Tambah Lampiran</button><p><hr>
+                <button type="submit" class="tambah-file btn btn-default btn-sm" data-id="<?php echo $_GET['nip']; ?>" id="simpan-apsensi">Tambah Lampiran</button>
+                <a href="?r=pgw&pg=pgw" class="btn btn-primary btn-sm">Data Pegawai</a>
+                <p><hr>
                    <div class="table-responsive">
                 <table cellpadding="1" cellspacing="1" class="table table-condensed">
                     <thead>
                     <tr>
                         <th>NO</th>
                         <th>NAMA LAMPIRAN</th>
+                        <th>KATEGORI</th>
                         <th>DOWNLOAD</th>
                         <th>EDIT</th>
                     </tr>
@@ -79,6 +125,7 @@ $datafile = new datafile;
                     <tr>
                         <td><?php echo $c=$c+1; ?></td>
                         <td><?php echo $d['nama_file']; ?></td>
+                         <td><?php echo $d['kat_file']; ?></td>
                         
                         <td><a href="file_pgw/<?php echo $d['gambar']; ?>" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-download fa-1x"></i> DOWNLOAD</a></td>
                         <td><button class="ubah-file btn btn-primary btn-xs" type="button" data-id="<?php echo $d['kode_file'] ?>"><i class="fa fa-edit"></i></button>&nbsp;&nbsp;<button class="ubah-file btn btn-danger btn-xs" type="button" data-id="<?php echo $d['kode_file'] ?>"><i class="fa pe-7s-trash"></i> Delete</button></td>
@@ -86,6 +133,9 @@ $datafile = new datafile;
                     		<?php 
                     			}
                     		}
+                            else {
+                                echo '<div class="alert alert-danger">Data Tidak ditemukan !</div>';
+                            }
 
                     		?>
                     </tbody>
@@ -99,9 +149,18 @@ $datafile = new datafile;
 						                FOTO PEGAWAI
 						            </div>
 			            <div class="panel-body">
-			                <p>
-			                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.Lorem
-			                    ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.
+			                
+                                    <?php
+                              $arraydatafile=$datafile->lihatfoto();
+                              if (count($arraydatafile)) {
+                              foreach($arraydatafile as $foto) {
+                            ?>
+                            <img src="file_pgw/<?php echo $foto['gambar']; ?>" class="img-responsive" width="180">
+			                  
+                              <?php 
+                              }
+                              }
+                              ?> 
 			            </p>
 			            </div>
 			            <div class="panel-footer">

@@ -26,23 +26,6 @@
                         </div>
                     </div>
                 </div>
-                  <div class="modal fade hmodal-success" id="modal-menu-ubah" tabindex="-1" role="dialog"  aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="color-line"></div>
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal title</h4>
-                            </div>
-                            <div class="modal-body">
-                                <p>xx</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                <button type="button" class="btn btn-primary" id="update-menu">Update Data</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="panel-body">
 					<button type="button" class="tambah-menu btn btn-primary">
 						Tambah Menu

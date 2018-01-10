@@ -3,9 +3,8 @@ include'../../class/gapura_class.php';
 include'../../class/gapura_function.php';
 include'../../class/gapura_object.php';
 $training=new training;
+$datafile=new datafile;
 $da=$pgw->detailpgw($nip);
-$ip=$pgw->bacapgw($nip);
-$pen=$pendidikan->ambil_nip($nip);
 ?>
 <div class="row">
 <div class="col-xs-6">   
@@ -44,22 +43,46 @@ $pen=$pendidikan->ambil_nip($nip);
                     </tr>
                         <tr>
                         <td>Input </td>
-                        <td class="text-success">: <?php echo $da['i_by']; ?> <?php echo $da['i_date']; ?></td>
+                        <td class="text-primary">: <?php echo $da['i_by']; ?> <?php echo $da['i_date']; ?></td>
                     </tr>
                         <tr>
                         <td>Edit </td>
-                        <td class="text-danger">: <?php echo $da['e_by']; ?> <?php echo $da['e_date']; ?></td>
+                        <td class="text-primary">: <?php echo $da['e_by']; ?> <?php echo $da['e_date']; ?></td>
                     </tr>
         
                     </tbody>
                 </table>
 				</div>
             </div>
-
         </div>
     </div>
-
-
+<div class="col-xs-6">
+            <div class="hpanel">
+            <div class="panel-heading hbuilt">
+                <div class="panel-tools">
+                </div>
+                FOTO PEGAWAI
+            </div>
+            <div class="panel-body">
+                                <?php
+                              $arraydatafile=$datafile->lihatfoto();
+                              if (count($arraydatafile)) {
+                              foreach($arraydatafile as $foto) {
+                            ?>
+                            <img src="file_pgw/<?php echo $foto['gambar']; ?>" class="img-responsive" width="180">
+                              
+                              <?php 
+                              }
+                              }
+                                else {
+                                echo '<div class="alert alert-danger">Foto Tidak ditemukan !</div>';
+                            }
+                              ?>       
+            </div>
+        </div>
+</div>
+</div>
+<div class="row">
 <div class="col-xs-6">
 	        <div class="hpanel">
             <div class="panel-heading hbuilt">
@@ -73,32 +96,32 @@ $pen=$pendidikan->ambil_nip($nip);
                     <tbody>
                     <tr>
                         <td>Unit Kerja</td>
-                        <td>: <?php echo $ip['nama_unit']; ?></td>
+                        <td>: <?php echo $da['nama_unit']; ?></td>
                     </tr>
                     <tr>
                         <td>Posisi Kerja</td>
-                        <td>: <?php echo $ip['nm_posisi']; ?></td>
+                        <td>: <?php echo $da['nm_posisi']; ?></td>
                     </tr>
                     <tr>
                         <td>Provider</td>
-                        <td>: <?php echo $ip['nama_provider']; ?></td>
+                        <td>: <?php echo $da['nama_provider']; ?></td>
                     </tr>
                     
                      <tr>
                         <td>Jenis Kontrak</td>
-                        <td>: <?php echo $ip['jenis_kontrak']; ?></td>
+                        <td>: <?php echo $da['jenis_kontrak']; ?></td>
                     </tr>
                     <tr>
                         <td>Status Pegawai</td>
-                        <td>: <?php echo $ip['stat_peg']; ?></td>
+                        <td>: <?php echo $da['stat_peg']; ?></td>
                     </tr>
                     <tr>
                         <td>TMT Kerja</td>
-                        <td class="text-success">: <?php echo DateToIndo($ip['tmt_kerja']); ?></td>
+                        <td class="text-primary">: <?php echo DateToIndo($da['tmt_kerja']); ?></td>
                     </tr>
                     <tr>
                         <td>Jangka Waktu</td>
-                        <td class="text-danger">: <?php echo DateToIndo ($ip['jw_kerja']); ?></td>
+                        <td class="text-primary">: <?php echo DateToIndo ($da['jw_kerja']); ?></td>
                     </tr>
                            
                     </tbody>
@@ -107,8 +130,7 @@ $pen=$pendidikan->ambil_nip($nip);
             </div>
         </div>
 </div>
-</div>
-<div class="row">
+
 <div class="col-xs-6">
 	        <div class="hpanel">
             <div class="panel-heading hbuilt">
@@ -122,32 +144,32 @@ $pen=$pendidikan->ambil_nip($nip);
                     <tbody>
                     <tr>
                         <td>Pendidikan Akhir</td>
-                        <td>: <?php echo $pen['pend_terakhir']; ?></td>
+                        <td>: <?php echo $da['pend_terakhir']; ?></td>
                     </tr>
                     <tr>
                         <td>Program Studi</td>
-                        <td>: <?php echo $pen['prodi']; ?></td>
+                        <td>: <?php echo $da['prodi']; ?></td>
                     </tr>
                     <tr>
                         <td>Tahun Lulus</td>
-                        <td>: <?php echo $pen['thn_lulus']; ?></td>
+                        <td>: <?php echo $da['thn_lulus']; ?></td>
                     </tr>
                     
                      <tr>
                         <td>Pendidikan Asal</td>
-                        <td>: <?php echo $pen['pend_asal']; ?></td>
+                        <td>: <?php echo $da['pend_asal']; ?></td>
                     </tr>
                                           
                     </tbody>
                 </table>
             </div>
-            <div class="panel-footer">
-                This is standard panel footer
-            </div>
+     
         </div>
 
 
 </div>
+</div>
+<div class="row">
 <div class="col-xs-6">
 	        <div class="hpanel">
             <div class="panel-heading hbuilt">
@@ -190,8 +212,7 @@ $pen=$pendidikan->ambil_nip($nip);
             </div>
         </div>
 </div>
-</div>
-<div class="row">
+
 <div class="col-xs-6">
 	        <div class="hpanel">
             <div class="panel-heading hbuilt">
@@ -201,16 +222,45 @@ $pen=$pendidikan->ambil_nip($nip);
                 DOKUMEN LAMPIRAN
             </div>
             <div class="panel-body">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.Lorem
-                    ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan.
+                    <table cellpadding="1" cellspacing="1" class="table table-condensed">
+                    <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>NAMA LAMPIRAN</th>
+                        <th>KATEGORI</th>
+                        <th>DOWNLOAD</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                         <?php
+                              $arraydatafile=$datafile->tampilDatafile();
+                              if (count($arraydatafile)) {
+                              foreach($arraydatafile as $d) {
+                            ?>
+                    <tr>
+                        <td><?php echo $c=$c+1; ?></td>
+                        <td><?php echo $d['nama_file']; ?></td>
+                         <td><?php echo $d['kat_file']; ?></td>
+                        
+                        <td><a href="file_pgw/<?php echo $d['gambar']; ?>" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-download fa-1x"></i> DOWNLOAD</a></td>
+                        
+                    </tr>
+                            <?php 
+                                }
+                            }
+                            else {
+                                echo '<div class="alert alert-danger">Data Tidak ditemukan !</div>';
+                            }
+
+                            ?>
+                    </tbody>
+                </table>
             </p>
-            </div>
-            <div class="panel-footer">
-                This is standard panel footer
             </div>
         </div>
 </div>
+</div>
+<div class="row">
 <div class="col-xs-6">
 	        <div class="hpanel">
             <div class="panel-heading hbuilt">

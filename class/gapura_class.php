@@ -92,7 +92,7 @@
 	*/
 class menu{
 	function tampilMenu(){
-		$query = mysql_query("SELECT * FROM ms_menu ORDER BY id_menu desc");
+		$query = mysql_query("SELECT * FROM ms_menu ORDER BY parent asc");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){
@@ -126,13 +126,13 @@ class menu{
 			return $data;
 		}
 	}
-	function tambahMenu($id_menu,$judul,$folder,$link,$id_akses,$parent, $icon, $urut) {
+	function tambahMenu($id_menu, $judul,$folder,$link,$id_akses,$parent, $icon, $urut) {
 		$query = "INSERT INTO ms_menu (id_menu, judul, folder, link, id_akses, parent, icon, urut)
-		          VALUES ('$id_menu','$judul', '$folder', '$link', '$id_akses', '$parent', '$icon', '$urut')";
+				  VALUES ('$id_menu','$judul','$folder','$link','$id_akses','$parent','$icon','$urut')";
 		$hasil = mysql_query($query);
 	}
 
-	function updatemenu($id_menu,$judul, $folder,$link,$id_akses,$parent, $icon, $urut) {
+	function updatemenu($id_menu, $judul, $folder, $link, $id_akses, $parent, $icon, $urut) {
 		$query = mysql_query("UPDATE ms_menu SET judul='$judul', folder='$folder', link='$link', id_akses='$id_akses', parent='$parent', icon='$icon', urut='$urut' WHERE id_menu='$id_menu'");
 	}
 
@@ -503,7 +503,7 @@ class Pgw {
 		function detailpgw($nip)
 	        {
 				$query=mysql_query("
-				SELECT * FROM pegawai WHERE nip='$_GET[nip]'");
+				SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND nip='$_GET[nip]'");
 				$data=mysql_fetch_array($query);
 				$data[]=$row;
 				if(isset($data)){
@@ -533,10 +533,10 @@ class Pgw {
 
 }
 	  class Datafile  {
-        function tambahDatafile($nip,$nama_file,$gambar)
+        function tambahDatafile($nip,$kat_file,$nama_file,$gambar)
           {
-            $query="INSERT INTO datafile(nip,nama_file,gambar)
-            VALUES('$nip','$nama_file','$gambar')";
+            $query="INSERT INTO datafile(nip,kat_file, nama_file,gambar)
+            VALUES('$nip','$kat_file','$nama_file','$gambar')";
             move_uploaded_file($_FILES['gambar']['tmp_name'],"file_pgw/".$gambar);
             $hasil= mysql_query($query);
           }
@@ -547,6 +547,14 @@ class Pgw {
               $data[]=$row;
             return $data;
         }
+        function lihatfoto($nip) {
+            $query = mysql_query("SELECT * FROM datafile WHERE kat_file='Foto' AND nip='$_GET[nip]' LIMIT 1");
+              while($row=mysql_fetch_array($query))
+              $data[]=$row;
+          if(isset($data)){
+            return $data;
+        }
+   		}
         function bacadatafile($kode_file)
 	        {
 				$query=mysql_query("SELECT * FROM datafile WHERE kode_file='$_GET[kode_file]'");
@@ -556,8 +564,20 @@ class Pgw {
 					return $data;
 				}
 			}
+		function updateDatafile ($kode_file,$nip,$kat_file,$nama_file,$gambar){
+			if (empty($gambar)){
+				  $query=mysql_query("UPDATE datafile SET
+				  nip='$nip', kat_file='$kat_file', nama_file='$nama_file'WHERE kode_file='$kode_file'");
+				  $hasil= mysql_query($query);
+				   echo"<meta http-equiv='refresh' content='0;url=?r=file&pg=file&nip=".$_GET['nip']."'>";
+  			}
+  				else 
+  			{
+  					$query=mysql_query("UPDATE datafile SET nip='$nip', kat_file='$kat_file', nama_file='$nama_file', gambar='$gambar' WHERE kode_file='$kode_file'");
+ 					 move_uploaded_file($_FILES['gambar']['tmp_name'],"file_pgw/".$gambar);
+  					$hasil= mysql_query($query);
+   					echo"<meta http-equiv='refresh' content='0;url=?r=file&pg=file&nip=".$_GET['nip']."'>";
+  			}
+  			}
        }
-	
-
-
 	?>

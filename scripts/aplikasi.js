@@ -211,7 +211,7 @@ $(function () {
 
             $(document).on('click','.ubah-file',function(e){
                 e.preventDefault();
-                $("#modal-file-add").modal('show');
+                $("#modal-file-edit").modal('show');
                 $(".modal-title").html('Ubah File');
                 $.get("view/file/file_form.php",
                     {kode_file:$(this).attr('data-id')},
