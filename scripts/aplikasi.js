@@ -110,8 +110,7 @@ $(function () {
             }
         );
     });
-
-       $(".ubah-apsen").click(function(e){
+        $(".ubah-apsen").click(function(e){
         e.preventDefault();
         $("#modal-apsen-add").modal('show');
         $(".modal-title").html('Ubah apsensi Siswa');
@@ -122,6 +121,19 @@ $(function () {
             }
         );
     });
+
+      $(".lihat-sertifikat").click(function(e){
+        e.preventDefault();
+        $("#modal-lihat-sertifikat").modal('show');
+        $(".modal-title").html('Sertifikat Training');
+        $.get("view/apsen/sertifikat.php",
+            {id_apsensi:$(this).attr('data-id')},
+            function(html){
+                $(".modal-body").html(html);
+            }
+        );
+    });
+       
         $("#simpan-apsensi").click(function(e){ 
         e.preventDefault(); 
         var url        = "control/apsensi.php"
@@ -134,6 +146,10 @@ $(function () {
         var e_date      = $("#e_date").val();
         if (nip==""){
             alert ("Nama Belum dipilih :-(");
+            return false;
+        }
+        if (id_training==""){
+            alert ("Data Training Kosong !");
             return false;
         }
         $.ajax({

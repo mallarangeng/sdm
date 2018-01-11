@@ -490,6 +490,15 @@ class Pgw {
 			return $data;
 		}
 	}
+	function lap_pgw(){
+		$periode='2018-02';
+		$query = mysql_query("SELECT * FROM pegawai WHERE tmt_kerja =LIKE'2018-01-08' ");
+		while($row=mysql_fetch_array($query))
+			$data[]=$row;
+		if(isset($data)){
+			return $data;
+		}
+	}
 	function bacapgw($nip)
 	        {
 				$query=mysql_query("
@@ -533,14 +542,34 @@ class Pgw {
 
 }
 	  class Datafile  {
-        function tambahDatafile($nip,$kat_file,$nama_file,$gambar)
+        function tambahDatafile2($nip,$kat_file,$nama_file,$gambar)
           {
             $query="INSERT INTO datafile(nip,kat_file, nama_file,gambar)
             VALUES('$nip','$kat_file','$nama_file','$gambar')";
             move_uploaded_file($_FILES['gambar']['tmp_name'],"file_pgw/".$gambar);
             $hasil= mysql_query($query);
           }
-  
+
+
+             function tambahDatafile($nip,$kat_file,$nama_file,$gambar)
+          {
+          	
+          	$size = $_FILES['gambar']['size'];
+			$type = $_FILES['gambar']['type'];
+			
+			if ($size < 1044070 AND $type=='image/jpg') {
+			
+				
+			$query="INSERT INTO datafile(nip,kat_file, nama_file,gambar)
+            VALUES('$nip','$kat_file','$nama_file','$gambar')";
+            move_uploaded_file($_FILES['gambar']['tmp_name'],"file_pgw/".$gambar);
+            $hasil= mysql_query($query);
+			}
+				else {
+					echo "<script type='text/javascript'>window.alert('File Gagal Upload')</script>";
+				}
+          
+      	}
         function tampilDatafile($nip) {
             $query = mysql_query("SELECT * FROM datafile WHERE nip='$_GET[nip]'");
               while($row=mysql_fetch_array($query))
@@ -580,4 +609,12 @@ class Pgw {
   			}
   			}
        }
+
+
+
+
+
+
+
+
 	?>
