@@ -62,7 +62,7 @@ $da=$pgw->bacapgw($nip);
         $pend_terakhir = 'Pilih Pendidikan';
         $prodi       = '';
         $thn_lulus   = '';
-        $aktif       = '';
+        $aktif       = 'Pilih';
         $tgl_aktif   = '';
         $note_aktif  = '';
         $id_akses    = '1';
@@ -275,7 +275,8 @@ $da=$pgw->bacapgw($nip);
                          <div class="form-group">
                                 <label class="col-sm-4 control-label">Status Aktif</label>
                                 <div class="col-sm-4">
-                                <select class="js-source-states" id="aktif" style="width: 100%">                   
+                                <select class="js-source-states" id="aktif" style="width: 100%">
+                                    <option value="<?php echo $aktif; ?>"><?php echo $aktif; ?></option>                   
                                     <option value="Aktif">Aktif</option>
                                     <option value="Non Aktif">Non Aktif</option>
                                     

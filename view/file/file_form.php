@@ -48,9 +48,11 @@ $df=$datafile->bacadatafile($kode_file);
                                         </label> 
         </div>
         <div class="hr-line-dashed"></div>
-    
+        </div>
 </div>
-</div>
+  <div class="alert alert-danger">
+                            <i class="pe pe-7s-info"></i> Tab ini hanya digunakan untuk merubah status karyawan jika resign / non aktif
+                            </div>
 
 <style type="text/css">
     

@@ -128,7 +128,7 @@ $foto=$datafile->lihatfoto($nip);
                          <td><?php echo $d['kat_file']; ?></td>
                         
                         <td><a href="file_pgw/<?php echo $d['gambar']; ?>" class="btn btn-primary btn-xs" target="_blank"><i class="fa fa-download fa-1x"></i> DOWNLOAD</a></td>
-                        <td><button class="ubah-file btn btn-primary btn-xs" type="button" data-id="<?php echo $d['kode_file'] ?>"><i class="fa fa-edit"></i></button>&nbsp;&nbsp;<button class="ubah-file btn btn-danger btn-xs" type="button" data-id="<?php echo $d['kode_file'] ?>"><i class="fa pe-7s-trash"></i> Delete</button></td>
+                        <td><button class="ubah-file btn btn-primary btn-xs" type="button" data-id="<?php echo $d['kode_file'] ?>"><i class="fa fa-edit"></i></button></td>
                     </tr>
                     		<?php 
                     			}

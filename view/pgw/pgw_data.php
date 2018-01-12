@@ -17,6 +17,7 @@ include'../../class/gapura_object.php';
 			<th>JENIS KONTRAK</th>
 			<th>CABANG</th>
 			<th>PEND</th>
+	
 			<th>AKSI</th>
 		</tr>
 	</thead>
@@ -35,8 +36,9 @@ include'../../class/gapura_object.php';
 				<td><?php echo DateToIndo($d['tmt_kerja']);?></td>
 				<td><?php echo DateToIndo($d['jw_kerja']);?></td>
 				<td><?php echo $d['jenis_kontrak']?> - <?php echo $d['stat_peg']?></td>
-				<td><?php echo $d['cabang']?></td>
+				<td><?php echo $d['cabang']?><small><?php echo $d['aktif'] ?></small></td>
 				<td><?php echo $d['pend_terakhir'] ?></td>
+
 				
 			<td>
 				<button class="ubah-pgw btn btn-success btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa-edit"></i></button>

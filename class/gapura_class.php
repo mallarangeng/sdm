@@ -490,9 +490,20 @@ class Pgw {
 			return $data;
 		}
 	}
+		#untuk menampilkan pegawai yang masuk dibulan tersebut
 	function lap_pgw(){
-		$periode='2018-02';
-		$query = mysql_query("SELECT * FROM pegawai WHERE tmt_kerja =LIKE'2018-01-08' ");
+		$periode=$_POST['tahun']."-".$_POST['bulan'];
+		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND  a.aktif='Aktif' AND a.tmt_kerja LIKE '$periode%'");
+		while($row=mysql_fetch_array($query))
+			$data[]=$row;
+		if(isset($data)){
+			return $data;
+		}
+	}
+		#untuk menampilkan data pegawai yang telah resign di bulan yang di pilih
+		function lap_pgw2(){
+		$none=$_POST['tahun']."-".$_POST['bulan'];
+		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND  a.aktif='Non Aktif' AND a.tgl_aktif LIKE '$none%'");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){
@@ -557,7 +568,7 @@ class Pgw {
           	$size = $_FILES['gambar']['size'];
 			$type = $_FILES['gambar']['type'];
 			
-			if ($size < 1044070 AND $type=='image/jpg') {
+			if ($size < 1044070 AND $type=='image/jpeg' || $type=='application/pdf') {
 			
 				
 			$query="INSERT INTO datafile(nip,kat_file, nama_file,gambar)
@@ -566,7 +577,7 @@ class Pgw {
             $hasil= mysql_query($query);
 			}
 				else {
-					echo "<script type='text/javascript'>window.alert('File Gagal Upload')</script>";
+					echo "<script type='text/javascript'>window.alert('Jenis File Tidak Didukung Pastikan File Format JPG dan PDF Dengan ukuran kurang dari 1.0 Mb')</script>";
 				}
           
       	}
@@ -602,19 +613,20 @@ class Pgw {
   			}
   				else 
   			{
+  				$size = $_FILES['gambar']['size'];
+				$type = $_FILES['gambar']['type'];
+				if ($size < 1044070 AND $type=='image/jpeg' || $type=='application/pdf')
+				 {
+
   					$query=mysql_query("UPDATE datafile SET nip='$nip', kat_file='$kat_file', nama_file='$nama_file', gambar='$gambar' WHERE kode_file='$kode_file'");
  					 move_uploaded_file($_FILES['gambar']['tmp_name'],"file_pgw/".$gambar);
   					$hasil= mysql_query($query);
-   					echo"<meta http-equiv='refresh' content='0;url=?r=file&pg=file&nip=".$_GET['nip']."'>";
+  				}
+  					else {
+  						
+					echo "<script type='text/javascript'>window.alert('Jenis File Tidak Didukung Pastikan File Format JPG dan PDF Dengan ukuran kurang dari 1.0 Mb')</script>";
+				}
+			}
   			}
-  			}
-       }
-
-
-
-
-
-
-
-
+  		}
 	?>
