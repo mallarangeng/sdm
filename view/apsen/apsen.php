@@ -31,6 +31,23 @@ $dt=$training->bacatraining($id_training);
                         </div>
                     </div>
                 </div>
+                <div class="modal fade hmodal-success" id="modal-lihat-sertifikat" tabindex="-1" role="dialog"  aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="color-line"></div>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Modal title</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>xx</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="panel-body">
                                 <div class="panel-body">
                 <dl>
@@ -66,6 +83,7 @@ $dt=$training->bacatraining($id_training);
             <th>JENIS DIKLAT</th>
             <th>TANGGAL</th>
             <th>DURASI</th>
+            <th>SERTIFIKAT</th>
             <th>Aksi</th>
         </tr>
     </thead>
@@ -85,6 +103,10 @@ $dt=$training->bacatraining($id_training);
                 <td><?php echo $data['nama_training']?></td>
                 <td><?php echo $data['tgl_training'];?></td>
                 <td><?php echo $data['durasi']?> Jam</td>
+                <td><button class="btn btn-default btn-xs" type="button"> <i class="fa pe-7s-upload"></i> Upload</button>
+                    <button class="lihat-sertifikat btn btn-default btn-xs" type="button"> <i class="fa pe-7s-search"></i> View</button>
+                    <button class="btn btn-default btn-xs" type="button"> <i class="fa fa-edit"></i> Edit</button>
+                </td>
 
             <td>
                 <button class="ubah-apsen btn btn-success btn-xs" type="button" data-id="<?php echo $data['id_apsensi'] ?>" title="INPUT : <?php echo $data['i_by'].'-'.$data['i_date'].'- EDIT : '.$data['e_by'].'-'.$data['e_date'] ?>"><i class="fa fa-edit"></i></button>

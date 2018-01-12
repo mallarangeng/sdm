@@ -4,7 +4,7 @@
 	function base_url ()
 		{
 			#return sprintf("http://localhost/msc/msc/");#page garis miring ya setelah url
-			return sprintf("http://localhost/msc/msc/");#page garis miring ya setelah url
+			
 			#panggil fungsi ini dengan cara di (echo base_url();)
 		}
 		//membuat fungsi rupiah

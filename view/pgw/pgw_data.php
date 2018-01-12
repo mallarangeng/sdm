@@ -40,7 +40,7 @@ include'../../class/gapura_object.php';
 				
 			<td>
 				<button class="ubah-pgw btn btn-success btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa-edit"></i></button>
-				<a href="?r=file&pg=file&nip=<?php echo $d['nip']?>" class="btn btn-default btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa- pe-7s-paperclip"></i></a>
+				<a href="?r=file&pg=file&nip=<?php echo $d['nip']?>" class="btn btn-default btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa- pe-7s-paperclip"></i> File</a>
 				
 			</td>
 		</tr>
