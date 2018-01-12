@@ -7,10 +7,12 @@ $df=$datafile->bacadatafile($kode_file);
     if ($df['kode_file']>0) {
         $kode_file         = $df['kode_file'];
         $nip               = $df['nip'];
+        $kat_file          = $df['kat_file'];
         $nama_file         = $df['nama_file'];
     }else{
         $kode_file          = '';
         $nip                = '';
+        $kat_file           = 'Lain-Lain';
         $nama_file          = '';
     }
 ?>
@@ -24,7 +26,11 @@ $df=$datafile->bacadatafile($kode_file);
             <div class="col-sm-8">
             <input type="hidden" name="kode_file" value="<?php echo $kode_file; ?>">
             <input type="hidden" name="nip" value="<?php echo $_GET['nip']; ?><?php echo $nip; ?>">
-            <input type="text" placeholder="Kategori File" class="form-control input-sm" value="<?php echo $nama_file; ?>" name="nama_file">
+                  <select class="js-source-states" name="kat_file" style="width: 100%">                   
+                                    <option value="<?php echo $kat_file; ?>"><?php echo $kat_file; ?></option>
+                                    <option value="Lain-Lain">Lain-Lain</option>
+                                    <option value="Foto">Foto</option>
+                                </select>
             </div>
         </div>
         <div class="form-group">
@@ -70,3 +76,6 @@ $df=$datafile->bacadatafile($kode_file);
 
 
 </style>
+<script type="text/javascript">
+    $(".js-source-states").select2();
+</script>

@@ -9,6 +9,7 @@ include'../../class/gapura_object.php';
         <div class="form-group">
 			<label class="col-sm-2 control-label">Title</label>
             <div class="col-sm-8">
+				
 				<input type="text" placeholder="Judul menu" class="form-control input-sm" id="judul">
             </div>
         </div>
