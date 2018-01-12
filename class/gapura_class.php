@@ -92,7 +92,7 @@
 	*/
 class menu{
 	function tampilMenu(){
-		$query = mysql_query("SELECT * FROM ms_menu ORDER BY parent asc");
+		$query = mysql_query("SELECT * FROM ms_menu ORDER BY parent, urut asc");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){
@@ -492,7 +492,8 @@ class Pgw {
 	}
 		#untuk menampilkan pegawai yang masuk dibulan tersebut
 	function lap_pgw(){
-		$periode=$_POST['tahun']."-".$_POST['bulan'];
+		
+		$periode=$_GET['periode'];
 		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND  a.aktif='Aktif' AND a.tmt_kerja LIKE '$periode%'");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
@@ -623,7 +624,7 @@ class Pgw {
   					$hasil= mysql_query($query);
   				}
   					else {
-  						
+
 					echo "<script type='text/javascript'>window.alert('Jenis File Tidak Didukung Pastikan File Format JPG dan PDF Dengan ukuran kurang dari 1.0 Mb')</script>";
 				}
 			}

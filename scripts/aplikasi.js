@@ -158,6 +158,7 @@ $(function () {
                   data: 'aksi=tambah&id_apsensi='+id_apsensi+'&nip='+nip+'&id_training='+id_training+'&i_by='+i_by+'&i_date='+i_date+'&e_by='+e_by+'&e_date='+e_date,
                     success: function(data) {
                     $('#hasil').html(data);
+                    //$(location).attr('href','?r=apsen&pg=apsen&id');
                     $("#data-apsen").load("view/apsen/apsen_data.php");
                     $('#modal-apsen-add').modal('hide');
                   },

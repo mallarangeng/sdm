@@ -50,8 +50,9 @@ $df=$datafile->bacadatafile($kode_file);
         <div class="hr-line-dashed"></div>
         </div>
 </div>
-  <div class="alert alert-danger">
-                            <i class="pe pe-7s-info"></i> Tab ini hanya digunakan untuk merubah status karyawan jika resign / non aktif
+  <div class="alert alert-success">
+                            <i class="pe pe-7s-paperclip
+"></i>  Pastikan Format File JPG dan PDF Dengan ukuran kurang dari 1.0 Mb
                             </div>
 
 <style type="text/css">

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2018 at 10:55 AM
+-- Generation Time: Jan 12, 2018 at 10:45 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -127,9 +127,10 @@ INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `id_akses`, `parent
 ('17', 'Posisi', 'posisi', 'posisi', 1, 1, ' pe-7s-map', 6),
 ('18', 'Unit Kerja', 'unit_kerja', 'unit', 1, 1, ' pe-7s-culture', 6),
 ('19', 'RECRUITMENT', '-', '-', 1, 0, '-', 5),
-('2', 'Calon Pegawai', 'Pgw', 'pegawai', 2, 20, 'pe-7s-plane', 1),
+('2', 'Pegawai Non Aktif', 'Pgw', 'pegawai', 1, 20, 'pe-7s-plane', 1),
 ('20', 'PEGAWAI', 'pegawai', '#', 0, 0, 'pe-7s-users', 2),
-('21', 'Data pegawai', 'pgw', 'pgw', 1, 20, 'pe-7s-id', 0),
+('21', 'Data Pegawai Aktif', 'pgw', 'pgw_show', 1, 20, 'pe-7s-plane', 1),
+('22', 'Data pegawai', 'pgw', 'pgw', 1, 20, 'pe-7s-id', 0),
 ('3', 'Menu', 'menu', 'menu', 1, 14, ' pe-7s-menu', 2),
 ('4', 'Provider', 'provider', 'provider', 1, 1, 'pe-7s-cloud-upload', 3),
 ('5', 'Jabatan', 'jabatan', 'jabatan', 1, 1, ' pe-7s-culture', 4),
@@ -180,10 +181,10 @@ CREATE TABLE `pegawai` (
 
 INSERT INTO `pegawai` (`nip`, `nama`, `jekel`, `kota_lahir`, `tgl_lahir`, `alamat`, `no_hp`, `id_unit`, `id_posisi`, `id_provider`, `tmt_kerja`, `jenis_kontrak`, `cabang`, `stat_peg`, `jw_kerja`, `pend_terakhir`, `prodi`, `thn_lulus`, `aktif`, `tgl_aktif`, `note_aktif`, `id_akses`, `password`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
 ('1301.0107', 'Hasan Setiawan', 'L', 'Jakarta', '2018-01-30', 'Cikupa mas tangerang', '085715887704', 4, 3, 9001, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-23', 'Aktif', '1900-12-28', 0, 'ef17b854d676e48ffdfe', '1210-04-10', '2017-12-21 15:06:50', 1712, '2018-01-08 09:15:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
-('1305.0223', 'Zaki Akbar', 'L', 'JAKARTA', '2018-01-29', '-', '02159309136', 7, 7, 9004, '2018-01-08', 'SDM', 'CGO', 'OS', '2018-01-08', 'S1', 'TEKNIK', 2010, 'Aktif', '0000-00-00', '', 1, '5b6ed43161d0f822abca1ea2ce05cf8d', '12100410', '2017-12-28 08:59:39', '1712.0905', '2018-01-08 11:55:05'),
+('1305.0223', 'Zaki Akbar', 'L', 'JAKARTA', '2018-05-17', '-', '02159309136', 7, 7, 9004, '2018-05-24', 'SDM', 'CGO', 'OS', '2018-01-08', 'S1', 'TEKNIK', 2010, 'Aktif', '0000-00-00', '', 1, 'dc4722fc0026d1f1927183b8c9c6011d', '12100410', '2017-12-28 08:59:39', '1712.0905', '2018-01-12 15:19:14'),
 ('1305.0224', 'Sutisna', 'L', 'aceh', '2018-01-31', '-', '', 4, 3, 9001, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-15', 'S1', 'AKUNTASI', 2010, 'Aktif', '0000-00-00', 'aceh', 1, '764ac49220d465e2ca57a6273e24062e', '12100410', '2017-12-21 15:06:50', '1712.0905', '2018-01-08 09:45:29'),
-('1712.0905', 'Hendri Yulianto', 'L', 'Rejo Agung', '1992-05-14', 'KP. GEBANG RT. 002/002 TANGERANG', '', 4, 5, 9001, '2017-12-05', 'SDM', 'CGO', 'OS', '2020-12-05', 'D3', 'TEKNIK KOMPUTER', 2011, 'Aktif', '2018-05-14', 'Resign', 1, '74a71e525cb83b70c44f8e1b7b644ff4', '12100410', '2017-12-28 08:58:33', '1712.0905', '2018-01-08 09:47:20'),
-('1712.0906', 'Sudarmono', 'L', 'Jakarta', '2018-01-30', 'Cibodas', '', 3, 4, 9003, '2018-01-23', 'SDM', 'CGO', 'OS', '2018-01-16', 'SMK/A', 'IPA', 2010, 'Aktif', '0000-00-00', '-', 3, 'ef17b854d676e48ffdfe481a2e7da6eb', '12100410', '2017-12-27 08:19:53', '1712.0905', '2018-01-08 10:26:26'),
+('1712.0905', 'Hendri Yulianto', 'L', 'Rejo Agung', '1992-05-14', 'KP. GEBANG RT. 002/002 TANGERANG', '', 4, 5, 9001, '2017-12-05', 'SDM', 'CGO', 'OS', '2020-12-05', 'D3', 'TEKNIK KOMPUTER', 2011, 'Non Aktif', '2018-05-14', 'Resign', 1, '74a71e525cb83b70c44f8e1b7b644ff4', '12100410', '2017-12-28 08:58:33', '1712.0905', '2018-01-12 15:18:16'),
+('1712.0906', 'Sudarmono', 'L', 'Jakarta', '2018-01-30', 'Cibodas', '', 3, 4, 9003, '2018-01-23', 'SDM', 'CGO', 'OS', '2018-01-16', 'SMK/A', 'IPA', 2010, 'Non Aktif', '2018-05-14', '-', 3, 'ef17b854d676e48ffdfe481a2e7da6eb', '12100410', '2017-12-27 08:19:53', '1712.0905', '2018-01-12 15:18:35'),
 ('1712.0907', 'Dwi Santoso', 'L', 'Tangerang', '2018-01-23', 'Kp. Gebang RT. 002/002', '', 2, 4, 9003, '2018-01-23', 'SDM', 'CGO', 'OS', '2018-01-10', 'D3', 'PAJAK', 2011, 'Aktif', '0000-00-00', '-', 1, '8a18484752c7e9ba08a7173797416cd0', '12100410', '2017-12-27 08:19:53', '1712.0905', '2018-01-08 10:26:37'),
 ('1712.0908', 'Soleh Mauludin', 'L', 'Jakarta', '2018-01-23', 'Kp. Gebang RT. 002/002', '', 2, 3, 9002, '2018-01-24', 'SDM', 'CGO', 'OS', '2018-01-16', 'S1', '', 0, 'Aktif', '0000-00-00', '-', 2, '8a18484752c7e9ba08a7173797416cd0', '12100410', '2017-12-21 15:06:50', '1712.0905', '2018-01-08 11:55:50'),
 ('1712.0909', 'Kuncoro Di Aji', 'L', 'Jakarta', '2018-01-16', '-', '', 3, 5, 9003, '2018-01-24', 'SDM', 'CGO', 'OS', '2018-01-17', 'S1', 'Sistem Informasi', 2010, 'Aktif', '0000-00-00', '-', 2, '013a28fce062010f1185e357c4c0d2b0', '12100410', '2017-12-28 08:58:33', '1712.0905', '2018-01-09 11:46:42'),

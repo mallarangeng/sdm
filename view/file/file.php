@@ -20,7 +20,7 @@ $foto=$datafile->lihatfoto($nip);
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                <input type="submit" class="btn btn-primary" name="simpanl" id="simpan-apsensi" value="Simpan Data">
+                <input type="submit" class="btn btn-primary" name="simpanl" value="Simpan Data">
             </div>
         </form>
         </div>
@@ -29,6 +29,7 @@ $foto=$datafile->lihatfoto($nip);
         <?php
         if($_POST['simpanl'])
         {
+            
             $nip=$_POST['nip'];
             $kat_file=$_POST['kat_file'];
             $nama_file=$_POST['nama_file'];
@@ -51,7 +52,7 @@ $foto=$datafile->lihatfoto($nip);
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <input type="submit" class="btn btn-primary" name="updatel" id="simpan-apsensi" value="Update Data">
+                <input type="submit" class="btn btn-primary" name="updatel" value="Update Data">
             </div>
         </form>
         </div>
@@ -102,7 +103,7 @@ $foto=$datafile->lihatfoto($nip);
             <div class="hpanel">
                 <div class="panel-body">
                             <div class="col-xs-6">
-                <button type="submit" class="tambah-file btn btn-default btn-sm" data-id="<?php echo $_GET['nip']; ?>" id="simpan-apsensi">Tambah Lampiran</button>
+                <button type="submit" class="tambah-file btn btn-default btn-sm" data-id="<?php echo $_GET['nip']; ?>">Tambah Lampiran</button>
                 <a href="?r=pgw&pg=pgw" class="btn btn-primary btn-sm">Data Pegawai</a>
                 <p><hr>
                    <div class="table-responsive">

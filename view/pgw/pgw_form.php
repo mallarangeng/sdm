@@ -37,6 +37,7 @@ $da=$pgw->bacapgw($nip);
         $i_date      = $da['i_date'];
         $e_by        = $da['e_by'];
         $e_date      = $da['e_date'];
+        $tab4        = '<li class=""><a data-toggle="tab" href="#tab-4"><font class="text-danger"> STATUS AKTIF</font></a></li>';
 
     }
     else
@@ -71,6 +72,7 @@ $da=$pgw->bacapgw($nip);
         $i_date      = '';
         $e_by        = '';
         $e_date      = '';
+        
  
     }
 ?>
@@ -81,7 +83,8 @@ $da=$pgw->bacapgw($nip);
                 <li class="active"><a data-toggle="tab" href="#tab-1">FORMULIR I</a></li>
                 <li class=""><a data-toggle="tab" href="#tab-2">FORMULIR II</a></li>
                 <li class=""><a data-toggle="tab" href="#tab-3">PENDIDIKAN</a></li>
-                <li class=""><a data-toggle="tab" href="#tab-4"><font class="text-danger"> STATUS AKTIF</font></a></li>
+                <?php echo $tab4; ?>
+                
                 
                
             </ul>

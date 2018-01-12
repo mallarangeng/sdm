@@ -12,7 +12,7 @@
             <div class="hpanel">
 		<div class="panel-body">
 	
-			<form method="POST" action="#" class="form-horizontal">
+			<form method="GET" action="" class="form-horizontal">
                 <div class="hr-line-dashed"></div>
 			      <div class="form-group">
                     <div class="col-sm-8">
@@ -20,26 +20,23 @@
 							<div class="col-md-2">
                         	<label class="control-label">PILIH PERIODE</label>
                             </div>
-                            <div class="col-md-3">
-                            	<select class="form-control" name="bulan">
-                            	<option value="">Pilih Bulan</option>
-                            	<option value="01">Januari</option>
-                            	<option value="02">Februari</option>
-                            	<option value="03">Maret</option>
-                            	<option value="04">April</option>
-                            	<option value="05">Mei</option>
-                            	<option value="06">Juni</option>
-                            	<option value="07">Juli</option>
-                            	<option value="08">Agustus</option>
-                            	<option value="09">September</option>
-                            	<option value="10">Oktober</option>
-                            	<option value="11">Nopember</option>
-                            	<option value="12">Desember</option>
-                           
-                            	</select>
+                            <input type="hidden" name="r" value="pgw">
+                            <input type="hidden" name="pg" value="pgw_lap">
+                            <div class="col-md-2"><input type="text" id="per_lap" name="periode" value="<?php echo date('Y'); ?>" class="form-control"></div>
+                                <!--
+                                <div class="col-md-3">
+                                	<select name="bulan" class="form-control">
+                                		<option value="01">Januari</option>
+                                		<option value="02">Februari</option>
+                                		<option value="03">Maret</option>
+                                		<option value="04">April</option>
+                                		<option value="05">Mei</option>
+
+                                	</select>
+                            	      
                             </div>
-                            <div class="col-md-2"><input type="text" name="tahun" value="<?php echo date('Y'); ?>" class="form-control"></div>
-                            <div class="col-md-2"><input type="submit" class="btn btn-primary" value="lihat" name="do" value="Tampilkan"></div>
+                        -->
+                            <div class="col-md-2"><button type="submit" class="btn btn-primary" name="do" value="aksi">Tampilkan</button></div>
                             
                         </div>
                     </div>
@@ -50,7 +47,7 @@
 				    <div class="col-lg-12">
 				     <div class="hpanel">
 						<div class="panel-body">
-							<strong>LAPORAN DATA PEGAWAI RESIGN BULAN <?php echo $periode=$_POST['tahun']."-".$_POST['bulan']; ?></strong>
+							<strong>LAPORAN DATA PEGAWAI RESIGN BULAN</strong>
 						</div>
 					</div>
 					</div>
@@ -73,9 +70,8 @@
 			</thead>
 			<tbody>
 			<?php
-					if ($_POST['do']=='lihat') 
-					{
-					$arraypgw = $pgw->lap_pgw();
+					if ($_GET['do']=='aksi'){
+					$arraypgw = $pgw->lap_pgw();	
 					}
 					if(isset($arraypgw) && $arraypgw !=NULL){
 					foreach($arraypgw as $d){
@@ -101,69 +97,19 @@
 			?>
 			</tbody>
 		</table>
-						<div class="row">
-				    <div class="col-lg-12">
-				     <div class="hpanel">
-						<div class="panel-body">
-							<strong>LAPORAN DATA PEGAWAI RESIGN BULAN <?php echo $periode=$_POST['tahun']."-".$_POST['bulan']; ?></strong>
-						</div>
-					</div>
-					</div>
-				</div>
-		<table id="datat_pgw" class="table table-striped table-bordered table-hover">
-			<thead>
-				<tr>
-					<th>NO</th>
-					<th>NIP</th>
-					<th>NAMA </th>		
-					<th>UNIT</th>
-					<th>POSISI</th>
-					<th>PROFIDER</th>
-					<th>TGL RESIGN</th>
-					<th>JW KERJA</th>
-					<th>JENIS KONTRAK</th>
-					<th>CABANG</th>
-					<th>PEND</th>
-				</tr>
-			</thead>
-			<tbody>
-			<?php
-					if ($_POST['do']=='lihat') 
-					{
-					$arraypgw = $pgw->lap_pgw2();
-					}
-					if(isset($arraypgw) && $arraypgw !=NULL){
-					foreach($arraypgw as $re){
-			?>
-				<tr>
-						<td><?php echo $c=$c+1; ?></td>
-						<td><?php echo $re['nip']?></td>
-						<td><strong><?php echo $re['nama']?></strong></td>
-						<td><?php echo $re['nama_unit']?></td>
-						<td><?php echo $re['nm_posisi']?></td>
-						<td><?php echo $re['nama_provider']?></td>
-						<td><?php echo $re['tmt_kerja'];?></td>
-						<td><?php echo $re['jw_kerja'];?></td>
-						<td><?php echo $re['jenis_kontrak']?> - <?php echo $d['stat_peg']?></td>
-						<td><?php echo $re['cabang']?></td>
-						<td><?php echo $re['pend_terakhir'] ?></td>
-						
-
-				</tr>
-			<?php
-					}
-				}
-			?>
-			</tbody>
-		</table>
 		
 		</div>
 </div>
 </div>
 </div>
 </div>
-
 <script>
-	  $(".js-source-states").select2();
+$('#per_lap').datepicker({
+                        format: 'yyyy-mm-dd',
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        autoclose: true
+                    });
+	
 </script>
 
