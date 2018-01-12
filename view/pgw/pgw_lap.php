@@ -18,7 +18,7 @@
                     <div class="col-sm-8">
                         <div class="row">
 							<div class="col-md-2">
-                        	<label class="control-label">PILIH PERIODE</label>
+                        	<label class="control-label">-PILIH PERIODE-</label>
                             </div>
                             <div class="col-md-3">
                             	<select class="form-control" name="bulan">
