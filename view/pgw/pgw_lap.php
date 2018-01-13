@@ -8,7 +8,7 @@
 		?>
 <div class="content">
     <div class="row">
-        <div class="col-lg-12">
+    
             <div class="hpanel">
 		<div class="panel-body">
 	
@@ -22,21 +22,11 @@
                             </div>
                             <input type="hidden" name="r" value="pgw">
                             <input type="hidden" name="pg" value="pgw_lap">
-                            <div class="col-md-2"><input type="text" id="per_lap" name="periode" value="<?php echo date('Y'); ?>" class="form-control"></div>
-                                <!--
-                                <div class="col-md-3">
-                                	<select name="bulan" class="form-control">
-                                		<option value="01">Januari</option>
-                                		<option value="02">Februari</option>
-                                		<option value="03">Maret</option>
-                                		<option value="04">April</option>
-                                		<option value="05">Mei</option>
-
-                                	</select>
-                            	      
+                            <div class="col-md-3">
+                            	<input type="text" name="periode" id="datepicker" value="<?php echo date('Y-m-d'); ?>" class="form-control">
                             </div>
-                        -->
-                            <div class="col-md-2"><button type="submit" class="btn btn-primary" name="do" value="aksi">Tampilkan</button></div>
+                            <button type="submit" class="btn btn-primary" name="taks" value="search"><i class="fa pe-7s-search
+"></i> Cari Data</button>
                             
                         </div>
                     </div>
@@ -52,6 +42,7 @@
 					</div>
 					</div>
 				</div>
+
 		  <table id="datat_pgw" class="table table-striped table-bordered table-hover">
 			<thead>
 				<tr>
@@ -70,7 +61,7 @@
 			</thead>
 			<tbody>
 			<?php
-					if ($_GET['do']=='aksi'){
+					if ($_GET['taks']=='search'){
 					$arraypgw = $pgw->lap_pgw();	
 					}
 					if(isset($arraypgw) && $arraypgw !=NULL){
@@ -97,19 +88,80 @@
 			?>
 			</tbody>
 		</table>
+
+		<div class="row">
+				    <div class="col-lg-12">
+				     <div class="hpanel">
+						<div class="panel-body">
+							<strong>LAPORAN DATA PEGAWAI RESIGN BULAN</strong>
+						</div>
+					</div>
+					</div>
+				</div>
+
+		  <table id="datat_pgw" class="table table-striped table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>NO</th>
+					<th>NIP</th>
+					<th>NAMA </th>		
+					<th>UNIT</th>
+					<th>POSISI</th>
+					<th>PROFIDER</th>
+					<th>TMT</th>
+					<th>JW KERJA</th>
+					<th>TGL RESIGN</th>
+					<th>JENIS KONTRAK</th>
+					<th>CABANG</th>
+					<th>PEND</th>
+				</tr>
+			</thead>
+			<tbody>
+			<?php
+					if ($_GET['taks']=='search'){
+					$arraypgw = $pgw->lap_pgw2();	
+					}
+					if(isset($arraypgw) && $arraypgw !=NULL){
+					foreach($arraypgw as $data){
+			?>
+				<tr>
+						<td><?php echo $b=$b+1; ?></td>
+						<td><?php echo $data['nip']?></td>
+						<td><strong><?php echo $data['nama']?></strong></td>
+						<td><?php echo $data['nama_unit']?></td>
+						<td><?php echo $data['nm_posisi']?></td>
+						<td><?php echo $data['nama_provider']?></td>
+						<td><?php echo $data['tmt_kerja'];?></td>
+						<td><?php echo $data['jw_kerja'];?></td>
+						<td><?php echo $data['tgl_aktif'];?></td>
+						<td><?php echo $data['jenis_kontrak']?> - <?php echo $d['stat_peg']?></td>
+						<td><?php echo $data['cabang']?></td>
+						<td><?php echo $data['pend_terakhir'] ?></td>
+						
+
+				</tr>
+			<?php
+					}
+				}
+			?>
+			</tbody>
+		</table>
 		
 		</div>
 </div>
 </div>
-</div>
-</div>
-<script>
-$('#per_lap').datepicker({
-                        format: 'yyyy-mm-dd',
-                        keyboardNavigation: false,
-                        forceParse: false,
-                        autoclose: true
-                    });
-	
-</script>
+
+<script src="vendor/jquery/dist/jquery.min.js"></script><!-- oke -->
+<script src="vendor/jquery-ui/jquery-ui.min.js"></script><!-- oke -->
+  <script>
+  $( function() {
+    $( "#datepicker" ).datepicker({
+      format: 'yyyy-mm-dd',
+      changeMonth: true,
+      changeYear: true,
+      autoclose: true
+    });
+  } );
+  </script>
+
 

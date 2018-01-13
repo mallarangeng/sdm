@@ -47,21 +47,24 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <!-- data tabel -->
 </head>
 <body>
+            <style type="text/css">
+            body {
+                background-image: url('images/bg.png');
+            }
+        </style>
 <div class="color-line"></div>
 <div class="login-container">
 <center>
 </center><p>
     <div class="col-md-9">
-        <div class="hpanel hgreen">
+        <div class="hpanel">
             <div class="panel-heading hbuilt">
-                <div class="panel-tools">
-                    
-                </div>
+                
                 <center>LOGIN SYSTEM</center>
             </div>
             <div class="panel-body">
                 <center>
-                <img src="images/logo-front.png">&nbsp;&nbsp;
+                <img src="images/logo.jpg">&nbsp;&nbsp;
             </center>
                 <small>
                 <?php

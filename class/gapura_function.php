@@ -3,7 +3,7 @@
 	#Base Url dugunakan untuk pemanggilan url jangan lupa di rubah gan
 	function base_url ()
 		{
-			#return sprintf("http://localhost/msc/msc/");#page garis miring ya setelah url
+			return sprintf("http://localhost/msc/msc/");
 			
 			#panggil fungsi ini dengan cara di (echo base_url();)
 		}

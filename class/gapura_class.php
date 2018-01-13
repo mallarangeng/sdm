@@ -493,7 +493,8 @@ class Pgw {
 		#untuk menampilkan pegawai yang masuk dibulan tersebut
 	function lap_pgw(){
 		
-		$periode=$_GET['periode'];
+		$tanggal=$_GET['periode'];
+		$periode=substr($tanggal,0,-3);
 		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND  a.aktif='Aktif' AND a.tmt_kerja LIKE '$periode%'");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
@@ -503,8 +504,9 @@ class Pgw {
 	}
 		#untuk menampilkan data pegawai yang telah resign di bulan yang di pilih
 		function lap_pgw2(){
-		$none=$_POST['tahun']."-".$_POST['bulan'];
-		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND  a.aktif='Non Aktif' AND a.tgl_aktif LIKE '$none%'");
+		$masa=$_GET['periode'];
+		$waktu=substr($masa,0,-3);
+		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND a.aktif='Non Aktif' AND a.tgl_aktif  LIKE '$waktu%'");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){

@@ -9,11 +9,11 @@ $apsensi = new apsensi();
   <table id="datat_training" class="table table-striped table-bordered table-hover">
 	<thead>
 		<tr>
-			<th>##</th>
+			
 			<th>NO</th>
 			<th>KODE</th>
 			<th>NAMA TRAINING</th>
-			<th>PENYE LENGGARA</th>
+			<th>ORGANIZER</th>
 			<th>INSTRUKTUR</th>
 			<th>TANGGAL</th>
 			<th>DURASI</th>
@@ -40,7 +40,7 @@ $apsensi = new apsensi();
 
                 }
 	?>
-		<tr>	<td><li class="fa pe-7s-notebook fa-2x"></li></td>
+		<tr>	
 				<td><?php echo $c=$c+1; ?></td>
 				<td><?php echo $data['id_training']?></td>
 				<td><strong><?php echo $data['nama_training']?></strong></td>
