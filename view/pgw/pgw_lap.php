@@ -8,7 +8,6 @@
 		?>
 <div class="content">
     <div class="row">
-    
             <div class="hpanel">
 		<div class="panel-body">
 	
@@ -23,7 +22,7 @@
                             <input type="hidden" name="r" value="pgw">
                             <input type="hidden" name="pg" value="pgw_lap">
                             <div class="col-md-3">
-                            	<input type="text" name="periode" id="datepicker" value="<?php echo date('Y-m-d'); ?>" class="form-control">
+                            	<input type="text" name="periode" placeholder="yyyy-mm-dd" id="datepicker" value="" class="form-control">
                             </div>
                             <button type="submit" class="btn btn-primary" name="taks" value="search"><i class="fa pe-7s-search
 "></i> Cari Data</button>

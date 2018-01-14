@@ -42,7 +42,9 @@ include'../../class/gapura_object.php';
 				
 			<td>
 				<button class="ubah-pgw btn btn-success btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa-edit"></i></button>
-				<a href="?r=file&pg=file&nip=<?php echo $d['nip']?>" class="btn btn-default btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa- pe-7s-paperclip"></i> File</a>
+				<a href="?r=file&pg=file&nip=<?php echo $d['nip']?>" class="btn btn-default btn-xs" type="button" data-id="<?php echo $d['nip'] ?>"><i class="fa fa- pe-7s-paperclip"></i></a>
+				 <a href="javascript:void(0);"
+    onclick="window.open('view/pgw/pgw_cetak.php?nip=<?php echo $d['nip']; ?>','nama_window_pop_up','size=800,height=800,scrollbars=yes,resizeable=no')">PDF</a>
 				
 			</td>
 		</tr>
