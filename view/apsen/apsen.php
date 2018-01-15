@@ -6,13 +6,23 @@ $apsensi = new apsensi;
 $training = new training;
 $dt=$training->bacatraining($id_training);
 ?>
+<div class="normalheader transition animated fadeIn">
+    <div class="row">
+    <div class="hpanel">
+        <div class="panel-body">
+
+            <h3 class="font-light m-b-xs">
+                DATA APSENSI SISWA
+            </h3>
+            <small>Halaman untuk laporan data training</small>
+        </div>
+    </div>
+</div>
+</div>
 <div class="content animate-panel">
     <div class="row">
         
             <div class="hpanel">
-                <div class="panel-heading">
-                    DATA APSENSI SISWA 
-                </div>
                 <div class="modal fade hmodal-success" id="modal-apsen-add" tabindex="-1" role="dialog"  aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -51,13 +61,13 @@ $dt=$training->bacatraining($id_training);
                                 <div class="panel-body">
                 <dl>
                     <dt>Nama Training</dt>
-                                    <dd class="text-success"><strong><?php echo $dt['nama_training']; ?></strong></dd>
+                                    <dd class="text-primary"><strong><?php echo $dt['nama_training']; ?></strong></dd>
                                     <dt>Penyelenggara</dt>
-                                    <dd class="text-success"><?php echo $dt['penyelenggara']; ?></dd>
+                                    <dd class="text-primary"><?php echo $dt['penyelenggara']; ?></dd>
                                     <dt>Instruktur</dt>
-                                    <dd class="text-success"><?php echo $dt['instruktur']; ?></dd>
+                                    <dd class="text-primary"><?php echo $dt['instruktur']; ?></dd>
                                     <dt>Tanggal / Durasi / Lokasi</dt>
-                                    <dd class="text-success"><?php echo $dt['tgl_training']; ?> / <?php echo $dt['durasi']; ?> Jam  / <?php echo $dt['lokasi']; ?></dd>
+                                    <dd class="text-primary"><?php echo $dt['tgl_training']; ?> / <?php echo $dt['durasi']; ?> Jam  / <?php echo $dt['lokasi']; ?></dd>
                                     
                 </dl>
             </div>

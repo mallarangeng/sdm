@@ -49,7 +49,6 @@ table, th, td {
             <th>NAMA</th>
             <th>UNIT</th>
             <th>PROVIDER</th>
-            <th>JENIS DIKLAT</th>
             <th>PARAF</th>
             
         </tr>
@@ -66,7 +65,6 @@ table, th, td {
                 <td><?php echo $data['nama']?></td>
                 <td><?php echo $data['nama_unit']?></td>
                 <td><?php echo $data['nama_provider']?></td>
-                <td><?php echo $data['nama_training']?></td>
                 <td><?php echo $b=$b+1;?></td>
         </tr>
     <?php
