@@ -6,22 +6,12 @@ $apsensi = new apsensi;
 $training = new training;
 $dt=$training->bacatraining($id_training);
 ?>
-
 <div class="content animate-panel">
     <div class="row">
         <div class="col-lg-12">
             <div class="hpanel">
                 <div class="panel-heading">
                     DATA APSENSI SISWA 
-                    <?php 
-                        function base_url ()
-        {
-            return sprintf("http://localhost/msc/msc/");
-            
-            #panggil fungsi ini dengan cara di (echo base_url();)
-        }
-                    ?>
-                    <?php echo base_url(); ?>
                 </div>
                 <div class="modal fade hmodal-success" id="modal-apsen-add" tabindex="-1" role="dialog"  aria-hidden="true">
                     <div class="modal-dialog">
@@ -72,18 +62,15 @@ $dt=$training->bacatraining($id_training);
                 </dl>
             </div>
             <p>
-
 					<div class="row">
                 <div class="col-lg-12">
        
 <button type="button" data-id="<?php echo $_GET['id'] ?>" class="tambah-apsen btn btn-primary">Tambah Siswa</button>
 <button type="button" onclick="reload()" class="btn btn-primary"><i class="fa pe-7s-refresh"></i> Refresh</button>
 <a href="?r=training&pg=training" class="btn btn-primary"><i class="fa pe-7s-graph1"></i> Training</a>
-<a href="?r=training&pg=training" class="btn btn-primary"><i class="fa pe-7s-note"></i> Tanda Terima Sertifikat</a>
-<a href="?r=training&pg=training" class="btn btn-primary"><i class="fa pe-7s-note2
-
-"></i> Form Apsensi</a>
-                    <p>
+<a  href="javascript:void(0);"
+    onclick="window.open('view/apsen/ttd_sert.php?id=<?php echo $dt['id_training']; ?>','Tanda Terima Sertifikat','size=800,height=800,scrollbars=yes,resizeable=no')" class="btn btn-primary"><i class="fa pe-7s-note"></i> Tanda Terima Sertifikat</a>
+                   <p>
   <table id="datat_absen" class="table table-striped table-bordered table-hover">
     <thead>
         <tr>
@@ -116,7 +103,7 @@ $dt=$training->bacatraining($id_training);
                 <td><?php echo $data['nama_training']?></td>
                 <td><?php echo $data['tgl_training'];?></td>
                 <td><?php echo $data['durasi']?> Jam</td>
-                <td><button class="btn btn-default btn-xs" type="button"> <i class="fa pe-7s-upload"></i> Upload</button>
+                <td>
                     <button class="lihat-sertifikat btn btn-default btn-xs" type="button"> <i class="fa pe-7s-search"></i> View</button>
                     <button class="btn btn-default btn-xs" type="button"> <i class="fa fa-edit"></i> Edit</button>
                 </td>
