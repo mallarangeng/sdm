@@ -11,8 +11,7 @@
             <div class="hpanel">
 		<div class="panel-body">
 	
-			<form method="GET" action="" class="form-horizontal">
-                <div class="hr-line-dashed"></div>
+			<form method="GET" action="" class="form-horizontal" id="myform">
 			      <div class="form-group">
                     <div class="col-sm-8">
                         <div class="row">
@@ -21,9 +20,28 @@
                             </div>
                             <input type="hidden" name="r" value="pgw">
                             <input type="hidden" name="pg" value="pgw_lap">
-                            <div class="col-md-3">
-                            	<input type="text" name="periode" placeholder="yyyy-mm-dd" id="datepicker" value="" class="form-control">
+                            <div class="col-md-2">
+                            	<input type="text" name="periode" value="<?php echo date('Y'); ?>" class="form-control">
                             </div>
+                            <div class="col-md-2">
+                            		<select name="bulan" class="form-control" required>
+                            			<option value="">-Bulan-</option>
+                            			<option value="01">Januari </option>
+                            			<option value="02">Februari</option>
+                            			<option value="03">Maret</option>
+                            			<option value="04">April</option>
+                            			<option value="05">Mei</option>
+                            			<option value="06">Juni</option>
+                            			<option value="07">Juli</option>
+                            			<option value="08">Agustus</option>
+                            			<option value="09">September</option>
+                            			<option value="10">Oktober</option>
+                            			<option value="11">Nopember</option>
+                            			<option value="12">Desember</option>
+                            			
+                            		</select>
+                            </div>
+
                             <button type="submit" class="btn btn-primary" name="taks" value="search"><i class="fa pe-7s-search
 "></i> Cari Data</button>
                             
@@ -59,10 +77,9 @@
 				</tr>
 			</thead>
 			<tbody>
-			<?php
-					if ($_GET['taks']=='search'){
-					$arraypgw = $pgw->lap_pgw();	
-					}
+			<?php   if ($_GET['taks']=='search'){
+					$arraypgw = $pgw->lap_pgw();
+					}	
 					if(isset($arraypgw) && $arraypgw !=NULL){
 					foreach($arraypgw as $d){
 			?>
@@ -150,17 +167,17 @@
 </div>
 </div>
 
-<script src="vendor/jquery/dist/jquery.min.js"></script><!-- oke -->
-<script src="vendor/jquery-ui/jquery-ui.min.js"></script><!-- oke -->
-  <script>
-  $( function() {
-    $( "#datepicker" ).datepicker({
-      format: 'yyyy-mm-dd',
-      changeMonth: true,
-      changeYear: true,
-      autoclose: true
-    });
-  } );
-  </script>
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+  $('#myform').on('submit', function() {
+    var bln = $('[name="bulan"]').val();
+    $('[name="bulan"]').attr('disabled', true);
+    var thn = $('[name="periode"]').val();
+    thn += '-'+bln;
+    $('[name="periode"]').val(thn);
+  });
+});
+</script>
 
 

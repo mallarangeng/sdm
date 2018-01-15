@@ -8,7 +8,7 @@ $dt=$training->bacatraining($id_training);
 ?>
 <div class="content animate-panel">
     <div class="row">
-        <div class="col-lg-12">
+        
             <div class="hpanel">
                 <div class="panel-heading">
                     DATA APSENSI SISWA 
@@ -120,11 +120,8 @@ $dt=$training->bacatraining($id_training);
 </table>
         </div>
 </div>
-
-
                 </div>
             </div>
-        </div>
     </div>
     </div>
 <script type="text/javascript">

@@ -27,6 +27,17 @@
 			$result = $tgl . " " . $BulanIndo[(int)$bulan-1] . " ". $tahun;
 			return($result);
 		}
+
+	function bulantahun($date) 
+		{ 	// fungsi atau method untuk mengubah tanggal ke format indonesia
+			// variabel BulanIndo merupakan variabel array yang menyimpan nama-nama bulan
+			$BulanIndo = array("JANUARI", "FEBRUARI", "MARET","APRIL", "MEI", "JUNI","JULI", "AGUSTUS", "SEPTEMBER","OKTOBER", "NOPEMBER", "DESEMBER");
+			$tahun = substr($date, 0, 4); // memisahkan format tahun menggunakan substring
+			$bulan = substr($date, 5, 2); // memisahkan format bulan menggunakan substring
+			$tgl   = substr($date, 8, 2); // memisahkan format tanggal menggunakan substring
+			$result = $tgl . " " . $BulanIndo[(int)$bulan-1] . " ". $tahun;
+			return($result);
+		}
 	// Konvesi yyyy-mm-dd -> dd-mm-yyyy
 	function tgl_eng_to_ind($tgl) {
 		$tgl_ind=substr($tgl,8,2)."-".substr($tgl,5,2)."-".substr($tgl,0,4);

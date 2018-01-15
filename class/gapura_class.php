@@ -172,6 +172,15 @@ class training{
 			return $data;
 		}
 	}
+	function lap_training(){
+		$periode_t=$_GET['periode'];
+		$query = mysql_query("SELECT id_training,nama_training, penyelenggara, instruktur, tgl_training, durasi, lokasi, ketua_kelas, stat_training,i_by,i_date,e_by,e_date,(SELECT COUNT(id_training) AS tot_siswa FROM apsensi WHERE training.id_training=apsensi.id_training)tot_siswa FROM training WHERE tgl_training LIKE '$periode_t%'");
+		while($row=mysql_fetch_array($query))
+			$data[]=$row;
+		if(isset($data)){
+			return $data;
+		}
+	}
 	function trainingdiikuti($nip){
 		$query = mysql_query("SELECT a.*,b.* FROM apsensi a, training b  WHERE a.id_training=b.id_training AND  a.nip=$_GET[nip] ");
 		while($row=mysql_fetch_array($query))
@@ -493,9 +502,9 @@ class Pgw {
 		#untuk menampilkan pegawai yang masuk dibulan tersebut
 	function lap_pgw(){
 		
-		$tanggal=$_GET['periode'];
-		$periode=substr($tanggal,0,-3);
-		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND  a.aktif='Aktif' AND a.tmt_kerja LIKE '$periode%'");
+		$period=$_GET['periode'];
+		#$periode=substr($tanggal,0,-3);
+		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND  a.aktif='Aktif' AND a.tmt_kerja LIKE '$period%'");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){
@@ -505,8 +514,7 @@ class Pgw {
 		#untuk menampilkan data pegawai yang telah resign di bulan yang di pilih
 		function lap_pgw2(){
 		$masa=$_GET['periode'];
-		$waktu=substr($masa,0,-3);
-		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND a.aktif='Non Aktif' AND a.tgl_aktif  LIKE '$waktu%'");
+		$query = mysql_query("SELECT a.*,b.*,c.*,d.alamat as alamatp,d.nama_provider as nama_provider,e.* FROM pegawai a, unit_kerja b, posisi_kerja c, provider d, akses e WHERE a.id_unit=b.id_unit AND a.id_posisi=c.id_posisi AND a.id_provider=d.id_provider AND a.id_akses=e.id_akses AND a.aktif='Non Aktif' AND a.tgl_aktif  LIKE '$masa%'");
 		while($row=mysql_fetch_array($query))
 			$data[]=$row;
 		if(isset($data)){

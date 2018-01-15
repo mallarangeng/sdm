@@ -1,6 +1,6 @@
 <div class="content animate-panel">
     <div class="row">
-        <div class="col-lg-12">
+        
             <div class="hpanel">
                 <div class="panel-heading">
                     DATA PEGAWAI
@@ -50,4 +50,4 @@
             </div>
         </div>
     </div>
-    </div>
+    

@@ -196,6 +196,7 @@ header("location:login.php");
 <!-- App scripts -->
 <script src="scripts/homer.js"></script><!-- oke -->
 <script src="scripts/aplikasi.js"></script>
+<script src="scripts/form_laporan.js"></script>
 <script src="scripts/tabel.js"></script>
 
 

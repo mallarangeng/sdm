@@ -11,12 +11,9 @@ $apsensi = new apsensi();
 		<tr>
 			
 			<th>NO</th>
-			<th>KODE</th>
-			<th>NAMA TRAINING</th>
-			<th>ORGANIZER</th>
-			<th>INSTRUKTUR</th>
-			<th>TANGGAL</th>
-			<th>DURASI</th>
+			<th>KODE DAN NAMA TRAINING</th>
+			<th>PENYELENGGARA & INSTRUKTUR</th>
+			<th>TANGGAL DURASI</th>
 			<th>LOKASI</th>
 			<th>JML SISWA</th>		
 			<th>KETUA KELAS</th>
@@ -41,13 +38,10 @@ $apsensi = new apsensi();
                 }
 	?>
 		<tr>	
-				<td><?php echo $c=$c+1; ?></td>
-				<td><?php echo $data['id_training']?></td>
-				<td><strong><?php echo $data['nama_training']?></strong></td>
-				<td><?php echo $data['penyelenggara']?></td>
-				<td><?php echo $data['instruktur']?></td>
-				<td><?php echo DateToIndo($data['tgl_training']); ?></td>
-				<td><?php echo $data['durasi']?> Jam</td>
+				<td><?php echo $c=$c+1; ?> </td>
+				<td><strong><?php echo $data['id_training']?> / <?php echo $data['nama_training']?></strong></td>
+				<td><?php echo $data['penyelenggara']?> -<?php echo $data['instruktur']?></td>
+				<td><?php echo DateToIndo($data['tgl_training']); ?> / <?php echo $data['durasi']?> Jam</td>
 				<td><?php echo $data['lokasi']?></td>
 				<td><strong><a href="?r=apsen&pg=apsen&id=<?php echo $data['id_training']?>"><?php echo $data['tot_siswa']; ?> Siswa</a></strong></td>
 				<td><?php echo $data['ketua_kelas']?></td>

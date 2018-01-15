@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 13 Jan 2018 pada 16.58
--- Versi Server: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Jan 15, 2018 at 09:50 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `sdm_gapura`
@@ -23,17 +23,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `akses`
+-- Table structure for table `akses`
 --
 
-CREATE TABLE IF NOT EXISTS `akses` (
+CREATE TABLE `akses` (
   `id_akses` varchar(3) NOT NULL,
   `nama_akses` varchar(20) NOT NULL,
   `ket_akses` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `akses`
+-- Dumping data for table `akses`
 --
 
 INSERT INTO `akses` (`id_akses`, `nama_akses`, `ket_akses`) VALUES
@@ -46,10 +46,10 @@ INSERT INTO `akses` (`id_akses`, `nama_akses`, `ket_akses`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `apsensi`
+-- Table structure for table `apsensi`
 --
 
-CREATE TABLE IF NOT EXISTS `apsensi` (
+CREATE TABLE `apsensi` (
   `id_apsensi` int(10) NOT NULL,
   `nip` varchar(15) NOT NULL,
   `id_training` varchar(8) NOT NULL,
@@ -58,34 +58,50 @@ CREATE TABLE IF NOT EXISTS `apsensi` (
   `i_date` datetime NOT NULL,
   `e_by` varchar(15) NOT NULL,
   `e_date` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `apsensi`
+-- Dumping data for table `apsensi`
 --
 
 INSERT INTO `apsensi` (`id_apsensi`, `nip`, `id_training`, `sertifikat`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
 (1, '1305.0224', '10001', '', '12100410', '2017-12-28 08:59:39', '1712.0905', '2018-01-11 11:06:53'),
 (2, '1305.0223', '10001', '', '12100410', '2017-12-21 15:06:50', '1712.0905', '2018-01-11 11:10:56'),
 (3, 'undefined', 'undefine', '', '1712.0905', '2018-01-11 13:26:43', '', '0000-00-00 00:00:00'),
-(4, 'undefined', 'undefine', '', '1712.0905', '2018-01-11 16:13:02', '', '0000-00-00 00:00:00');
+(4, 'undefined', 'undefine', '', '1712.0905', '2018-01-11 16:13:02', '', '0000-00-00 00:00:00'),
+(5, '1712.0905', '10001', '', '1712.0905', '2018-01-15 09:30:23', '', '0000-00-00 00:00:00'),
+(6, '1712.0906', '10001', '', '1712.0905', '2018-01-15 09:30:28', '', '0000-00-00 00:00:00'),
+(7, '1712.0907', '10001', '', '1712.0905', '2018-01-15 09:30:32', '', '0000-00-00 00:00:00'),
+(8, '1712.0908', '10001', '', '1712.0905', '2018-01-15 09:30:37', '', '0000-00-00 00:00:00'),
+(9, '1712.0909', '10001', '', '1712.0905', '2018-01-15 09:30:43', '', '0000-00-00 00:00:00'),
+(10, '1712.0911', '10001', '', '1712.0905', '2018-01-15 09:30:48', '', '0000-00-00 00:00:00'),
+(11, '1305.0223', '10002', '', '1712.0905', '2018-01-15 13:43:07', '', '0000-00-00 00:00:00'),
+(12, '1305.0224', '10002', '', '1712.0905', '2018-01-15 13:43:11', '', '0000-00-00 00:00:00'),
+(13, '1712.0905', '10002', '', '1712.0905', '2018-01-15 13:43:15', '', '0000-00-00 00:00:00'),
+(14, '1712.0906', '10002', '', '1712.0905', '2018-01-15 13:43:19', '', '0000-00-00 00:00:00'),
+(15, '1712.0907', '10002', '', '1712.0905', '2018-01-15 13:43:24', '', '0000-00-00 00:00:00'),
+(16, '1712.0908', '10002', '', '1712.0905', '2018-01-15 13:43:29', '', '0000-00-00 00:00:00'),
+(17, '1712.0909', '10002', '', '1712.0905', '2018-01-15 13:43:35', '', '0000-00-00 00:00:00'),
+(18, '1712.0911', '10002', '', '1712.0905', '2018-01-15 13:43:43', '', '0000-00-00 00:00:00'),
+(19, '1712.0912', '10002', '', '1712.0905', '2018-01-05 15:28:52', '1712.0905', '2018-01-15 13:44:03'),
+(20, '1712.0912', '10002', '', '1712.0905', '2018-01-15 13:44:10', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `datafile`
+-- Table structure for table `datafile`
 --
 
-CREATE TABLE IF NOT EXISTS `datafile` (
+CREATE TABLE `datafile` (
   `kode_file` int(5) NOT NULL,
   `nip` varchar(10) COLLATE latin1_general_ci NOT NULL,
   `kat_file` varchar(10) COLLATE latin1_general_ci NOT NULL,
   `nama_file` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `gambar` text COLLATE latin1_general_ci NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
--- Dumping data untuk tabel `datafile`
+-- Dumping data for table `datafile`
 --
 
 INSERT INTO `datafile` (`kode_file`, `nip`, `kat_file`, `nama_file`, `gambar`) VALUES
@@ -99,10 +115,10 @@ INSERT INTO `datafile` (`kode_file`, `nip`, `kat_file`, `nama_file`, `gambar`) V
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ms_menu`
+-- Table structure for table `ms_menu`
 --
 
-CREATE TABLE IF NOT EXISTS `ms_menu` (
+CREATE TABLE `ms_menu` (
   `id_menu` varchar(5) NOT NULL,
   `judul` varchar(45) DEFAULT NULL,
   `folder` varchar(30) DEFAULT NULL,
@@ -114,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `ms_menu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `ms_menu`
+-- Dumping data for table `ms_menu`
 --
 
 INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `id_akses`, `parent`, `icon`, `urut`) VALUES
@@ -122,7 +138,7 @@ INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `id_akses`, `parent
 ('10', 'Data Cuti', 'cuti', 'cuti', 1, 9, ' pe-7s-coffee', 1),
 ('11', 'Laporan Pegawai', 'pgw', 'pgw_lap', 1, 20, 'pe-7s-key', 2),
 ('12', 'Data pegawai', 'pgw', 'pgw', 1, 20, 'pe-7s-id', 0),
-('13', 'Jadwal Training', 'training', 'training', 0, 6, 'pe-7s-graph1', 3),
+('13', 'Laporan Training', 'training', 'training_lap', 1, 6, 'pe-7s-print', 3),
 ('14', 'SETTING', 'setiing', 'setiing', 1, 0, 'pe-7s-config', 6),
 ('15', 'Akun', 'akun', 'akun', 1, 14, ' pe-7s-users', 1),
 ('16', 'Akses', 'akses', 'akses', 1, 14, ' pe-7s-key', 5),
@@ -145,10 +161,10 @@ INSERT INTO `ms_menu` (`id_menu`, `judul`, `folder`, `link`, `id_akses`, `parent
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pegawai`
+-- Table structure for table `pegawai`
 --
 
-CREATE TABLE IF NOT EXISTS `pegawai` (
+CREATE TABLE `pegawai` (
   `nip` varchar(15) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `jekel` varchar(2) NOT NULL,
@@ -179,13 +195,13 @@ CREATE TABLE IF NOT EXISTS `pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pegawai`
+-- Dumping data for table `pegawai`
 --
 
 INSERT INTO `pegawai` (`nip`, `nama`, `jekel`, `kota_lahir`, `tgl_lahir`, `alamat`, `no_hp`, `id_unit`, `id_posisi`, `id_provider`, `tmt_kerja`, `jenis_kontrak`, `cabang`, `stat_peg`, `jw_kerja`, `pend_terakhir`, `prodi`, `thn_lulus`, `aktif`, `tgl_aktif`, `note_aktif`, `id_akses`, `password`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
 ('1301.0107', 'Hasan Setiawan', 'L', 'Jakarta', '2018-01-30', 'Cikupa mas tangerang', '085715887704', 4, 3, 9001, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-23', 'Aktif', '1900-12-28', 0, 'ef17b854d676e48ffdfe', '1210-04-10', '2017-12-21 15:06:50', 1712, '2018-01-08 09:15:00', '', '0000-00-00 00:00:00', '', '0000-00-00 00:00:00'),
 ('1305.0223', 'Zaki Akbar', 'L', 'JAKARTA', '2018-05-17', '-', '02159309136', 7, 7, 9004, '2018-05-24', 'SDM', 'CGO', 'OS', '2018-01-08', 'S1', 'TEKNIK', 2010, 'Aktif', '0000-00-00', '', 1, 'dc4722fc0026d1f1927183b8c9c6011d', '12100410', '2017-12-28 08:59:39', '1712.0905', '2018-01-12 15:19:14'),
-('1305.0224', 'Sutisna', 'L', 'aceh', '2018-01-31', '-', '', 4, 3, 9001, '2018-01-30', 'SDM', 'CGO', 'OS', '2018-01-15', 'S1', 'AKUNTASI', 2010, 'Aktif', '0000-00-00', 'aceh', 1, '764ac49220d465e2ca57a6273e24062e', '12100410', '2017-12-21 15:06:50', '1712.0905', '2018-01-08 09:45:29'),
+('1305.0224', 'Sutisna', 'L', 'aceh', '2018-01-31', '-', '', 4, 3, 9001, '2018-02-07', 'SDM', 'CGO', 'OS', '2018-01-15', 'S1', 'AKUNTASI', 2010, 'Aktif', '0000-00-00', 'aceh', 1, '764ac49220d465e2ca57a6273e24062e', '12100410', '2017-12-21 15:06:50', '1712.0905', '2018-01-15 13:38:23'),
 ('1712.0905', 'Hendri Yulianto', 'L', 'Rejo Agung', '1992-05-14', 'KP. GEBANG RT. 002/002 TANGERANG', '', 4, 5, 9001, '2017-12-05', 'SDM', 'CGO', 'OS', '2020-12-05', 'D3', 'TEKNIK KOMPUTER', 2011, 'Non Aktif', '2018-05-14', 'Resign', 1, '74a71e525cb83b70c44f8e1b7b644ff4', '12100410', '2017-12-28 08:58:33', '1712.0905', '2018-01-12 15:18:16'),
 ('1712.0906', 'Sudarmono', 'L', 'Jakarta', '2018-01-30', 'Cibodas', '', 3, 4, 9003, '2018-01-23', 'SDM', 'CGO', 'OS', '2018-01-16', 'SMK/A', 'IPA', 2010, 'Non Aktif', '2018-05-14', '-', 3, 'ef17b854d676e48ffdfe481a2e7da6eb', '12100410', '2017-12-27 08:19:53', '1712.0905', '2018-01-12 15:18:35'),
 ('1712.0907', 'Dwi Santoso', 'L', 'Tangerang', '2018-01-23', 'Kp. Gebang RT. 002/002', '', 2, 4, 9003, '2018-01-23', 'SDM', 'CGO', 'OS', '2018-01-10', 'D3', 'PAJAK', 2011, 'Aktif', '0000-00-00', '-', 1, '8a18484752c7e9ba08a7173797416cd0', '12100410', '2017-12-27 08:19:53', '1712.0905', '2018-01-08 10:26:37'),
@@ -203,10 +219,10 @@ INSERT INTO `pegawai` (`nip`, `nama`, `jekel`, `kota_lahir`, `tgl_lahir`, `alama
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pendidikan`
+-- Table structure for table `pendidikan`
 --
 
-CREATE TABLE IF NOT EXISTS `pendidikan` (
+CREATE TABLE `pendidikan` (
   `id_pend` varchar(10) NOT NULL,
   `nip` varchar(15) NOT NULL,
   `pend_terakhir` varchar(10) NOT NULL,
@@ -220,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `pendidikan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pendidikan`
+-- Dumping data for table `pendidikan`
 --
 
 INSERT INTO `pendidikan` (`id_pend`, `nip`, `pend_terakhir`, `prodi`, `thn_lulus`, `pend_asal`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
@@ -242,10 +258,10 @@ INSERT INTO `pendidikan` (`id_pend`, `nip`, `pend_terakhir`, `prodi`, `thn_lulus
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `posisi_kerja`
+-- Table structure for table `posisi_kerja`
 --
 
-CREATE TABLE IF NOT EXISTS `posisi_kerja` (
+CREATE TABLE `posisi_kerja` (
   `id_posisi` int(5) NOT NULL,
   `nm_posisi` varchar(30) NOT NULL,
   `ket_posisi` varchar(50) NOT NULL,
@@ -256,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `posisi_kerja` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `posisi_kerja`
+-- Dumping data for table `posisi_kerja`
 --
 
 INSERT INTO `posisi_kerja` (`id_posisi`, `nm_posisi`, `ket_posisi`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
@@ -280,10 +296,10 @@ INSERT INTO `posisi_kerja` (`id_posisi`, `nm_posisi`, `ket_posisi`, `i_by`, `i_d
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `provider`
+-- Table structure for table `provider`
 --
 
-CREATE TABLE IF NOT EXISTS `provider` (
+CREATE TABLE `provider` (
   `id_provider` varchar(4) NOT NULL,
   `nama_provider` varchar(50) NOT NULL,
   `alamat` varchar(100) NOT NULL,
@@ -298,7 +314,7 @@ CREATE TABLE IF NOT EXISTS `provider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `provider`
+-- Dumping data for table `provider`
 --
 
 INSERT INTO `provider` (`id_provider`, `nama_provider`, `alamat`, `telpon`, `web`, `email`, `direktur`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
@@ -310,10 +326,10 @@ INSERT INTO `provider` (`id_provider`, `nama_provider`, `alamat`, `telpon`, `web
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `training`
+-- Table structure for table `training`
 --
 
-CREATE TABLE IF NOT EXISTS `training` (
+CREATE TABLE `training` (
   `id_training` varchar(5) NOT NULL,
   `nama_training` varchar(100) NOT NULL,
   `penyelenggara` varchar(100) NOT NULL,
@@ -331,19 +347,27 @@ CREATE TABLE IF NOT EXISTS `training` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `training`
+-- Dumping data for table `training`
 --
 
 INSERT INTO `training` (`id_training`, `nama_training`, `penyelenggara`, `instruktur`, `tgl_training`, `durasi`, `lokasi`, `ketua_kelas`, `stat_training`, `note_diklat`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
-('10001', 'SMS', 'CGO', 'BUDI SUDAARSONO', '2018-01-11', 4, '511', 'ROBY', 'Terjadwal', '', '1712.0905', '2018-01-11 11:06:17', '', '0000-00-00 00:00:00');
+('10001', 'SMS', 'CGO', 'BUDI', '2017-11-14', 4, '511', 'ROBY', 'Selesai', '', '1712.0905', '2018-01-11 11:06:17', '1712.0905', '2018-01-15 15:50:12'),
+('10002', 'SOSIALISASI BATTERY', 'GLC', 'AGUS RUSTAMSYAH', '2018-02-02', 8, '511', 'SUDIRMAN', 'Terjadwal', '', '1712.0905', '2018-01-15 13:41:25', '1712.0905', '2018-01-15 15:09:49'),
+('10003', 'INITIAL BASIC CARGO', 'CGO', 'DIW MAULANA', '2018-01-15', 8, '511', 'AGUS DWI P', 'Terjadwal', '', '1712.0905', '2018-01-15 13:42:36', '', '0000-00-00 00:00:00'),
+('10004', 'LIVE ANIMAL REGULATION SESI 1', 'CGO', 'EDI PRAMONO', '2018-02-15', 5, '511', 'SURYA', 'Terjadwal', '', '1712.0905', '2018-01-15 14:35:23', '1712.0905', '2018-01-15 14:35:52'),
+('10005', 'LIVE ANIMAL REGULATION SESI 2', 'CGO', 'EDI PRAMONO', '2018-02-21', 4, '511', 'SUHENDAR', 'Selesai', '', '1712.0905', '2018-01-15 14:49:20', '1712.0905', '2018-01-15 15:50:19'),
+('10006', 'UJIAN RECURRENT DG', 'CGO', 'HASAN SUTISNA', '2018-02-14', 4, '540', '-', 'Terjadwal', '', '1712.0905', '2018-01-15 14:49:50', '', '0000-00-00 00:00:00'),
+('10007', 'TRAINING RECURRENT BASIC AVSEC', 'GARUDA', 'DWI SUSANTO', '2018-01-15', 4, 'GL CENTER', 'ANGGA DWI P', 'Terjadwal', '', '1712.0905', '2018-01-15 14:50:34', '1712.0905', '2018-01-15 14:50:54'),
+('10008', 'UJIAN RECURRENT FORKLIFT', 'CGO', 'GUNAWAN E', '2018-03-01', 4, 'KELAS HRG', 'BAMBANG T', 'Terjadwal', '', '1712.0905', '2018-01-15 14:53:50', '', '0000-00-00 00:00:00'),
+('10009', 'WORKSHOP KOREAN AIR', 'CGO', 'DWI MAULANA', '2018-03-09', 5, 'JCC', 'AHMAD K', 'Terjadwal', '', '1712.0905', '2018-01-15 14:54:36', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `unit_kerja`
+-- Table structure for table `unit_kerja`
 --
 
-CREATE TABLE IF NOT EXISTS `unit_kerja` (
+CREATE TABLE `unit_kerja` (
   `id_unit` int(3) NOT NULL,
   `nama_unit` varchar(50) NOT NULL,
   `ket_unit` varchar(50) NOT NULL,
@@ -354,7 +378,7 @@ CREATE TABLE IF NOT EXISTS `unit_kerja` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `unit_kerja`
+-- Dumping data for table `unit_kerja`
 --
 
 INSERT INTO `unit_kerja` (`id_unit`, `nama_unit`, `ket_unit`, `i_by`, `i_date`, `e_by`, `e_date`) VALUES
@@ -438,12 +462,12 @@ ALTER TABLE `unit_kerja`
 -- AUTO_INCREMENT for table `apsensi`
 --
 ALTER TABLE `apsensi`
-  MODIFY `id_apsensi` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_apsensi` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 --
 -- AUTO_INCREMENT for table `datafile`
 --
 ALTER TABLE `datafile`
-  MODIFY `kode_file` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `kode_file` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
