@@ -24,7 +24,7 @@ header("location:login.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- disabled cache-->
     <!-- Page title -->
-    <title>SDM GAPURA</title>
+    <title>SDM GAPURA INFORMATION SISTEM</title>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" type="image/ico" href="images/icon.png" />
     <!-- Vendor styles -->
