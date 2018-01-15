@@ -52,7 +52,7 @@ $da=$pgw->detailpgw($nip);
                 </table>
 
 
-                <img src="">
+            
 </body>
 </html>
 
